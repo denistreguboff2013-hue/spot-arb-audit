@@ -1,0 +1,44 @@
+{
+  "schema": "astra_p1_06_r174_unwired_guard_v1",
+  "parent_git": "3e7963727d39a7bffb56fb4f43b6a1d58c4e670f",
+  "parent_r173_overlay_sha256": "7e2d9932753937b7a751db6bd82175297ecd2ad73031e3b68a0e5c0c749cba2f",
+  "r174_source": "src/native_r174_unwired_legacy_guard.rs",
+  "r174_source_sha256": "1823da07d2aaeb150543019e36b28cfdafd84d5fc16c5c7b06b0184e92d50ace",
+  "r174_admission_site": "src/native_paper_strategy_frame_review.rs::SupervisedStrategyPaper::new",
+  "tested_fields": [
+    "general.bot_name",
+    "general.debug_write_liquidity",
+    "general.liquidity_bps",
+    "general.mode",
+    "logging.level",
+    "scale_in_hints.enabled",
+    "scale_in_hints.min_imbalance",
+    "scale_in_hints.min_vel_bps_s",
+    "scale_in_hints.send_negative",
+    "spread.history_window",
+    "velocity.enabled"
+  ],
+  "frozen_legacy_fields": 9,
+  "profile_switch_constraints": {
+    "scale_in_hints.enabled": false,
+    "velocity.enabled": true
+  },
+  "new_research_fields": [],
+  "new_distinct_research_evidenced": 0,
+  "cumulative_research_evidenced": 149,
+  "research_not_evidenced": 11,
+  "installed_paper_yaml_applications_proven": 0,
+  "tests": {
+    "r174_new": 6,
+    "full_library": "1127 PASS / 0 FAIL / 2 ignored",
+    "bin": "16 PASS / 0 FAIL"
+  },
+  "proof_boundary": "Existing operator YAML values remain unsupported feature wiring; guard denies source drift in opt-in R155 research profile only. Installed PAPER not restarted or reconfigured; real trading not authorized.",
+  "source_inspection_scope": [
+    "/home/tmpadmin/spotbot/main.py",
+    "/home/tmpadmin/spotbot/run_scanner.py",
+    "/home/tmpadmin/spotbot/scanner.py",
+    "/home/tmpadmin/spotbot/strategy.py",
+    "/home/tmpadmin/spotbot/utils/logger.py"
+  ]
+}

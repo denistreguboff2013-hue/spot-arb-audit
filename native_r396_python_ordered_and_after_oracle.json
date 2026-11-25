@@ -1,0 +1,103 @@
+{
+  "schema": "SPOTARB/R396/ACTUAL-PYTHON-SOURCE-ORACLE/V1",
+  "source_python": "/home/tmpadmin/spotbot/ai/mirror_outbox.py",
+  "ordered": [
+    {
+      "name": "nested-order",
+      "input_json": "{\"zeta\": \"last-first\", \"alpha\": {\"w\": 1, \"a\": \"привет\"}, \"note\": null}",
+      "python_inner_json": "{\"zeta\": \"last-first\", \"alpha\": {\"w\": 1, \"a\": \"привет\"}, \"note\": null}",
+      "python_spaced_sorted": "{\"alpha\": {\"a\": \"привет\", \"w\": 1}, \"note\": null, \"zeta\": \"last-first\"}"
+    },
+    {
+      "name": "arrays-and-escapes",
+      "input_json": "{\"z\": \"quote\\\" newline\\n and backslash\\\\\", \"a\": [{\"third\": 3, \"first\": 1}, \"🧪\", false]}",
+      "python_inner_json": "{\"z\": \"quote\\\" newline\\n and backslash\\\\\", \"a\": [{\"third\": 3, \"first\": 1}, \"🧪\", false]}",
+      "python_spaced_sorted": "{\"a\": [{\"first\": 1, \"third\": 3}, \"🧪\", false], \"z\": \"quote\\\" newline\\n and backslash\\\\\"}"
+    },
+    {
+      "name": "nested-numeric",
+      "input_json": "{\"third\": {\"Z\": [10, 0, -15], \"b\": {\"last\": 2, \"first\": 1}}, \"first\": true}",
+      "python_inner_json": "{\"third\": {\"Z\": [10, 0, -15], \"b\": {\"last\": 2, \"first\": 1}}, \"first\": true}",
+      "python_spaced_sorted": "{\"first\": true, \"third\": {\"Z\": [10, 0, -15], \"b\": {\"first\": 1, \"last\": 2}}}"
+    },
+    {
+      "name": "empty-and-unicode",
+      "input_json": "{\"ёж\": \"значение\", \"x\": {}, \"y\": [], \"ctrl\": \"\\t\\b\\f\"}",
+      "python_inner_json": "{\"ёж\": \"значение\", \"x\": {}, \"y\": [], \"ctrl\": \"\\t\\b\\f\"}",
+      "python_spaced_sorted": "{\"ctrl\": \"\\t\\b\\f\", \"x\": {}, \"y\": [], \"ёж\": \"значение\"}"
+    }
+  ],
+  "after": [
+    {
+      "input_table": "decisions",
+      "input_key": {
+        "event_id": "evt_001"
+      },
+      "expected": {
+        "table": "decisions",
+        "op": "insert",
+        "key": {
+          "event_id": "evt_001"
+        },
+        "row": {
+          "event_id": "evt_001",
+          "mode": "paper",
+          "decision": "hold",
+          "skip_reason": "spread low"
+        },
+        "after_hash": "ac127342c21018fdd90202faeddd0cd5afeeb19bf502958c825348a8bccf2db6"
+      },
+      "canonical_row": "{\"decision\":\"hold\",\"event_id\":\"evt_001\",\"mode\":\"paper\",\"skip_reason\":\"spread low\"}"
+    },
+    {
+      "input_table": "decisions",
+      "input_key": {
+        "event_id": "evt_002"
+      },
+      "expected": {
+        "table": "decisions",
+        "op": "insert",
+        "key": {
+          "event_id": "evt_002"
+        },
+        "row": {
+          "event_id": "evt_002",
+          "mode": "paper",
+          "decision": "отказ",
+          "skip_reason": "нет ликвидности"
+        },
+        "after_hash": "52f368a68092b8d4068aabcd1bab3c8b79e74b08bdec9fe3149c54baae2b1392"
+      },
+      "canonical_row": "{\"decision\":\"отказ\",\"event_id\":\"evt_002\",\"mode\":\"paper\",\"skip_reason\":\"нет ликвидности\"}"
+    }
+  ],
+  "synthetic_only": true,
+  "scrubbed": [
+    {
+      "name": "key-masking",
+      "input_json": "{\"second\": \"safe\", \"api_key\": {\"nested_secret\": \"long_fake\", \"x\": 1}, \"first\": {\"z\": 3, \"alpha\": 1}}",
+      "expected_python_json": "{\"second\": \"safe\", \"api_key\": \"[REDACTED]\", \"first\": {\"z\": 3, \"alpha\": 1}}",
+      "secrets": []
+    },
+    {
+      "name": "inline-password",
+      "input_json": "{\"last\": \"password: DemoSecretABC\", \"first\": \"ok\", \"internal\": {\"token\": \"dummy\"}}",
+      "expected_python_json": "{\"last\": \"password: [REDACTED]\", \"first\": \"ok\", \"internal\": {\"token\": \"[REDACTED]\"}}",
+      "secrets": []
+    },
+    {
+      "name": "explicit-secret",
+      "input_json": "{\"tail\": \"safe\", \"message\": \"SYNTHETIC_ABC_987\", \"head\": \"test\"}",
+      "expected_python_json": "{\"tail\": \"safe\", \"message\": \"[REDACTED]\", \"head\": \"test\"}",
+      "secrets": [
+        "SYNTHETIC_ABC_987"
+      ]
+    },
+    {
+      "name": "url-and-unicode",
+      "input_json": "{\"start\": \"проверка\", \"url\": \"https://dummy:fake@example.invalid/a\", \"final\": [\"fine\", {\"authorization\": \"synthetic\"}]}",
+      "expected_python_json": "{\"start\": \"проверка\", \"url\": \"https://[REDACTED]@example.invalid/a\", \"final\": [\"fine\", {\"authorization\": \"[REDACTED]\"}]}",
+      "secrets": []
+    }
+  ]
+}

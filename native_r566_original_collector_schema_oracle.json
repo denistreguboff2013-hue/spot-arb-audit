@@ -1,0 +1,6886 @@
+{
+  "checks": {
+    "changed_equal_count": true,
+    "composite_pk_row_tamper": true,
+    "immutable_trigger_removed": true,
+    "independent_insert_order": true,
+    "index_removed": true,
+    "missing_row": true,
+    "receiver_extra_row": true,
+    "same_all_17_tables": true,
+    "schema_column_altered": true,
+    "source_version": true
+  },
+  "control_tables": [
+    "mirror_outbox",
+    "mirror_control"
+  ],
+  "fixture_rows": 6,
+  "fixture_snapshot": {
+    "table_count": 17,
+    "tables": [
+      {
+        "row_count": 0,
+        "rows": [],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "sequence",
+              "INTEGER",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "transition_id",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              2,
+              "recommendation_id",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              3,
+              "from_status",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              4,
+              "to_status",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              5,
+              "actor",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              6,
+              "reason",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              7,
+              "occurred_at_ms",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              8,
+              "config_hash_before",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              9,
+              "config_hash_after",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              10,
+              "rollback_reference",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              11,
+              "previous_hash",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              12,
+              "transition_hash",
+              "TEXT",
+              1,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE advisor_approval_transitions(\n      sequence INTEGER PRIMARY KEY AUTOINCREMENT,\n      transition_id TEXT NOT NULL UNIQUE,\n      recommendation_id TEXT NOT NULL,\n      from_status TEXT,\n      to_status TEXT NOT NULL CHECK(to_status IN\n        ('pending','approved','rejected','manual_applied','rolled_back')),\n      actor TEXT NOT NULL,\n      reason TEXT NOT NULL,\n      occurred_at_ms INTEGER NOT NULL,\n      config_hash_before TEXT,\n      config_hash_after TEXT,\n      rollback_reference TEXT,\n      previous_hash TEXT NOT NULL,\n      transition_hash TEXT NOT NULL UNIQUE,\n      FOREIGN KEY(recommendation_id)\n        REFERENCES advisor_recommendation_ledger(recommendation_id)\n    )",
+          "foreign_keys": [
+            [
+              0,
+              0,
+              "advisor_recommendation_ledger",
+              "recommendation_id",
+              "recommendation_id",
+              "NO ACTION",
+              "NO ACTION",
+              "NONE"
+            ]
+          ],
+          "indexes": [
+            {
+              "definition": "CREATE INDEX advisor_transitions_recommendation\n       ON advisor_approval_transitions(recommendation_id,sequence)",
+              "name": "advisor_transitions_recommendation",
+              "origin": "c",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  2,
+                  "recommendation_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  "sequence",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  2,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 0
+            },
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_advisor_approval_transitions_1",
+              "origin": "u",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  1,
+                  "transition_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            },
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_advisor_approval_transitions_2",
+              "origin": "u",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  12,
+                  "transition_hash",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "sequence"
+          ],
+          "table": "advisor_approval_transitions",
+          "triggers": [
+            [
+              "advisor_transitions_no_delete",
+              "CREATE TRIGGER advisor_transitions_no_delete\n       BEFORE DELETE ON advisor_approval_transitions\n       BEGIN SELECT RAISE(ABORT,'approval transitions are immutable'); END"
+            ],
+            [
+              "advisor_transitions_no_update",
+              "CREATE TRIGGER advisor_transitions_no_update\n       BEFORE UPDATE ON advisor_approval_transitions\n       BEGIN SELECT RAISE(ABORT,'approval transitions are immutable'); END"
+            ]
+          ]
+        }
+      },
+      {
+        "row_count": 0,
+        "rows": [],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "recommendation_id",
+              "TEXT",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "advisor_version",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              2,
+              "evidence_date",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              3,
+              "scope",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              4,
+              "parameter",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              5,
+              "old_value_json",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              6,
+              "new_value_json",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              7,
+              "reason_code",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              8,
+              "reason",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              9,
+              "risk_level",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              10,
+              "applies_to_mode",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              11,
+              "status",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              12,
+              "payload_json",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              13,
+              "payload_hash",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              14,
+              "source_artifact",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              15,
+              "source_artifact_hash",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              16,
+              "imported_at_ms",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              17,
+              "updated_at_ms",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              18,
+              "approved_by",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              19,
+              "approved_at_ms",
+              "INTEGER",
+              0,
+              null,
+              0
+            ],
+            [
+              20,
+              "applied_by",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              21,
+              "applied_at_ms",
+              "INTEGER",
+              0,
+              null,
+              0
+            ],
+            [
+              22,
+              "config_hash_before",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              23,
+              "config_hash_after",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              24,
+              "rollback_reference",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              25,
+              "rolled_back_by",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              26,
+              "rolled_back_at_ms",
+              "INTEGER",
+              0,
+              null,
+              0
+            ],
+            [
+              27,
+              "superseded_by",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              28,
+              "superseded_at_ms",
+              "INTEGER",
+              0,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE advisor_recommendation_ledger(\n      recommendation_id TEXT PRIMARY KEY,\n      advisor_version TEXT NOT NULL,\n      evidence_date TEXT NOT NULL,\n      scope TEXT NOT NULL,\n      parameter TEXT NOT NULL,\n      old_value_json TEXT NOT NULL,\n      new_value_json TEXT NOT NULL,\n      reason_code TEXT NOT NULL,\n      reason TEXT NOT NULL,\n      risk_level TEXT NOT NULL,\n      applies_to_mode TEXT NOT NULL,\n      status TEXT NOT NULL CHECK(status IN\n        ('pending','approved','rejected','manual_applied','rolled_back')),\n      payload_json TEXT NOT NULL,\n      payload_hash TEXT NOT NULL,\n      source_artifact TEXT NOT NULL,\n      source_artifact_hash TEXT NOT NULL,\n      imported_at_ms INTEGER NOT NULL,\n      updated_at_ms INTEGER NOT NULL,\n      approved_by TEXT,\n      approved_at_ms INTEGER,\n      applied_by TEXT,\n      applied_at_ms INTEGER,\n      config_hash_before TEXT,\n      config_hash_after TEXT,\n      rollback_reference TEXT,\n      rolled_back_by TEXT,\n      rolled_back_at_ms INTEGER,\n      superseded_by TEXT,\n      superseded_at_ms INTEGER\n    )",
+          "foreign_keys": [],
+          "indexes": [
+            {
+              "definition": "CREATE INDEX advisor_ledger_status\n       ON advisor_recommendation_ledger(status,evidence_date)",
+              "name": "advisor_ledger_status",
+              "origin": "c",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  11,
+                  "status",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  2,
+                  "evidence_date",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  2,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 0
+            },
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_advisor_recommendation_ledger_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "recommendation_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "recommendation_id"
+          ],
+          "table": "advisor_recommendation_ledger",
+          "triggers": []
+        }
+      },
+      {
+        "row_count": 0,
+        "rows": [],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "event_id",
+              "TEXT",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "mode",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              2,
+              "is_exchange_verified",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              3,
+              "recommendation_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              4,
+              "status",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              5,
+              "parameter",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              6,
+              "current",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              7,
+              "recommended",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              8,
+              "reason",
+              "TEXT",
+              0,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE ai_recommendations(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"recommendation_id\" TEXT,\"status\" TEXT,\"parameter\" TEXT,\"current\" TEXT,\"recommended\" TEXT,\"reason\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+          "foreign_keys": [
+            [
+              0,
+              0,
+              "events",
+              "event_id",
+              "event_id",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              1,
+              "events",
+              "mode",
+              "mode",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              2,
+              "events",
+              "is_exchange_verified",
+              "is_exchange_verified",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ]
+          ],
+          "indexes": [
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_ai_recommendations_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "event_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "event_id"
+          ],
+          "table": "ai_recommendations",
+          "triggers": []
+        }
+      },
+      {
+        "row_count": 1,
+        "rows": [
+          {
+            "key": [
+              "corr-r566"
+            ],
+            "row": {
+              "correlation_id": "corr-r566",
+              "mode": "paper"
+            }
+          }
+        ],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "correlation_id",
+              "TEXT",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "mode",
+              "TEXT",
+              1,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE attempts(\n              correlation_id TEXT PRIMARY KEY,\n              mode TEXT NOT NULL CHECK(mode IN ('paper','real','test','replay')),\n              UNIQUE(correlation_id,mode)\n            )",
+          "foreign_keys": [],
+          "indexes": [
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_attempts_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "correlation_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            },
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_attempts_2",
+              "origin": "u",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "correlation_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  1,
+                  "mode",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  2,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "correlation_id"
+          ],
+          "table": "attempts",
+          "triggers": []
+        }
+      },
+      {
+        "row_count": 1,
+        "rows": [
+          {
+            "key": [
+              "run-r566"
+            ],
+            "row": {
+              "closed_cleanly": 0,
+              "run_id": "run-r566",
+              "started_at_ms": 100,
+              "stats_json": "{\"events\":1}",
+              "updated_at_ms": 101
+            }
+          }
+        ],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "run_id",
+              "TEXT",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "started_at_ms",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              2,
+              "updated_at_ms",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              3,
+              "closed_cleanly",
+              "INTEGER",
+              1,
+              "0",
+              0
+            ],
+            [
+              4,
+              "stats_json",
+              "TEXT",
+              1,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE collector_runs(\n              run_id TEXT PRIMARY KEY, started_at_ms INTEGER NOT NULL,\n              updated_at_ms INTEGER NOT NULL, closed_cleanly INTEGER NOT NULL DEFAULT 0,\n              stats_json TEXT NOT NULL\n            )",
+          "foreign_keys": [],
+          "indexes": [
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_collector_runs_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "run_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "run_id"
+          ],
+          "table": "collector_runs",
+          "triggers": []
+        }
+      },
+      {
+        "row_count": 0,
+        "rows": [],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "event_id",
+              "TEXT",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "mode",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              2,
+              "is_exchange_verified",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              3,
+              "date",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              4,
+              "report_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE daily_reports(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"date\" TEXT,\"report_id\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+          "foreign_keys": [
+            [
+              0,
+              0,
+              "events",
+              "event_id",
+              "event_id",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              1,
+              "events",
+              "mode",
+              "mode",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              2,
+              "events",
+              "is_exchange_verified",
+              "is_exchange_verified",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ]
+          ],
+          "indexes": [
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_daily_reports_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "event_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "event_id"
+          ],
+          "table": "daily_reports",
+          "triggers": []
+        }
+      },
+      {
+        "row_count": 1,
+        "rows": [
+          {
+            "key": [
+              "r566_event"
+            ],
+            "row": {
+              "decision": "skip",
+              "event_id": "r566_event",
+              "is_exchange_verified": 0,
+              "mode": "paper",
+              "original_reason": null,
+              "skip_reason": "spread"
+            }
+          }
+        ],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "event_id",
+              "TEXT",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "mode",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              2,
+              "is_exchange_verified",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              3,
+              "decision",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              4,
+              "skip_reason",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              5,
+              "original_reason",
+              "TEXT",
+              0,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE decisions(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"decision\" TEXT,\"skip_reason\" TEXT,\"original_reason\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+          "foreign_keys": [
+            [
+              0,
+              0,
+              "events",
+              "event_id",
+              "event_id",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              1,
+              "events",
+              "mode",
+              "mode",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              2,
+              "events",
+              "is_exchange_verified",
+              "is_exchange_verified",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ]
+          ],
+          "indexes": [
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_decisions_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "event_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "event_id"
+          ],
+          "table": "decisions",
+          "triggers": []
+        }
+      },
+      {
+        "row_count": 0,
+        "rows": [],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "event_id",
+              "TEXT",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "mode",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              2,
+              "is_exchange_verified",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              3,
+              "entry_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              4,
+              "planned_usdt",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              5,
+              "planned_amount",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              6,
+              "entry_spread_bps",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              7,
+              "spot_entry_mode",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              8,
+              "fut_entry_mode",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              9,
+              "spot_order_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              10,
+              "fut_order_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              11,
+              "spot_expected_price",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              12,
+              "spot_actual_price",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              13,
+              "fut_expected_price",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              14,
+              "fut_actual_price",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              15,
+              "spot_fill_ratio",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              16,
+              "fut_fill_ratio",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              17,
+              "entry_slippage_bps",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              18,
+              "fees_entry_usdt",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              19,
+              "entry_status",
+              "TEXT",
+              0,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE entries(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"entry_id\" TEXT,\"planned_usdt\" TEXT,\"planned_amount\" TEXT,\"entry_spread_bps\" TEXT,\"spot_entry_mode\" TEXT,\"fut_entry_mode\" TEXT,\"spot_order_id\" TEXT,\"fut_order_id\" TEXT,\"spot_expected_price\" TEXT,\"spot_actual_price\" TEXT,\"fut_expected_price\" TEXT,\"fut_actual_price\" TEXT,\"spot_fill_ratio\" TEXT,\"fut_fill_ratio\" TEXT,\"entry_slippage_bps\" TEXT,\"fees_entry_usdt\" TEXT,\"entry_status\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+          "foreign_keys": [
+            [
+              0,
+              0,
+              "events",
+              "event_id",
+              "event_id",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              1,
+              "events",
+              "mode",
+              "mode",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              2,
+              "events",
+              "is_exchange_verified",
+              "is_exchange_verified",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ]
+          ],
+          "indexes": [
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_entries_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "event_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "event_id"
+          ],
+          "table": "entries",
+          "triggers": []
+        }
+      },
+      {
+        "row_count": 0,
+        "rows": [],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "event_id",
+              "TEXT",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "mode",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              2,
+              "is_exchange_verified",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              3,
+              "module",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              4,
+              "function",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              5,
+              "exchange",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              6,
+              "error_type",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              7,
+              "error_text",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              8,
+              "traceback",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              9,
+              "severity",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              10,
+              "resolved",
+              "TEXT",
+              0,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE errors(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"module\" TEXT,\"function\" TEXT,\"exchange\" TEXT,\"error_type\" TEXT,\"error_text\" TEXT,\"traceback\" TEXT,\"severity\" TEXT,\"resolved\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+          "foreign_keys": [
+            [
+              0,
+              0,
+              "events",
+              "event_id",
+              "event_id",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              1,
+              "events",
+              "mode",
+              "mode",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              2,
+              "events",
+              "is_exchange_verified",
+              "is_exchange_verified",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ]
+          ],
+          "indexes": [
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_errors_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "event_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "event_id"
+          ],
+          "table": "errors",
+          "triggers": []
+        }
+      },
+      {
+        "row_count": 1,
+        "rows": [
+          {
+            "key": [
+              "r566_event"
+            ],
+            "row": {
+              "base": null,
+              "category": "decisions",
+              "comparison_id": null,
+              "content_hash": "sha256-fixture",
+              "correlation_id": "corr-r566",
+              "event_id": "r566_event",
+              "is_exchange_verified": 0,
+              "mode": "paper",
+              "name": "DECISION_MADE",
+              "occurred_at_ms": 100,
+              "payload_json": "{\"decision\":\"skip\"}",
+              "reason_code": null,
+              "received_at_ms": 101,
+              "run_id": "run-r566",
+              "schema_version": 1,
+              "shadow_group_id": null,
+              "signal_id": null,
+              "source": "oracle",
+              "verification_json": "{}",
+              "verification_status": "observed"
+            }
+          }
+        ],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "event_id",
+              "TEXT",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "schema_version",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              2,
+              "mode",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              3,
+              "category",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              4,
+              "name",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              5,
+              "source",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              6,
+              "run_id",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              7,
+              "occurred_at_ms",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              8,
+              "received_at_ms",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              9,
+              "correlation_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              10,
+              "signal_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              11,
+              "base",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              12,
+              "shadow_group_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              13,
+              "comparison_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              14,
+              "reason_code",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              15,
+              "verification_status",
+              "TEXT",
+              1,
+              "'unverified'",
+              0
+            ],
+            [
+              16,
+              "is_exchange_verified",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              17,
+              "payload_json",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              18,
+              "verification_json",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              19,
+              "content_hash",
+              "TEXT",
+              1,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE events(\n              event_id TEXT PRIMARY KEY, schema_version INTEGER NOT NULL CHECK(schema_version=1),\n              mode TEXT NOT NULL CHECK(mode IN ('paper','real','test','replay')),\n              category TEXT NOT NULL, name TEXT NOT NULL, source TEXT NOT NULL, run_id TEXT NOT NULL,\n              occurred_at_ms INTEGER NOT NULL, received_at_ms INTEGER NOT NULL,\n              correlation_id TEXT, signal_id TEXT, base TEXT, shadow_group_id TEXT,\n              comparison_id TEXT, reason_code TEXT,\n              verification_status TEXT NOT NULL DEFAULT 'unverified'\n                CHECK(verification_status IN ('unknown','unverified','observed','partially_verified','verified','contradicted')),\n              is_exchange_verified INTEGER NOT NULL CHECK(is_exchange_verified IN (0,1)),\n              payload_json TEXT NOT NULL, verification_json TEXT NOT NULL,\n              content_hash TEXT NOT NULL,\n              CHECK(mode='real' OR is_exchange_verified=0),\n              UNIQUE(event_id,mode,is_exchange_verified),\n              FOREIGN KEY(correlation_id,mode) REFERENCES attempts(correlation_id,mode)\n            )",
+          "foreign_keys": [
+            [
+              0,
+              0,
+              "attempts",
+              "correlation_id",
+              "correlation_id",
+              "NO ACTION",
+              "NO ACTION",
+              "NONE"
+            ],
+            [
+              0,
+              1,
+              "attempts",
+              "mode",
+              "mode",
+              "NO ACTION",
+              "NO ACTION",
+              "NONE"
+            ]
+          ],
+          "indexes": [
+            {
+              "definition": "CREATE INDEX events_correlation ON events(correlation_id,mode)",
+              "name": "events_correlation",
+              "origin": "c",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  9,
+                  "correlation_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  2,
+                  "mode",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  2,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 0
+            },
+            {
+              "definition": "CREATE INDEX events_retention ON events(category,received_at_ms)",
+              "name": "events_retention",
+              "origin": "c",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  3,
+                  "category",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  8,
+                  "received_at_ms",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  2,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 0
+            },
+            {
+              "definition": "CREATE INDEX events_signal ON events(signal_id,mode,category)",
+              "name": "events_signal",
+              "origin": "c",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  10,
+                  "signal_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  2,
+                  "mode",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  2,
+                  3,
+                  "category",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  3,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 0
+            },
+            {
+              "definition": "CREATE INDEX events_time ON events(occurred_at_ms,mode,category)",
+              "name": "events_time",
+              "origin": "c",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  7,
+                  "occurred_at_ms",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  2,
+                  "mode",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  2,
+                  3,
+                  "category",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  3,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 0
+            },
+            {
+              "definition": "CREATE UNIQUE INDEX one_entry_commit ON events(mode,correlation_id)\n              WHERE category='entries' AND name='ENTRY_COMMIT'",
+              "name": "one_entry_commit",
+              "origin": "c",
+              "partial": 1,
+              "parts": [
+                [
+                  0,
+                  2,
+                  "mode",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  9,
+                  "correlation_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  2,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            },
+            {
+              "definition": "CREATE UNIQUE INDEX one_exit_commit ON events(mode,correlation_id)\n              WHERE category='exits' AND name='EXIT_COMMIT'",
+              "name": "one_exit_commit",
+              "origin": "c",
+              "partial": 1,
+              "parts": [
+                [
+                  0,
+                  2,
+                  "mode",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  9,
+                  "correlation_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  2,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            },
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_events_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "event_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            },
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_events_2",
+              "origin": "u",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "event_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  2,
+                  "mode",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  2,
+                  16,
+                  "is_exchange_verified",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  3,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "event_id"
+          ],
+          "table": "events",
+          "triggers": []
+        }
+      },
+      {
+        "row_count": 0,
+        "rows": [],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "event_id",
+              "TEXT",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "mode",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              2,
+              "is_exchange_verified",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              3,
+              "exit_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              4,
+              "entry_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              5,
+              "exit_reason",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              6,
+              "exit_spread_bps",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              7,
+              "spot_close_price",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              8,
+              "fut_close_price",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              9,
+              "exit_slippage_bps",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              10,
+              "fees_exit_usdt",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              11,
+              "gross_pnl_usdt",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              12,
+              "net_pnl_usdt",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              13,
+              "dust_left",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              14,
+              "cleanup_status",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              15,
+              "stop_cancel_status",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              16,
+              "telegram_status",
+              "TEXT",
+              0,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE exits(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"exit_id\" TEXT,\"entry_id\" TEXT,\"exit_reason\" TEXT,\"exit_spread_bps\" TEXT,\"spot_close_price\" TEXT,\"fut_close_price\" TEXT,\"exit_slippage_bps\" TEXT,\"fees_exit_usdt\" TEXT,\"gross_pnl_usdt\" TEXT,\"net_pnl_usdt\" TEXT,\"dust_left\" TEXT,\"cleanup_status\" TEXT,\"stop_cancel_status\" TEXT,\"telegram_status\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+          "foreign_keys": [
+            [
+              0,
+              0,
+              "events",
+              "event_id",
+              "event_id",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              1,
+              "events",
+              "mode",
+              "mode",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              2,
+              "events",
+              "is_exchange_verified",
+              "is_exchange_verified",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ]
+          ],
+          "indexes": [
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_exits_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "event_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "event_id"
+          ],
+          "table": "exits",
+          "triggers": []
+        }
+      },
+      {
+        "row_count": 0,
+        "rows": [],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "event_id",
+              "TEXT",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "mode",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              2,
+              "is_exchange_verified",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              3,
+              "exchange",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              4,
+              "leg",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              5,
+              "symbol",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              6,
+              "side",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              7,
+              "client_order_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              8,
+              "order_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              9,
+              "fill_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              10,
+              "price",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              11,
+              "amount",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              12,
+              "cost",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              13,
+              "fee_amount",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              14,
+              "fee_currency",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              15,
+              "fee_usdt",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              16,
+              "fee_conversion_source",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              17,
+              "exchange_event_time_ms",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              18,
+              "liquidity_role",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              19,
+              "evidence_source",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              20,
+              "observation_call_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE fills(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"exchange\" TEXT,\"leg\" TEXT,\"symbol\" TEXT,\"side\" TEXT,\"client_order_id\" TEXT,\"order_id\" TEXT,\"fill_id\" TEXT,\"price\" TEXT,\"amount\" TEXT,\"cost\" TEXT,\"fee_amount\" TEXT,\"fee_currency\" TEXT,\"fee_usdt\" TEXT,\"fee_conversion_source\" TEXT,\"exchange_event_time_ms\" TEXT,\"liquidity_role\" TEXT,\"evidence_source\" TEXT,\"observation_call_id\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+          "foreign_keys": [
+            [
+              0,
+              0,
+              "events",
+              "event_id",
+              "event_id",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              1,
+              "events",
+              "mode",
+              "mode",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              2,
+              "events",
+              "is_exchange_verified",
+              "is_exchange_verified",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ]
+          ],
+          "indexes": [
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_fills_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "event_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "event_id"
+          ],
+          "table": "fills",
+          "triggers": []
+        }
+      },
+      {
+        "row_count": 1,
+        "rows": [
+          {
+            "key": [
+              0,
+              "paper",
+              "SOL",
+              "decisions",
+              "DECISION_MADE",
+              "",
+              "",
+              ""
+            ],
+            "row": {
+              "base": "SOL",
+              "category": "decisions",
+              "decision": "",
+              "depth_fut_count": 0,
+              "depth_fut_sum": "0",
+              "depth_spot_count": 0,
+              "depth_spot_sum": "0",
+              "event_count": 1,
+              "hour_start_ms": 0,
+              "mode": "paper",
+              "name": "DECISION_MADE",
+              "net_spread_count": 0,
+              "net_spread_max": null,
+              "net_spread_min": null,
+              "net_spread_sum": "0",
+              "raw_spread_count": 0,
+              "raw_spread_max": null,
+              "raw_spread_min": null,
+              "raw_spread_sum": "0",
+              "reason_code": "",
+              "skip_reason": "",
+              "telemetry_age_count": 0,
+              "telemetry_age_max": null,
+              "telemetry_age_sum": "0"
+            }
+          }
+        ],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "hour_start_ms",
+              "INTEGER",
+              1,
+              null,
+              1
+            ],
+            [
+              1,
+              "mode",
+              "TEXT",
+              1,
+              null,
+              2
+            ],
+            [
+              2,
+              "base",
+              "TEXT",
+              1,
+              "''",
+              3
+            ],
+            [
+              3,
+              "category",
+              "TEXT",
+              1,
+              null,
+              4
+            ],
+            [
+              4,
+              "name",
+              "TEXT",
+              1,
+              null,
+              5
+            ],
+            [
+              5,
+              "reason_code",
+              "TEXT",
+              1,
+              "''",
+              6
+            ],
+            [
+              6,
+              "decision",
+              "TEXT",
+              1,
+              "''",
+              7
+            ],
+            [
+              7,
+              "skip_reason",
+              "TEXT",
+              1,
+              "''",
+              8
+            ],
+            [
+              8,
+              "event_count",
+              "INTEGER",
+              1,
+              "0",
+              0
+            ],
+            [
+              9,
+              "raw_spread_count",
+              "INTEGER",
+              1,
+              "0",
+              0
+            ],
+            [
+              10,
+              "raw_spread_sum",
+              "TEXT",
+              1,
+              "'0'",
+              0
+            ],
+            [
+              11,
+              "raw_spread_min",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              12,
+              "raw_spread_max",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              13,
+              "net_spread_count",
+              "INTEGER",
+              1,
+              "0",
+              0
+            ],
+            [
+              14,
+              "net_spread_sum",
+              "TEXT",
+              1,
+              "'0'",
+              0
+            ],
+            [
+              15,
+              "net_spread_min",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              16,
+              "net_spread_max",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              17,
+              "telemetry_age_count",
+              "INTEGER",
+              1,
+              "0",
+              0
+            ],
+            [
+              18,
+              "telemetry_age_sum",
+              "TEXT",
+              1,
+              "'0'",
+              0
+            ],
+            [
+              19,
+              "telemetry_age_max",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              20,
+              "depth_spot_count",
+              "INTEGER",
+              1,
+              "0",
+              0
+            ],
+            [
+              21,
+              "depth_spot_sum",
+              "TEXT",
+              1,
+              "'0'",
+              0
+            ],
+            [
+              22,
+              "depth_fut_count",
+              "INTEGER",
+              1,
+              "0",
+              0
+            ],
+            [
+              23,
+              "depth_fut_sum",
+              "TEXT",
+              1,
+              "'0'",
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE hourly_raw_rollups(\n          hour_start_ms INTEGER NOT NULL,\n          mode TEXT NOT NULL CHECK(mode IN ('paper','real','test','replay')),\n          base TEXT NOT NULL DEFAULT '',\n          category TEXT NOT NULL CHECK(category IN ('signals','decisions')),\n          name TEXT NOT NULL,\n          reason_code TEXT NOT NULL DEFAULT '',\n          decision TEXT NOT NULL DEFAULT '',\n          skip_reason TEXT NOT NULL DEFAULT '',\n          event_count INTEGER NOT NULL DEFAULT 0,\n          raw_spread_count INTEGER NOT NULL DEFAULT 0,\n          raw_spread_sum TEXT NOT NULL DEFAULT '0',\n          raw_spread_min TEXT,\n          raw_spread_max TEXT,\n          net_spread_count INTEGER NOT NULL DEFAULT 0,\n          net_spread_sum TEXT NOT NULL DEFAULT '0',\n          net_spread_min TEXT,\n          net_spread_max TEXT,\n          telemetry_age_count INTEGER NOT NULL DEFAULT 0,\n          telemetry_age_sum TEXT NOT NULL DEFAULT '0',\n          telemetry_age_max TEXT,\n          depth_spot_count INTEGER NOT NULL DEFAULT 0,\n          depth_spot_sum TEXT NOT NULL DEFAULT '0',\n          depth_fut_count INTEGER NOT NULL DEFAULT 0,\n          depth_fut_sum TEXT NOT NULL DEFAULT '0',\n          PRIMARY KEY(hour_start_ms,mode,base,category,name,reason_code,decision,skip_reason)\n        )",
+          "foreign_keys": [],
+          "indexes": [
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_hourly_raw_rollups_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "hour_start_ms",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  1,
+                  "mode",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  2,
+                  2,
+                  "base",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  3,
+                  3,
+                  "category",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  4,
+                  4,
+                  "name",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  5,
+                  5,
+                  "reason_code",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  6,
+                  6,
+                  "decision",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  7,
+                  7,
+                  "skip_reason",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  8,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "hour_start_ms",
+            "mode",
+            "base",
+            "category",
+            "name",
+            "reason_code",
+            "decision",
+            "skip_reason"
+          ],
+          "table": "hourly_raw_rollups",
+          "triggers": []
+        }
+      },
+      {
+        "row_count": 1,
+        "rows": [
+          {
+            "key": [
+              "rolled_up_raw_events"
+            ],
+            "row": {
+              "key": "rolled_up_raw_events",
+              "value": "2"
+            }
+          }
+        ],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "key",
+              "TEXT",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "value",
+              "TEXT",
+              1,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE metadata(key TEXT PRIMARY KEY, value TEXT NOT NULL)",
+          "foreign_keys": [],
+          "indexes": [
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_metadata_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "key",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "key"
+          ],
+          "table": "metadata",
+          "triggers": []
+        }
+      },
+      {
+        "row_count": 0,
+        "rows": [],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "event_id",
+              "TEXT",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "mode",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              2,
+              "is_exchange_verified",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              3,
+              "exchange",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              4,
+              "leg",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              5,
+              "symbol",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              6,
+              "client_order_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              7,
+              "order_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              8,
+              "call_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              9,
+              "action",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              10,
+              "side",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              11,
+              "order_type",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              12,
+              "time_in_force",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              13,
+              "requested_amount",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              14,
+              "requested_price",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              15,
+              "status",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              16,
+              "executed_amount",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              17,
+              "remaining_amount",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              18,
+              "average_price",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              19,
+              "cost",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              20,
+              "exchange_event_time_ms",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              21,
+              "request_sent_at_ms",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              22,
+              "response_received_at_ms",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              23,
+              "latency_ms",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              24,
+              "retry_count",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              25,
+              "failure_stage",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              26,
+              "evidence_source",
+              "TEXT",
+              0,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE orders(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"exchange\" TEXT,\"leg\" TEXT,\"symbol\" TEXT,\"client_order_id\" TEXT,\"order_id\" TEXT,\"call_id\" TEXT,\"action\" TEXT,\"side\" TEXT,\"order_type\" TEXT,\"time_in_force\" TEXT,\"requested_amount\" TEXT,\"requested_price\" TEXT,\"status\" TEXT,\"executed_amount\" TEXT,\"remaining_amount\" TEXT,\"average_price\" TEXT,\"cost\" TEXT,\"exchange_event_time_ms\" TEXT,\"request_sent_at_ms\" TEXT,\"response_received_at_ms\" TEXT,\"latency_ms\" TEXT,\"retry_count\" TEXT,\"failure_stage\" TEXT,\"evidence_source\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+          "foreign_keys": [
+            [
+              0,
+              0,
+              "events",
+              "event_id",
+              "event_id",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              1,
+              "events",
+              "mode",
+              "mode",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              2,
+              "events",
+              "is_exchange_verified",
+              "is_exchange_verified",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ]
+          ],
+          "indexes": [
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_orders_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "event_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "event_id"
+          ],
+          "table": "orders",
+          "triggers": []
+        }
+      },
+      {
+        "row_count": 0,
+        "rows": [],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "event_id",
+              "TEXT",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "mode",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              2,
+              "is_exchange_verified",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              3,
+              "snapshot_id",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              4,
+              "code_revision",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              5,
+              "config_hash",
+              "TEXT",
+              0,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE parameter_snapshots(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"snapshot_id\" TEXT,\"code_revision\" TEXT,\"config_hash\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+          "foreign_keys": [
+            [
+              0,
+              0,
+              "events",
+              "event_id",
+              "event_id",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              1,
+              "events",
+              "mode",
+              "mode",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              2,
+              "events",
+              "is_exchange_verified",
+              "is_exchange_verified",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ]
+          ],
+          "indexes": [
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_parameter_snapshots_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "event_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "event_id"
+          ],
+          "table": "parameter_snapshots",
+          "triggers": []
+        }
+      },
+      {
+        "row_count": 0,
+        "rows": [],
+        "schema": {
+          "columns": [
+            [
+              0,
+              "event_id",
+              "TEXT",
+              0,
+              null,
+              1
+            ],
+            [
+              1,
+              "mode",
+              "TEXT",
+              1,
+              null,
+              0
+            ],
+            [
+              2,
+              "is_exchange_verified",
+              "INTEGER",
+              1,
+              null,
+              0
+            ],
+            [
+              3,
+              "symbol_spot",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              4,
+              "symbol_fut",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              5,
+              "okx_bid",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              6,
+              "okx_ask",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              7,
+              "binance_bid",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              8,
+              "binance_ask",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              9,
+              "raw_spread_bps",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              10,
+              "net_spread_bps",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              11,
+              "telemetry_age_sec",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              12,
+              "depth_spot_usdt",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              13,
+              "depth_fut_usdt",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              14,
+              "trade200",
+              "TEXT",
+              0,
+              null,
+              0
+            ],
+            [
+              15,
+              "liquidity_score",
+              "TEXT",
+              0,
+              null,
+              0
+            ]
+          ],
+          "ddl": "CREATE TABLE signals(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"symbol_spot\" TEXT,\"symbol_fut\" TEXT,\"okx_bid\" TEXT,\"okx_ask\" TEXT,\"binance_bid\" TEXT,\"binance_ask\" TEXT,\"raw_spread_bps\" TEXT,\"net_spread_bps\" TEXT,\"telemetry_age_sec\" TEXT,\"depth_spot_usdt\" TEXT,\"depth_fut_usdt\" TEXT,\"trade200\" TEXT,\"liquidity_score\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+          "foreign_keys": [
+            [
+              0,
+              0,
+              "events",
+              "event_id",
+              "event_id",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              1,
+              "events",
+              "mode",
+              "mode",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ],
+            [
+              0,
+              2,
+              "events",
+              "is_exchange_verified",
+              "is_exchange_verified",
+              "NO ACTION",
+              "CASCADE",
+              "NONE"
+            ]
+          ],
+          "indexes": [
+            {
+              "definition": null,
+              "name": "sqlite_autoindex_signals_1",
+              "origin": "pk",
+              "partial": 0,
+              "parts": [
+                [
+                  0,
+                  0,
+                  "event_id",
+                  0,
+                  "BINARY",
+                  1
+                ],
+                [
+                  1,
+                  -1,
+                  null,
+                  0,
+                  "BINARY",
+                  0
+                ]
+              ],
+              "unique": 1
+            }
+          ],
+          "mirror_key": [
+            "event_id"
+          ],
+          "table": "signals",
+          "triggers": []
+        }
+      }
+    ],
+    "total_rows": 6,
+    "user_version": 4
+  },
+  "fixture_snapshot_sha256": "6dbb41f609ce9323ca5f2c799b5024815324af37db365844cd71ce74e94e39ad",
+  "mirrored_tables": 17,
+  "schema_version": 4,
+  "scope": "Original Python source SQL assembled solely in two independent in-memory sqlite3 DBs; synthetic rows, no production DB access",
+  "source_keys": {
+    "advisor_approval_transitions": [
+      "sequence"
+    ],
+    "advisor_recommendation_ledger": [
+      "recommendation_id"
+    ],
+    "ai_recommendations": [
+      "event_id"
+    ],
+    "attempts": [
+      "correlation_id"
+    ],
+    "collector_runs": [
+      "run_id"
+    ],
+    "daily_reports": [
+      "event_id"
+    ],
+    "decisions": [
+      "event_id"
+    ],
+    "entries": [
+      "event_id"
+    ],
+    "errors": [
+      "event_id"
+    ],
+    "events": [
+      "event_id"
+    ],
+    "exits": [
+      "event_id"
+    ],
+    "fills": [
+      "event_id"
+    ],
+    "hourly_raw_rollups": [
+      "hour_start_ms",
+      "mode",
+      "base",
+      "category",
+      "name",
+      "reason_code",
+      "decision",
+      "skip_reason"
+    ],
+    "metadata": [
+      "key"
+    ],
+    "orders": [
+      "event_id"
+    ],
+    "parameter_snapshots": [
+      "event_id"
+    ],
+    "signals": [
+      "event_id"
+    ]
+  },
+  "source_sha256": {
+    "approval_ledger.py": "b7261ddcd699e48fcc3cceafeb8dc416a6f6b211e10ad23ba443bd46903e6e60",
+    "collector.py": "f5f9e777588a14d1aa5bac53380359f424695c927eee29a6aa3092297a0a5ddd",
+    "mirror_outbox.py": "ed2d88f320d66266676e39fb6f8284c48e016e23f5d94d185fa8cedde133fcfa",
+    "schemas.py": "3bab49b385c16d1099078559fe6c5f5c98c00e7dfa490b7553f64000889a7ac6"
+  },
+  "table_schema": [
+    {
+      "columns": [
+        [
+          0,
+          "sequence",
+          "INTEGER",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "transition_id",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          2,
+          "recommendation_id",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          3,
+          "from_status",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          4,
+          "to_status",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          5,
+          "actor",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          6,
+          "reason",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          7,
+          "occurred_at_ms",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          8,
+          "config_hash_before",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          9,
+          "config_hash_after",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          10,
+          "rollback_reference",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          11,
+          "previous_hash",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          12,
+          "transition_hash",
+          "TEXT",
+          1,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE advisor_approval_transitions(\n      sequence INTEGER PRIMARY KEY AUTOINCREMENT,\n      transition_id TEXT NOT NULL UNIQUE,\n      recommendation_id TEXT NOT NULL,\n      from_status TEXT,\n      to_status TEXT NOT NULL CHECK(to_status IN\n        ('pending','approved','rejected','manual_applied','rolled_back')),\n      actor TEXT NOT NULL,\n      reason TEXT NOT NULL,\n      occurred_at_ms INTEGER NOT NULL,\n      config_hash_before TEXT,\n      config_hash_after TEXT,\n      rollback_reference TEXT,\n      previous_hash TEXT NOT NULL,\n      transition_hash TEXT NOT NULL UNIQUE,\n      FOREIGN KEY(recommendation_id)\n        REFERENCES advisor_recommendation_ledger(recommendation_id)\n    )",
+      "foreign_keys": [
+        [
+          0,
+          0,
+          "advisor_recommendation_ledger",
+          "recommendation_id",
+          "recommendation_id",
+          "NO ACTION",
+          "NO ACTION",
+          "NONE"
+        ]
+      ],
+      "indexes": [
+        {
+          "definition": "CREATE INDEX advisor_transitions_recommendation\n       ON advisor_approval_transitions(recommendation_id,sequence)",
+          "name": "advisor_transitions_recommendation",
+          "origin": "c",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              2,
+              "recommendation_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              0,
+              "sequence",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              2,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 0
+        },
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_advisor_approval_transitions_1",
+          "origin": "u",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              1,
+              "transition_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        },
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_advisor_approval_transitions_2",
+          "origin": "u",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              12,
+              "transition_hash",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "sequence"
+      ],
+      "table": "advisor_approval_transitions",
+      "triggers": [
+        [
+          "advisor_transitions_no_delete",
+          "CREATE TRIGGER advisor_transitions_no_delete\n       BEFORE DELETE ON advisor_approval_transitions\n       BEGIN SELECT RAISE(ABORT,'approval transitions are immutable'); END"
+        ],
+        [
+          "advisor_transitions_no_update",
+          "CREATE TRIGGER advisor_transitions_no_update\n       BEFORE UPDATE ON advisor_approval_transitions\n       BEGIN SELECT RAISE(ABORT,'approval transitions are immutable'); END"
+        ]
+      ]
+    },
+    {
+      "columns": [
+        [
+          0,
+          "recommendation_id",
+          "TEXT",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "advisor_version",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          2,
+          "evidence_date",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          3,
+          "scope",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          4,
+          "parameter",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          5,
+          "old_value_json",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          6,
+          "new_value_json",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          7,
+          "reason_code",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          8,
+          "reason",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          9,
+          "risk_level",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          10,
+          "applies_to_mode",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          11,
+          "status",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          12,
+          "payload_json",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          13,
+          "payload_hash",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          14,
+          "source_artifact",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          15,
+          "source_artifact_hash",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          16,
+          "imported_at_ms",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          17,
+          "updated_at_ms",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          18,
+          "approved_by",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          19,
+          "approved_at_ms",
+          "INTEGER",
+          0,
+          null,
+          0
+        ],
+        [
+          20,
+          "applied_by",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          21,
+          "applied_at_ms",
+          "INTEGER",
+          0,
+          null,
+          0
+        ],
+        [
+          22,
+          "config_hash_before",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          23,
+          "config_hash_after",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          24,
+          "rollback_reference",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          25,
+          "rolled_back_by",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          26,
+          "rolled_back_at_ms",
+          "INTEGER",
+          0,
+          null,
+          0
+        ],
+        [
+          27,
+          "superseded_by",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          28,
+          "superseded_at_ms",
+          "INTEGER",
+          0,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE advisor_recommendation_ledger(\n      recommendation_id TEXT PRIMARY KEY,\n      advisor_version TEXT NOT NULL,\n      evidence_date TEXT NOT NULL,\n      scope TEXT NOT NULL,\n      parameter TEXT NOT NULL,\n      old_value_json TEXT NOT NULL,\n      new_value_json TEXT NOT NULL,\n      reason_code TEXT NOT NULL,\n      reason TEXT NOT NULL,\n      risk_level TEXT NOT NULL,\n      applies_to_mode TEXT NOT NULL,\n      status TEXT NOT NULL CHECK(status IN\n        ('pending','approved','rejected','manual_applied','rolled_back')),\n      payload_json TEXT NOT NULL,\n      payload_hash TEXT NOT NULL,\n      source_artifact TEXT NOT NULL,\n      source_artifact_hash TEXT NOT NULL,\n      imported_at_ms INTEGER NOT NULL,\n      updated_at_ms INTEGER NOT NULL,\n      approved_by TEXT,\n      approved_at_ms INTEGER,\n      applied_by TEXT,\n      applied_at_ms INTEGER,\n      config_hash_before TEXT,\n      config_hash_after TEXT,\n      rollback_reference TEXT,\n      rolled_back_by TEXT,\n      rolled_back_at_ms INTEGER,\n      superseded_by TEXT,\n      superseded_at_ms INTEGER\n    )",
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "definition": "CREATE INDEX advisor_ledger_status\n       ON advisor_recommendation_ledger(status,evidence_date)",
+          "name": "advisor_ledger_status",
+          "origin": "c",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              11,
+              "status",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              2,
+              "evidence_date",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              2,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 0
+        },
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_advisor_recommendation_ledger_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "recommendation_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "recommendation_id"
+      ],
+      "table": "advisor_recommendation_ledger",
+      "triggers": []
+    },
+    {
+      "columns": [
+        [
+          0,
+          "event_id",
+          "TEXT",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "mode",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          2,
+          "is_exchange_verified",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          3,
+          "recommendation_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          4,
+          "status",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          5,
+          "parameter",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          6,
+          "current",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          7,
+          "recommended",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          8,
+          "reason",
+          "TEXT",
+          0,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE ai_recommendations(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"recommendation_id\" TEXT,\"status\" TEXT,\"parameter\" TEXT,\"current\" TEXT,\"recommended\" TEXT,\"reason\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+      "foreign_keys": [
+        [
+          0,
+          0,
+          "events",
+          "event_id",
+          "event_id",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          1,
+          "events",
+          "mode",
+          "mode",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          2,
+          "events",
+          "is_exchange_verified",
+          "is_exchange_verified",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ]
+      ],
+      "indexes": [
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_ai_recommendations_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "event_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "event_id"
+      ],
+      "table": "ai_recommendations",
+      "triggers": []
+    },
+    {
+      "columns": [
+        [
+          0,
+          "correlation_id",
+          "TEXT",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "mode",
+          "TEXT",
+          1,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE attempts(\n              correlation_id TEXT PRIMARY KEY,\n              mode TEXT NOT NULL CHECK(mode IN ('paper','real','test','replay')),\n              UNIQUE(correlation_id,mode)\n            )",
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_attempts_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "correlation_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        },
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_attempts_2",
+          "origin": "u",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "correlation_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              1,
+              "mode",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              2,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "correlation_id"
+      ],
+      "table": "attempts",
+      "triggers": []
+    },
+    {
+      "columns": [
+        [
+          0,
+          "run_id",
+          "TEXT",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "started_at_ms",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          2,
+          "updated_at_ms",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          3,
+          "closed_cleanly",
+          "INTEGER",
+          1,
+          "0",
+          0
+        ],
+        [
+          4,
+          "stats_json",
+          "TEXT",
+          1,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE collector_runs(\n              run_id TEXT PRIMARY KEY, started_at_ms INTEGER NOT NULL,\n              updated_at_ms INTEGER NOT NULL, closed_cleanly INTEGER NOT NULL DEFAULT 0,\n              stats_json TEXT NOT NULL\n            )",
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_collector_runs_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "run_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "run_id"
+      ],
+      "table": "collector_runs",
+      "triggers": []
+    },
+    {
+      "columns": [
+        [
+          0,
+          "event_id",
+          "TEXT",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "mode",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          2,
+          "is_exchange_verified",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          3,
+          "date",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          4,
+          "report_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE daily_reports(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"date\" TEXT,\"report_id\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+      "foreign_keys": [
+        [
+          0,
+          0,
+          "events",
+          "event_id",
+          "event_id",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          1,
+          "events",
+          "mode",
+          "mode",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          2,
+          "events",
+          "is_exchange_verified",
+          "is_exchange_verified",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ]
+      ],
+      "indexes": [
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_daily_reports_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "event_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "event_id"
+      ],
+      "table": "daily_reports",
+      "triggers": []
+    },
+    {
+      "columns": [
+        [
+          0,
+          "event_id",
+          "TEXT",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "mode",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          2,
+          "is_exchange_verified",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          3,
+          "decision",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          4,
+          "skip_reason",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          5,
+          "original_reason",
+          "TEXT",
+          0,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE decisions(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"decision\" TEXT,\"skip_reason\" TEXT,\"original_reason\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+      "foreign_keys": [
+        [
+          0,
+          0,
+          "events",
+          "event_id",
+          "event_id",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          1,
+          "events",
+          "mode",
+          "mode",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          2,
+          "events",
+          "is_exchange_verified",
+          "is_exchange_verified",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ]
+      ],
+      "indexes": [
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_decisions_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "event_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "event_id"
+      ],
+      "table": "decisions",
+      "triggers": []
+    },
+    {
+      "columns": [
+        [
+          0,
+          "event_id",
+          "TEXT",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "mode",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          2,
+          "is_exchange_verified",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          3,
+          "entry_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          4,
+          "planned_usdt",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          5,
+          "planned_amount",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          6,
+          "entry_spread_bps",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          7,
+          "spot_entry_mode",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          8,
+          "fut_entry_mode",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          9,
+          "spot_order_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          10,
+          "fut_order_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          11,
+          "spot_expected_price",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          12,
+          "spot_actual_price",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          13,
+          "fut_expected_price",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          14,
+          "fut_actual_price",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          15,
+          "spot_fill_ratio",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          16,
+          "fut_fill_ratio",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          17,
+          "entry_slippage_bps",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          18,
+          "fees_entry_usdt",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          19,
+          "entry_status",
+          "TEXT",
+          0,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE entries(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"entry_id\" TEXT,\"planned_usdt\" TEXT,\"planned_amount\" TEXT,\"entry_spread_bps\" TEXT,\"spot_entry_mode\" TEXT,\"fut_entry_mode\" TEXT,\"spot_order_id\" TEXT,\"fut_order_id\" TEXT,\"spot_expected_price\" TEXT,\"spot_actual_price\" TEXT,\"fut_expected_price\" TEXT,\"fut_actual_price\" TEXT,\"spot_fill_ratio\" TEXT,\"fut_fill_ratio\" TEXT,\"entry_slippage_bps\" TEXT,\"fees_entry_usdt\" TEXT,\"entry_status\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+      "foreign_keys": [
+        [
+          0,
+          0,
+          "events",
+          "event_id",
+          "event_id",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          1,
+          "events",
+          "mode",
+          "mode",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          2,
+          "events",
+          "is_exchange_verified",
+          "is_exchange_verified",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ]
+      ],
+      "indexes": [
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_entries_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "event_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "event_id"
+      ],
+      "table": "entries",
+      "triggers": []
+    },
+    {
+      "columns": [
+        [
+          0,
+          "event_id",
+          "TEXT",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "mode",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          2,
+          "is_exchange_verified",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          3,
+          "module",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          4,
+          "function",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          5,
+          "exchange",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          6,
+          "error_type",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          7,
+          "error_text",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          8,
+          "traceback",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          9,
+          "severity",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          10,
+          "resolved",
+          "TEXT",
+          0,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE errors(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"module\" TEXT,\"function\" TEXT,\"exchange\" TEXT,\"error_type\" TEXT,\"error_text\" TEXT,\"traceback\" TEXT,\"severity\" TEXT,\"resolved\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+      "foreign_keys": [
+        [
+          0,
+          0,
+          "events",
+          "event_id",
+          "event_id",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          1,
+          "events",
+          "mode",
+          "mode",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          2,
+          "events",
+          "is_exchange_verified",
+          "is_exchange_verified",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ]
+      ],
+      "indexes": [
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_errors_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "event_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "event_id"
+      ],
+      "table": "errors",
+      "triggers": []
+    },
+    {
+      "columns": [
+        [
+          0,
+          "event_id",
+          "TEXT",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "schema_version",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          2,
+          "mode",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          3,
+          "category",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          4,
+          "name",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          5,
+          "source",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          6,
+          "run_id",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          7,
+          "occurred_at_ms",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          8,
+          "received_at_ms",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          9,
+          "correlation_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          10,
+          "signal_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          11,
+          "base",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          12,
+          "shadow_group_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          13,
+          "comparison_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          14,
+          "reason_code",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          15,
+          "verification_status",
+          "TEXT",
+          1,
+          "'unverified'",
+          0
+        ],
+        [
+          16,
+          "is_exchange_verified",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          17,
+          "payload_json",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          18,
+          "verification_json",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          19,
+          "content_hash",
+          "TEXT",
+          1,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE events(\n              event_id TEXT PRIMARY KEY, schema_version INTEGER NOT NULL CHECK(schema_version=1),\n              mode TEXT NOT NULL CHECK(mode IN ('paper','real','test','replay')),\n              category TEXT NOT NULL, name TEXT NOT NULL, source TEXT NOT NULL, run_id TEXT NOT NULL,\n              occurred_at_ms INTEGER NOT NULL, received_at_ms INTEGER NOT NULL,\n              correlation_id TEXT, signal_id TEXT, base TEXT, shadow_group_id TEXT,\n              comparison_id TEXT, reason_code TEXT,\n              verification_status TEXT NOT NULL DEFAULT 'unverified'\n                CHECK(verification_status IN ('unknown','unverified','observed','partially_verified','verified','contradicted')),\n              is_exchange_verified INTEGER NOT NULL CHECK(is_exchange_verified IN (0,1)),\n              payload_json TEXT NOT NULL, verification_json TEXT NOT NULL,\n              content_hash TEXT NOT NULL,\n              CHECK(mode='real' OR is_exchange_verified=0),\n              UNIQUE(event_id,mode,is_exchange_verified),\n              FOREIGN KEY(correlation_id,mode) REFERENCES attempts(correlation_id,mode)\n            )",
+      "foreign_keys": [
+        [
+          0,
+          0,
+          "attempts",
+          "correlation_id",
+          "correlation_id",
+          "NO ACTION",
+          "NO ACTION",
+          "NONE"
+        ],
+        [
+          0,
+          1,
+          "attempts",
+          "mode",
+          "mode",
+          "NO ACTION",
+          "NO ACTION",
+          "NONE"
+        ]
+      ],
+      "indexes": [
+        {
+          "definition": "CREATE INDEX events_correlation ON events(correlation_id,mode)",
+          "name": "events_correlation",
+          "origin": "c",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              9,
+              "correlation_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              2,
+              "mode",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              2,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 0
+        },
+        {
+          "definition": "CREATE INDEX events_retention ON events(category,received_at_ms)",
+          "name": "events_retention",
+          "origin": "c",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              3,
+              "category",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              8,
+              "received_at_ms",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              2,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 0
+        },
+        {
+          "definition": "CREATE INDEX events_signal ON events(signal_id,mode,category)",
+          "name": "events_signal",
+          "origin": "c",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              10,
+              "signal_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              2,
+              "mode",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              2,
+              3,
+              "category",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              3,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 0
+        },
+        {
+          "definition": "CREATE INDEX events_time ON events(occurred_at_ms,mode,category)",
+          "name": "events_time",
+          "origin": "c",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              7,
+              "occurred_at_ms",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              2,
+              "mode",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              2,
+              3,
+              "category",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              3,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 0
+        },
+        {
+          "definition": "CREATE UNIQUE INDEX one_entry_commit ON events(mode,correlation_id)\n              WHERE category='entries' AND name='ENTRY_COMMIT'",
+          "name": "one_entry_commit",
+          "origin": "c",
+          "partial": 1,
+          "parts": [
+            [
+              0,
+              2,
+              "mode",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              9,
+              "correlation_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              2,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        },
+        {
+          "definition": "CREATE UNIQUE INDEX one_exit_commit ON events(mode,correlation_id)\n              WHERE category='exits' AND name='EXIT_COMMIT'",
+          "name": "one_exit_commit",
+          "origin": "c",
+          "partial": 1,
+          "parts": [
+            [
+              0,
+              2,
+              "mode",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              9,
+              "correlation_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              2,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        },
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_events_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "event_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        },
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_events_2",
+          "origin": "u",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "event_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              2,
+              "mode",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              2,
+              16,
+              "is_exchange_verified",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              3,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "event_id"
+      ],
+      "table": "events",
+      "triggers": []
+    },
+    {
+      "columns": [
+        [
+          0,
+          "event_id",
+          "TEXT",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "mode",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          2,
+          "is_exchange_verified",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          3,
+          "exit_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          4,
+          "entry_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          5,
+          "exit_reason",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          6,
+          "exit_spread_bps",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          7,
+          "spot_close_price",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          8,
+          "fut_close_price",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          9,
+          "exit_slippage_bps",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          10,
+          "fees_exit_usdt",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          11,
+          "gross_pnl_usdt",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          12,
+          "net_pnl_usdt",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          13,
+          "dust_left",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          14,
+          "cleanup_status",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          15,
+          "stop_cancel_status",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          16,
+          "telegram_status",
+          "TEXT",
+          0,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE exits(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"exit_id\" TEXT,\"entry_id\" TEXT,\"exit_reason\" TEXT,\"exit_spread_bps\" TEXT,\"spot_close_price\" TEXT,\"fut_close_price\" TEXT,\"exit_slippage_bps\" TEXT,\"fees_exit_usdt\" TEXT,\"gross_pnl_usdt\" TEXT,\"net_pnl_usdt\" TEXT,\"dust_left\" TEXT,\"cleanup_status\" TEXT,\"stop_cancel_status\" TEXT,\"telegram_status\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+      "foreign_keys": [
+        [
+          0,
+          0,
+          "events",
+          "event_id",
+          "event_id",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          1,
+          "events",
+          "mode",
+          "mode",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          2,
+          "events",
+          "is_exchange_verified",
+          "is_exchange_verified",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ]
+      ],
+      "indexes": [
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_exits_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "event_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "event_id"
+      ],
+      "table": "exits",
+      "triggers": []
+    },
+    {
+      "columns": [
+        [
+          0,
+          "event_id",
+          "TEXT",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "mode",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          2,
+          "is_exchange_verified",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          3,
+          "exchange",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          4,
+          "leg",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          5,
+          "symbol",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          6,
+          "side",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          7,
+          "client_order_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          8,
+          "order_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          9,
+          "fill_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          10,
+          "price",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          11,
+          "amount",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          12,
+          "cost",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          13,
+          "fee_amount",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          14,
+          "fee_currency",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          15,
+          "fee_usdt",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          16,
+          "fee_conversion_source",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          17,
+          "exchange_event_time_ms",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          18,
+          "liquidity_role",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          19,
+          "evidence_source",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          20,
+          "observation_call_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE fills(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"exchange\" TEXT,\"leg\" TEXT,\"symbol\" TEXT,\"side\" TEXT,\"client_order_id\" TEXT,\"order_id\" TEXT,\"fill_id\" TEXT,\"price\" TEXT,\"amount\" TEXT,\"cost\" TEXT,\"fee_amount\" TEXT,\"fee_currency\" TEXT,\"fee_usdt\" TEXT,\"fee_conversion_source\" TEXT,\"exchange_event_time_ms\" TEXT,\"liquidity_role\" TEXT,\"evidence_source\" TEXT,\"observation_call_id\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+      "foreign_keys": [
+        [
+          0,
+          0,
+          "events",
+          "event_id",
+          "event_id",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          1,
+          "events",
+          "mode",
+          "mode",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          2,
+          "events",
+          "is_exchange_verified",
+          "is_exchange_verified",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ]
+      ],
+      "indexes": [
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_fills_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "event_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "event_id"
+      ],
+      "table": "fills",
+      "triggers": []
+    },
+    {
+      "columns": [
+        [
+          0,
+          "hour_start_ms",
+          "INTEGER",
+          1,
+          null,
+          1
+        ],
+        [
+          1,
+          "mode",
+          "TEXT",
+          1,
+          null,
+          2
+        ],
+        [
+          2,
+          "base",
+          "TEXT",
+          1,
+          "''",
+          3
+        ],
+        [
+          3,
+          "category",
+          "TEXT",
+          1,
+          null,
+          4
+        ],
+        [
+          4,
+          "name",
+          "TEXT",
+          1,
+          null,
+          5
+        ],
+        [
+          5,
+          "reason_code",
+          "TEXT",
+          1,
+          "''",
+          6
+        ],
+        [
+          6,
+          "decision",
+          "TEXT",
+          1,
+          "''",
+          7
+        ],
+        [
+          7,
+          "skip_reason",
+          "TEXT",
+          1,
+          "''",
+          8
+        ],
+        [
+          8,
+          "event_count",
+          "INTEGER",
+          1,
+          "0",
+          0
+        ],
+        [
+          9,
+          "raw_spread_count",
+          "INTEGER",
+          1,
+          "0",
+          0
+        ],
+        [
+          10,
+          "raw_spread_sum",
+          "TEXT",
+          1,
+          "'0'",
+          0
+        ],
+        [
+          11,
+          "raw_spread_min",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          12,
+          "raw_spread_max",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          13,
+          "net_spread_count",
+          "INTEGER",
+          1,
+          "0",
+          0
+        ],
+        [
+          14,
+          "net_spread_sum",
+          "TEXT",
+          1,
+          "'0'",
+          0
+        ],
+        [
+          15,
+          "net_spread_min",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          16,
+          "net_spread_max",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          17,
+          "telemetry_age_count",
+          "INTEGER",
+          1,
+          "0",
+          0
+        ],
+        [
+          18,
+          "telemetry_age_sum",
+          "TEXT",
+          1,
+          "'0'",
+          0
+        ],
+        [
+          19,
+          "telemetry_age_max",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          20,
+          "depth_spot_count",
+          "INTEGER",
+          1,
+          "0",
+          0
+        ],
+        [
+          21,
+          "depth_spot_sum",
+          "TEXT",
+          1,
+          "'0'",
+          0
+        ],
+        [
+          22,
+          "depth_fut_count",
+          "INTEGER",
+          1,
+          "0",
+          0
+        ],
+        [
+          23,
+          "depth_fut_sum",
+          "TEXT",
+          1,
+          "'0'",
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE hourly_raw_rollups(\n          hour_start_ms INTEGER NOT NULL,\n          mode TEXT NOT NULL CHECK(mode IN ('paper','real','test','replay')),\n          base TEXT NOT NULL DEFAULT '',\n          category TEXT NOT NULL CHECK(category IN ('signals','decisions')),\n          name TEXT NOT NULL,\n          reason_code TEXT NOT NULL DEFAULT '',\n          decision TEXT NOT NULL DEFAULT '',\n          skip_reason TEXT NOT NULL DEFAULT '',\n          event_count INTEGER NOT NULL DEFAULT 0,\n          raw_spread_count INTEGER NOT NULL DEFAULT 0,\n          raw_spread_sum TEXT NOT NULL DEFAULT '0',\n          raw_spread_min TEXT,\n          raw_spread_max TEXT,\n          net_spread_count INTEGER NOT NULL DEFAULT 0,\n          net_spread_sum TEXT NOT NULL DEFAULT '0',\n          net_spread_min TEXT,\n          net_spread_max TEXT,\n          telemetry_age_count INTEGER NOT NULL DEFAULT 0,\n          telemetry_age_sum TEXT NOT NULL DEFAULT '0',\n          telemetry_age_max TEXT,\n          depth_spot_count INTEGER NOT NULL DEFAULT 0,\n          depth_spot_sum TEXT NOT NULL DEFAULT '0',\n          depth_fut_count INTEGER NOT NULL DEFAULT 0,\n          depth_fut_sum TEXT NOT NULL DEFAULT '0',\n          PRIMARY KEY(hour_start_ms,mode,base,category,name,reason_code,decision,skip_reason)\n        )",
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_hourly_raw_rollups_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "hour_start_ms",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              1,
+              "mode",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              2,
+              2,
+              "base",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              3,
+              3,
+              "category",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              4,
+              4,
+              "name",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              5,
+              5,
+              "reason_code",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              6,
+              6,
+              "decision",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              7,
+              7,
+              "skip_reason",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              8,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "hour_start_ms",
+        "mode",
+        "base",
+        "category",
+        "name",
+        "reason_code",
+        "decision",
+        "skip_reason"
+      ],
+      "table": "hourly_raw_rollups",
+      "triggers": []
+    },
+    {
+      "columns": [
+        [
+          0,
+          "key",
+          "TEXT",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "value",
+          "TEXT",
+          1,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE metadata(key TEXT PRIMARY KEY, value TEXT NOT NULL)",
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_metadata_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "key",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "key"
+      ],
+      "table": "metadata",
+      "triggers": []
+    },
+    {
+      "columns": [
+        [
+          0,
+          "event_id",
+          "TEXT",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "mode",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          2,
+          "is_exchange_verified",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          3,
+          "exchange",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          4,
+          "leg",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          5,
+          "symbol",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          6,
+          "client_order_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          7,
+          "order_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          8,
+          "call_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          9,
+          "action",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          10,
+          "side",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          11,
+          "order_type",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          12,
+          "time_in_force",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          13,
+          "requested_amount",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          14,
+          "requested_price",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          15,
+          "status",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          16,
+          "executed_amount",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          17,
+          "remaining_amount",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          18,
+          "average_price",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          19,
+          "cost",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          20,
+          "exchange_event_time_ms",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          21,
+          "request_sent_at_ms",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          22,
+          "response_received_at_ms",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          23,
+          "latency_ms",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          24,
+          "retry_count",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          25,
+          "failure_stage",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          26,
+          "evidence_source",
+          "TEXT",
+          0,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE orders(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"exchange\" TEXT,\"leg\" TEXT,\"symbol\" TEXT,\"client_order_id\" TEXT,\"order_id\" TEXT,\"call_id\" TEXT,\"action\" TEXT,\"side\" TEXT,\"order_type\" TEXT,\"time_in_force\" TEXT,\"requested_amount\" TEXT,\"requested_price\" TEXT,\"status\" TEXT,\"executed_amount\" TEXT,\"remaining_amount\" TEXT,\"average_price\" TEXT,\"cost\" TEXT,\"exchange_event_time_ms\" TEXT,\"request_sent_at_ms\" TEXT,\"response_received_at_ms\" TEXT,\"latency_ms\" TEXT,\"retry_count\" TEXT,\"failure_stage\" TEXT,\"evidence_source\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+      "foreign_keys": [
+        [
+          0,
+          0,
+          "events",
+          "event_id",
+          "event_id",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          1,
+          "events",
+          "mode",
+          "mode",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          2,
+          "events",
+          "is_exchange_verified",
+          "is_exchange_verified",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ]
+      ],
+      "indexes": [
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_orders_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "event_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "event_id"
+      ],
+      "table": "orders",
+      "triggers": []
+    },
+    {
+      "columns": [
+        [
+          0,
+          "event_id",
+          "TEXT",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "mode",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          2,
+          "is_exchange_verified",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          3,
+          "snapshot_id",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          4,
+          "code_revision",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          5,
+          "config_hash",
+          "TEXT",
+          0,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE parameter_snapshots(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"snapshot_id\" TEXT,\"code_revision\" TEXT,\"config_hash\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+      "foreign_keys": [
+        [
+          0,
+          0,
+          "events",
+          "event_id",
+          "event_id",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          1,
+          "events",
+          "mode",
+          "mode",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          2,
+          "events",
+          "is_exchange_verified",
+          "is_exchange_verified",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ]
+      ],
+      "indexes": [
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_parameter_snapshots_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "event_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "event_id"
+      ],
+      "table": "parameter_snapshots",
+      "triggers": []
+    },
+    {
+      "columns": [
+        [
+          0,
+          "event_id",
+          "TEXT",
+          0,
+          null,
+          1
+        ],
+        [
+          1,
+          "mode",
+          "TEXT",
+          1,
+          null,
+          0
+        ],
+        [
+          2,
+          "is_exchange_verified",
+          "INTEGER",
+          1,
+          null,
+          0
+        ],
+        [
+          3,
+          "symbol_spot",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          4,
+          "symbol_fut",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          5,
+          "okx_bid",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          6,
+          "okx_ask",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          7,
+          "binance_bid",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          8,
+          "binance_ask",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          9,
+          "raw_spread_bps",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          10,
+          "net_spread_bps",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          11,
+          "telemetry_age_sec",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          12,
+          "depth_spot_usdt",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          13,
+          "depth_fut_usdt",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          14,
+          "trade200",
+          "TEXT",
+          0,
+          null,
+          0
+        ],
+        [
+          15,
+          "liquidity_score",
+          "TEXT",
+          0,
+          null,
+          0
+        ]
+      ],
+      "ddl": "CREATE TABLE signals(\n   event_id TEXT PRIMARY KEY, mode TEXT NOT NULL,\n   is_exchange_verified INTEGER NOT NULL,\"symbol_spot\" TEXT,\"symbol_fut\" TEXT,\"okx_bid\" TEXT,\"okx_ask\" TEXT,\"binance_bid\" TEXT,\"binance_ask\" TEXT,\"raw_spread_bps\" TEXT,\"net_spread_bps\" TEXT,\"telemetry_age_sec\" TEXT,\"depth_spot_usdt\" TEXT,\"depth_fut_usdt\" TEXT,\"trade200\" TEXT,\"liquidity_score\" TEXT,\n   FOREIGN KEY(event_id,mode,is_exchange_verified)\n   REFERENCES events(event_id,mode,is_exchange_verified) ON DELETE CASCADE)",
+      "foreign_keys": [
+        [
+          0,
+          0,
+          "events",
+          "event_id",
+          "event_id",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          1,
+          "events",
+          "mode",
+          "mode",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ],
+        [
+          0,
+          2,
+          "events",
+          "is_exchange_verified",
+          "is_exchange_verified",
+          "NO ACTION",
+          "CASCADE",
+          "NONE"
+        ]
+      ],
+      "indexes": [
+        {
+          "definition": null,
+          "name": "sqlite_autoindex_signals_1",
+          "origin": "pk",
+          "partial": 0,
+          "parts": [
+            [
+              0,
+              0,
+              "event_id",
+              0,
+              "BINARY",
+              1
+            ],
+            [
+              1,
+              -1,
+              null,
+              0,
+              "BINARY",
+              0
+            ]
+          ],
+          "unique": 1
+        }
+      ],
+      "mirror_key": [
+        "event_id"
+      ],
+      "table": "signals",
+      "triggers": []
+    }
+  ]
+}

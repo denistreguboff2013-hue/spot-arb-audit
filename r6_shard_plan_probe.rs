@@ -1,0 +1,2 @@
+//! R6 deterministic bounded shard-plan proof.
+fn main(){let n=233usize;let shard=32usize;let ids:(Vec<usize>)=(0..n).map(|i|i/shard).collect();let count=ids.last().copied().unwrap()+1;let mut sizes=vec![0usize;count];for x in ids{sizes[x]+=1}assert_eq!(count,8);assert_eq!(sizes.iter().sum::<usize>(),n);assert!(sizes.iter().all(|x|*x<=shard));println!("{{\"r6_shard_plan\":\"PASS\",\"universe\":233,\"shard_capacity\":32,\"shards_per_venue\":{count},\"sizes\":{:?},\"bounded\":true,\"trading\":false}}",sizes);}

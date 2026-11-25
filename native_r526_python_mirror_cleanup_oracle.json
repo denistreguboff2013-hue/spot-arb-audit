@@ -1,0 +1,102 @@
+{
+  "before": {
+    "cleanup_through": 0,
+    "failure_reason": null,
+    "failure_seq": null,
+    "latest_seq": 130,
+    "reason": "initial logical bootstrap required",
+    "retained_bytes": 84630,
+    "retained_records": 130,
+    "state": "BOOTSTRAP_REQUIRED"
+  },
+  "cleanup_batch": 128,
+  "critical_retained_bytes": 805306368,
+  "first": {
+    "control": {
+      "cleanup_through": 128,
+      "failure_reason": null,
+      "failure_seq": null,
+      "latest_seq": 130,
+      "reason": "initial logical bootstrap required",
+      "retained_bytes": 1302,
+      "retained_records": 2,
+      "state": "BOOTSTRAP_REQUIRED"
+    },
+    "deleted": 128
+  },
+  "fourth_deleted": 0,
+  "initial": {
+    "cleanup_through": 0,
+    "failure_reason": null,
+    "failure_seq": null,
+    "latest_seq": 0,
+    "reason": "initial logical bootstrap required",
+    "retained_bytes": 0,
+    "retained_records": 0,
+    "state": "BOOTSTRAP_REQUIRED"
+  },
+  "max_retained_bytes": 1073741824,
+  "max_tx_bytes": 4194304,
+  "no_transaction_error": "cleanup requires an open transaction",
+  "oversize": {
+    "cleanup_through": 130,
+    "failure_reason": "OUTBOX_TRANSACTION_TOO_LARGE",
+    "failure_seq": 130,
+    "latest_seq": 130,
+    "reason": "OUTBOX_TRANSACTION_TOO_LARGE",
+    "retained_bytes": 0,
+    "retained_records": 0,
+    "state": "REBUILD_REQUIRED"
+  },
+  "oversize_suppressed": null,
+  "rebuild_after": {
+    "cleanup_through": 130,
+    "failure_reason": "SOURCE_TEST",
+    "failure_seq": 130,
+    "latest_seq": 130,
+    "reason": "SOURCE_TEST",
+    "retained_bytes": 0,
+    "retained_records": 0,
+    "state": "REBUILD_REQUIRED"
+  },
+  "rebuild_before": {
+    "cleanup_through": 130,
+    "failure_reason": "SOURCE_TEST",
+    "failure_seq": 130,
+    "latest_seq": 130,
+    "reason": "SOURCE_TEST",
+    "retained_bytes": 0,
+    "retained_records": 0,
+    "state": "REBUILD_REQUIRED"
+  },
+  "remaining": 0,
+  "rollback_count": 128,
+  "second": {
+    "control": {
+      "cleanup_through": 129,
+      "failure_reason": null,
+      "failure_seq": null,
+      "latest_seq": 130,
+      "reason": "initial logical bootstrap required",
+      "retained_bytes": 651,
+      "retained_records": 1,
+      "state": "BOOTSTRAP_REQUIRED"
+    },
+    "deleted": 1
+  },
+  "source_note": "Original Python ensure_schema/record/cleanup in-memory. Storage guard bypass only for normal 130 inserts; oversize checked normally. DB2 ACK is caller responsibility.",
+  "suppressed": null,
+  "third": {
+    "control": {
+      "cleanup_through": 130,
+      "failure_reason": null,
+      "failure_seq": null,
+      "latest_seq": 130,
+      "reason": "initial logical bootstrap required",
+      "retained_bytes": 0,
+      "retained_records": 0,
+      "state": "BOOTSTRAP_REQUIRED"
+    },
+    "deleted": 1
+  }
+}

@@ -1,0 +1,21 @@
+# SPOT-ARB R396–R405 audit — Python inner JSON order + isolated Rust SIGKILL
+
+Date 2026-10-22. Server spb-3-vm-4r2s. Starting HEAD a206102556ecec35f55983d5d28ec476d2a7fe12. Historical Git status SHA256 9d5a1608ce8912435df2269be7eeee6ac17bc178e3442dd137fd56c4beb6ebc4 (32 dirty/untracked paths), initial staging 0. Installed PAPER supervisor PID 2161721 ACTIVE, NRestarts 0, child last seen 2944271. ELF sha256 10138620181ebfd37dcb76b79c091c70d3315b5c536045fd6ea5c258aa0dbd46. Kill switch ENGAGED, disk3 5.4GB free, no installed changes.
+
+## Completed, by ten review directions
+R396: Read actual Python ai/schemas.py Event.record: inner payload_json/verification_json preserve input dict order; separately event content SHA canonicalizes outer fields. Read ai/mirror_outbox.py after(), canonical() and TABLE_KEYS.
+R397: Confirmed global serde_json::Value destroys original input key order, so did NOT change crate-wide serde_json preserve_order feature. Indexmap already exists but an isolated custom visitor is preferable.
+R398: Added native_python_ordered_inner_r396_review.rs, a pure serde visitor preserving nested map entry order using Vec<(String,Value)> and Python default JSON spacing. No DB/network/real order access. Restricts arrays 64, objects 128, string chars 4096, nesting 8, traversal 512, total bytes 16384, duplicates denied, floats fail closed.
+R399: Called actual Python json.dumps for four synthetic nested/mixed Unicode objects. Rust order-preserving bytes matched 4/4.
+R400: Called original Python schemas.scrub + json.dumps for four fake-secret events. Rust ordered scrub reuses R336 sensitive-key and inline string processing with synthetic known secrets and preserves key ordering. Exact Python byte match for 4/4.
+R401: Called original Python mirror_outbox.after() on two synthetic decisions rows in independent in-memory sqlite3. Rust R386 after_image row/key/op/after_hash matched 2/2.
+R402: Rust negative test rejects float, duplicated object keys, excessive depth and excessive string, fail closed.
+R403: Added a test-only R366 conditional SIGKILL hook between category insert and outbox/commit, conditioned on an explicit synthetic env marker and a private /tmp/astra_r366_isolated_* path. There are no runtime changes to live service. Hook is compiled ONLY in Rust tests.
+R404: Added native_isolated_sigkill_r396_review.rs spawning the current Rust unit-test binary as a disposable child twice. Killed before COMMIT: 1 existing event, 1 category row and 1 outbox survive; partial second event is absent; subsequent append works. Killed after COMMIT: 2 events, 2 category rows and 2 outbox survive cold reopen. Actual SIGKILL verified via process signal, not just a Rust error. Targeted test PASS.
+R405: Full Rust --offline --locked library 1226 PASS, 0 FAIL, 2 ignored; all binaries 98 PASS, 0 FAIL across 81 bin groups; unique total 1324 PASS, 0 FAIL, 2 ignored. Exit code 0. The 6 new R396 tests are INCLUDED in the 1226 library total. Only six R396 research files may be staged and committed; historical 32 paths must remain identical.
+
+## Release gates still OPEN
+This is source-only research. New ordered scrub is NOT yet wired into R356 Event.record with guaranteed configured-secret intake or into R366 durable outbox. Full Python source schemas, 10 category projections, numbers/float formats, complete after row images inside active outbox, DB1->DB2 consumer and long-lived witness are NOT proven. SIGKILL covers a disposable single SQLite child before and after COMMIT, not full power-failure / multi-process recovery or historic PAPER virtual positions. Existing cross-day quarantine of four virtual positions MUST remain. Do not install into live PAPER until immutable release build, replay test, source-schema parity, rollback and operator go/no-go are proven. Kill switch stays ENGAGED and REAL trading is forbidden.
+
+## Next R406–R415
+Integrate pure ordered Python-compatible sanitized JSON into isolated Event.record source admission; confirm byte-exact canonical hashes; provide complete isolated after() row images in R366 outbox and cross-validate each against SQLite storage and Rust integrity verifier; fail closed on tampering; test isolated crash recovery and full relaunch/rollbacks. Then evaluate limited safe PAPER update. No automatic per-commit production cutover.

@@ -1,0 +1,663 @@
+{
+  "baseline_five": {
+    "initial": 5,
+    "steps": [
+      {
+        "deleted": 2,
+        "operations": [
+          {
+            "after_hash": "68735f71e890dd31d9a653d90c9838236583d38435ff8da9f53698dbd7d47d7e",
+            "key": {
+              "base": "SOL",
+              "category": "signals",
+              "decision": "",
+              "hour_start_ms": 1791968400000,
+              "mode": "paper",
+              "name": "SIGNAL_SEEN",
+              "reason_code": "",
+              "skip_reason": ""
+            },
+            "op": "upsert",
+            "row": {
+              "base": "SOL",
+              "category": "signals",
+              "decision": "",
+              "depth_fut_count": 2,
+              "depth_fut_sum": "55.00",
+              "depth_spot_count": 2,
+              "depth_spot_sum": "125.50",
+              "event_count": 2,
+              "hour_start_ms": 1791968400000,
+              "mode": "paper",
+              "name": "SIGNAL_SEEN",
+              "net_spread_count": 2,
+              "net_spread_max": "0.50",
+              "net_spread_min": "-1.00",
+              "net_spread_sum": "-0.50",
+              "raw_spread_count": 2,
+              "raw_spread_max": "2.30",
+              "raw_spread_min": "1.20",
+              "raw_spread_sum": "3.50",
+              "reason_code": "",
+              "skip_reason": "",
+              "telemetry_age_count": 2,
+              "telemetry_age_max": "3.5",
+              "telemetry_age_sum": "5.5"
+            },
+            "table": "hourly_raw_rollups"
+          },
+          {
+            "key": {
+              "event_id": "r496_s1"
+            },
+            "op": "delete",
+            "table": "signals"
+          },
+          {
+            "key": {
+              "event_id": "r496_s2"
+            },
+            "op": "delete",
+            "table": "signals"
+          },
+          {
+            "key": {
+              "event_id": "r496_s1"
+            },
+            "op": "delete",
+            "table": "events"
+          },
+          {
+            "key": {
+              "event_id": "r496_s2"
+            },
+            "op": "delete",
+            "table": "events"
+          },
+          {
+            "after_hash": "f1b4f36b22ed97e94ce80a798094d581781ec5eb4179c0c6033bb3f5d24b6d12",
+            "key": {
+              "key": "rolled_up_raw_events"
+            },
+            "op": "upsert",
+            "row": {
+              "key": "rolled_up_raw_events",
+              "value": "7"
+            },
+            "table": "metadata"
+          }
+        ],
+        "operations_canonical": "[{\"after_hash\":\"68735f71e890dd31d9a653d90c9838236583d38435ff8da9f53698dbd7d47d7e\",\"key\":{\"base\":\"SOL\",\"category\":\"signals\",\"decision\":\"\",\"hour_start_ms\":1791968400000,\"mode\":\"paper\",\"name\":\"SIGNAL_SEEN\",\"reason_code\":\"\",\"skip_reason\":\"\"},\"op\":\"upsert\",\"row\":{\"base\":\"SOL\",\"category\":\"signals\",\"decision\":\"\",\"depth_fut_count\":2,\"depth_fut_sum\":\"55.00\",\"depth_spot_count\":2,\"depth_spot_sum\":\"125.50\",\"event_count\":2,\"hour_start_ms\":1791968400000,\"mode\":\"paper\",\"name\":\"SIGNAL_SEEN\",\"net_spread_count\":2,\"net_spread_max\":\"0.50\",\"net_spread_min\":\"-1.00\",\"net_spread_sum\":\"-0.50\",\"raw_spread_count\":2,\"raw_spread_max\":\"2.30\",\"raw_spread_min\":\"1.20\",\"raw_spread_sum\":\"3.50\",\"reason_code\":\"\",\"skip_reason\":\"\",\"telemetry_age_count\":2,\"telemetry_age_max\":\"3.5\",\"telemetry_age_sum\":\"5.5\"},\"table\":\"hourly_raw_rollups\"},{\"key\":{\"event_id\":\"r496_s1\"},\"op\":\"delete\",\"table\":\"signals\"},{\"key\":{\"event_id\":\"r496_s2\"},\"op\":\"delete\",\"table\":\"signals\"},{\"key\":{\"event_id\":\"r496_s1\"},\"op\":\"delete\",\"table\":\"events\"},{\"key\":{\"event_id\":\"r496_s2\"},\"op\":\"delete\",\"table\":\"events\"},{\"after_hash\":\"f1b4f36b22ed97e94ce80a798094d581781ec5eb4179c0c6033bb3f5d24b6d12\",\"key\":{\"key\":\"rolled_up_raw_events\"},\"op\":\"upsert\",\"row\":{\"key\":\"rolled_up_raw_events\",\"value\":\"7\"},\"table\":\"metadata\"}]",
+        "operations_sha256": "fdab6721285ebed458cca34dd31746f65fb0963a40ad6ef93d71f4b30b47d770",
+        "rolled_up_raw_events": "7",
+        "rollups": [
+          {
+            "base": "SOL",
+            "category": "signals",
+            "decision": "",
+            "depth_fut_count": 2,
+            "depth_fut_sum": "55.00",
+            "depth_spot_count": 2,
+            "depth_spot_sum": "125.50",
+            "event_count": 2,
+            "hour_start_ms": 1791968400000,
+            "mode": "paper",
+            "name": "SIGNAL_SEEN",
+            "net_spread_count": 2,
+            "net_spread_max": "0.50",
+            "net_spread_min": "-1.00",
+            "net_spread_sum": "-0.50",
+            "raw_spread_count": 2,
+            "raw_spread_max": "2.30",
+            "raw_spread_min": "1.20",
+            "raw_spread_sum": "3.50",
+            "reason_code": "",
+            "skip_reason": "",
+            "telemetry_age_count": 2,
+            "telemetry_age_max": "3.5",
+            "telemetry_age_sum": "5.5"
+          }
+        ]
+      },
+      {
+        "deleted": 2,
+        "operations": [
+          {
+            "after_hash": "f25c77850f236ee3650e79fc32ce9cdd083c915c01721ee36f88b148b77b552a",
+            "key": {
+              "base": "SOL",
+              "category": "decisions",
+              "decision": "skip",
+              "hour_start_ms": 1791972000000,
+              "mode": "paper",
+              "name": "DECISION_MADE",
+              "reason_code": "",
+              "skip_reason": "spread"
+            },
+            "op": "upsert",
+            "row": {
+              "base": "SOL",
+              "category": "decisions",
+              "decision": "skip",
+              "depth_fut_count": 0,
+              "depth_fut_sum": "0",
+              "depth_spot_count": 0,
+              "depth_spot_sum": "0",
+              "event_count": 1,
+              "hour_start_ms": 1791972000000,
+              "mode": "paper",
+              "name": "DECISION_MADE",
+              "net_spread_count": 0,
+              "net_spread_max": null,
+              "net_spread_min": null,
+              "net_spread_sum": "0",
+              "raw_spread_count": 0,
+              "raw_spread_max": null,
+              "raw_spread_min": null,
+              "raw_spread_sum": "0",
+              "reason_code": "",
+              "skip_reason": "spread",
+              "telemetry_age_count": 0,
+              "telemetry_age_max": null,
+              "telemetry_age_sum": "0"
+            },
+            "table": "hourly_raw_rollups"
+          },
+          {
+            "after_hash": "8979d5bb9dd632dc82b5a0f68de53d728ab1d64e53da4ae2a92f27c502019c42",
+            "key": {
+              "base": "SOL",
+              "category": "signals",
+              "decision": "",
+              "hour_start_ms": 1791968400000,
+              "mode": "paper",
+              "name": "SIGNAL_SEEN",
+              "reason_code": "",
+              "skip_reason": ""
+            },
+            "op": "upsert",
+            "row": {
+              "base": "SOL",
+              "category": "signals",
+              "decision": "",
+              "depth_fut_count": 3,
+              "depth_fut_sum": "70.75",
+              "depth_spot_count": 3,
+              "depth_spot_sum": "135.75",
+              "event_count": 3,
+              "hour_start_ms": 1791968400000,
+              "mode": "paper",
+              "name": "SIGNAL_SEEN",
+              "net_spread_count": 3,
+              "net_spread_max": "0.50",
+              "net_spread_min": "-1.00",
+              "net_spread_sum": "-0.25",
+              "raw_spread_count": 3,
+              "raw_spread_max": "2.30",
+              "raw_spread_min": "-0.30",
+              "raw_spread_sum": "3.20",
+              "reason_code": "",
+              "skip_reason": "",
+              "telemetry_age_count": 3,
+              "telemetry_age_max": "3.5",
+              "telemetry_age_sum": "7.00"
+            },
+            "table": "hourly_raw_rollups"
+          },
+          {
+            "key": {
+              "event_id": "r496_s3"
+            },
+            "op": "delete",
+            "table": "signals"
+          },
+          {
+            "key": {
+              "event_id": "r496_d1"
+            },
+            "op": "delete",
+            "table": "decisions"
+          },
+          {
+            "key": {
+              "event_id": "r496_s3"
+            },
+            "op": "delete",
+            "table": "events"
+          },
+          {
+            "key": {
+              "event_id": "r496_d1"
+            },
+            "op": "delete",
+            "table": "events"
+          },
+          {
+            "after_hash": "a621da6dcb353a7ae2c9f4a9a56d4a466d370aaab5e046305797116687af7b7c",
+            "key": {
+              "key": "rolled_up_raw_events"
+            },
+            "op": "upsert",
+            "row": {
+              "key": "rolled_up_raw_events",
+              "value": "9"
+            },
+            "table": "metadata"
+          }
+        ],
+        "operations_canonical": "[{\"after_hash\":\"f25c77850f236ee3650e79fc32ce9cdd083c915c01721ee36f88b148b77b552a\",\"key\":{\"base\":\"SOL\",\"category\":\"decisions\",\"decision\":\"skip\",\"hour_start_ms\":1791972000000,\"mode\":\"paper\",\"name\":\"DECISION_MADE\",\"reason_code\":\"\",\"skip_reason\":\"spread\"},\"op\":\"upsert\",\"row\":{\"base\":\"SOL\",\"category\":\"decisions\",\"decision\":\"skip\",\"depth_fut_count\":0,\"depth_fut_sum\":\"0\",\"depth_spot_count\":0,\"depth_spot_sum\":\"0\",\"event_count\":1,\"hour_start_ms\":1791972000000,\"mode\":\"paper\",\"name\":\"DECISION_MADE\",\"net_spread_count\":0,\"net_spread_max\":null,\"net_spread_min\":null,\"net_spread_sum\":\"0\",\"raw_spread_count\":0,\"raw_spread_max\":null,\"raw_spread_min\":null,\"raw_spread_sum\":\"0\",\"reason_code\":\"\",\"skip_reason\":\"spread\",\"telemetry_age_count\":0,\"telemetry_age_max\":null,\"telemetry_age_sum\":\"0\"},\"table\":\"hourly_raw_rollups\"},{\"after_hash\":\"8979d5bb9dd632dc82b5a0f68de53d728ab1d64e53da4ae2a92f27c502019c42\",\"key\":{\"base\":\"SOL\",\"category\":\"signals\",\"decision\":\"\",\"hour_start_ms\":1791968400000,\"mode\":\"paper\",\"name\":\"SIGNAL_SEEN\",\"reason_code\":\"\",\"skip_reason\":\"\"},\"op\":\"upsert\",\"row\":{\"base\":\"SOL\",\"category\":\"signals\",\"decision\":\"\",\"depth_fut_count\":3,\"depth_fut_sum\":\"70.75\",\"depth_spot_count\":3,\"depth_spot_sum\":\"135.75\",\"event_count\":3,\"hour_start_ms\":1791968400000,\"mode\":\"paper\",\"name\":\"SIGNAL_SEEN\",\"net_spread_count\":3,\"net_spread_max\":\"0.50\",\"net_spread_min\":\"-1.00\",\"net_spread_sum\":\"-0.25\",\"raw_spread_count\":3,\"raw_spread_max\":\"2.30\",\"raw_spread_min\":\"-0.30\",\"raw_spread_sum\":\"3.20\",\"reason_code\":\"\",\"skip_reason\":\"\",\"telemetry_age_count\":3,\"telemetry_age_max\":\"3.5\",\"telemetry_age_sum\":\"7.00\"},\"table\":\"hourly_raw_rollups\"},{\"key\":{\"event_id\":\"r496_s3\"},\"op\":\"delete\",\"table\":\"signals\"},{\"key\":{\"event_id\":\"r496_d1\"},\"op\":\"delete\",\"table\":\"decisions\"},{\"key\":{\"event_id\":\"r496_s3\"},\"op\":\"delete\",\"table\":\"events\"},{\"key\":{\"event_id\":\"r496_d1\"},\"op\":\"delete\",\"table\":\"events\"},{\"after_hash\":\"a621da6dcb353a7ae2c9f4a9a56d4a466d370aaab5e046305797116687af7b7c\",\"key\":{\"key\":\"rolled_up_raw_events\"},\"op\":\"upsert\",\"row\":{\"key\":\"rolled_up_raw_events\",\"value\":\"9\"},\"table\":\"metadata\"}]",
+        "operations_sha256": "bf9fe479a2b567dc7d60fcad39f8efa8c5d4db118204d25ce42ac46d1ddbf9a3",
+        "rolled_up_raw_events": "9",
+        "rollups": [
+          {
+            "base": "SOL",
+            "category": "signals",
+            "decision": "",
+            "depth_fut_count": 3,
+            "depth_fut_sum": "70.75",
+            "depth_spot_count": 3,
+            "depth_spot_sum": "135.75",
+            "event_count": 3,
+            "hour_start_ms": 1791968400000,
+            "mode": "paper",
+            "name": "SIGNAL_SEEN",
+            "net_spread_count": 3,
+            "net_spread_max": "0.50",
+            "net_spread_min": "-1.00",
+            "net_spread_sum": "-0.25",
+            "raw_spread_count": 3,
+            "raw_spread_max": "2.30",
+            "raw_spread_min": "-0.30",
+            "raw_spread_sum": "3.20",
+            "reason_code": "",
+            "skip_reason": "",
+            "telemetry_age_count": 3,
+            "telemetry_age_max": "3.5",
+            "telemetry_age_sum": "7.00"
+          },
+          {
+            "base": "SOL",
+            "category": "decisions",
+            "decision": "skip",
+            "depth_fut_count": 0,
+            "depth_fut_sum": "0",
+            "depth_spot_count": 0,
+            "depth_spot_sum": "0",
+            "event_count": 1,
+            "hour_start_ms": 1791972000000,
+            "mode": "paper",
+            "name": "DECISION_MADE",
+            "net_spread_count": 0,
+            "net_spread_max": null,
+            "net_spread_min": null,
+            "net_spread_sum": "0",
+            "raw_spread_count": 0,
+            "raw_spread_max": null,
+            "raw_spread_min": null,
+            "raw_spread_sum": "0",
+            "reason_code": "",
+            "skip_reason": "spread",
+            "telemetry_age_count": 0,
+            "telemetry_age_max": null,
+            "telemetry_age_sum": "0"
+          }
+        ]
+      }
+    ]
+  },
+  "baseline_zero": {
+    "initial": 0,
+    "steps": [
+      {
+        "deleted": 2,
+        "operations": [
+          {
+            "after_hash": "68735f71e890dd31d9a653d90c9838236583d38435ff8da9f53698dbd7d47d7e",
+            "key": {
+              "base": "SOL",
+              "category": "signals",
+              "decision": "",
+              "hour_start_ms": 1791968400000,
+              "mode": "paper",
+              "name": "SIGNAL_SEEN",
+              "reason_code": "",
+              "skip_reason": ""
+            },
+            "op": "upsert",
+            "row": {
+              "base": "SOL",
+              "category": "signals",
+              "decision": "",
+              "depth_fut_count": 2,
+              "depth_fut_sum": "55.00",
+              "depth_spot_count": 2,
+              "depth_spot_sum": "125.50",
+              "event_count": 2,
+              "hour_start_ms": 1791968400000,
+              "mode": "paper",
+              "name": "SIGNAL_SEEN",
+              "net_spread_count": 2,
+              "net_spread_max": "0.50",
+              "net_spread_min": "-1.00",
+              "net_spread_sum": "-0.50",
+              "raw_spread_count": 2,
+              "raw_spread_max": "2.30",
+              "raw_spread_min": "1.20",
+              "raw_spread_sum": "3.50",
+              "reason_code": "",
+              "skip_reason": "",
+              "telemetry_age_count": 2,
+              "telemetry_age_max": "3.5",
+              "telemetry_age_sum": "5.5"
+            },
+            "table": "hourly_raw_rollups"
+          },
+          {
+            "key": {
+              "event_id": "r496_s1"
+            },
+            "op": "delete",
+            "table": "signals"
+          },
+          {
+            "key": {
+              "event_id": "r496_s2"
+            },
+            "op": "delete",
+            "table": "signals"
+          },
+          {
+            "key": {
+              "event_id": "r496_s1"
+            },
+            "op": "delete",
+            "table": "events"
+          },
+          {
+            "key": {
+              "event_id": "r496_s2"
+            },
+            "op": "delete",
+            "table": "events"
+          },
+          {
+            "after_hash": "f3aa81800a0d51746de3b8f5ed04bd6a77d8e64c1ad5e1fa93d3665a6695f092",
+            "key": {
+              "key": "rolled_up_raw_events"
+            },
+            "op": "upsert",
+            "row": {
+              "key": "rolled_up_raw_events",
+              "value": "2"
+            },
+            "table": "metadata"
+          }
+        ],
+        "operations_canonical": "[{\"after_hash\":\"68735f71e890dd31d9a653d90c9838236583d38435ff8da9f53698dbd7d47d7e\",\"key\":{\"base\":\"SOL\",\"category\":\"signals\",\"decision\":\"\",\"hour_start_ms\":1791968400000,\"mode\":\"paper\",\"name\":\"SIGNAL_SEEN\",\"reason_code\":\"\",\"skip_reason\":\"\"},\"op\":\"upsert\",\"row\":{\"base\":\"SOL\",\"category\":\"signals\",\"decision\":\"\",\"depth_fut_count\":2,\"depth_fut_sum\":\"55.00\",\"depth_spot_count\":2,\"depth_spot_sum\":\"125.50\",\"event_count\":2,\"hour_start_ms\":1791968400000,\"mode\":\"paper\",\"name\":\"SIGNAL_SEEN\",\"net_spread_count\":2,\"net_spread_max\":\"0.50\",\"net_spread_min\":\"-1.00\",\"net_spread_sum\":\"-0.50\",\"raw_spread_count\":2,\"raw_spread_max\":\"2.30\",\"raw_spread_min\":\"1.20\",\"raw_spread_sum\":\"3.50\",\"reason_code\":\"\",\"skip_reason\":\"\",\"telemetry_age_count\":2,\"telemetry_age_max\":\"3.5\",\"telemetry_age_sum\":\"5.5\"},\"table\":\"hourly_raw_rollups\"},{\"key\":{\"event_id\":\"r496_s1\"},\"op\":\"delete\",\"table\":\"signals\"},{\"key\":{\"event_id\":\"r496_s2\"},\"op\":\"delete\",\"table\":\"signals\"},{\"key\":{\"event_id\":\"r496_s1\"},\"op\":\"delete\",\"table\":\"events\"},{\"key\":{\"event_id\":\"r496_s2\"},\"op\":\"delete\",\"table\":\"events\"},{\"after_hash\":\"f3aa81800a0d51746de3b8f5ed04bd6a77d8e64c1ad5e1fa93d3665a6695f092\",\"key\":{\"key\":\"rolled_up_raw_events\"},\"op\":\"upsert\",\"row\":{\"key\":\"rolled_up_raw_events\",\"value\":\"2\"},\"table\":\"metadata\"}]",
+        "operations_sha256": "c2ced6701134a31ec5dbc1d2d2ce797aad7d5800ddf9dc212363828ec13a5971",
+        "rolled_up_raw_events": "2",
+        "rollups": [
+          {
+            "base": "SOL",
+            "category": "signals",
+            "decision": "",
+            "depth_fut_count": 2,
+            "depth_fut_sum": "55.00",
+            "depth_spot_count": 2,
+            "depth_spot_sum": "125.50",
+            "event_count": 2,
+            "hour_start_ms": 1791968400000,
+            "mode": "paper",
+            "name": "SIGNAL_SEEN",
+            "net_spread_count": 2,
+            "net_spread_max": "0.50",
+            "net_spread_min": "-1.00",
+            "net_spread_sum": "-0.50",
+            "raw_spread_count": 2,
+            "raw_spread_max": "2.30",
+            "raw_spread_min": "1.20",
+            "raw_spread_sum": "3.50",
+            "reason_code": "",
+            "skip_reason": "",
+            "telemetry_age_count": 2,
+            "telemetry_age_max": "3.5",
+            "telemetry_age_sum": "5.5"
+          }
+        ]
+      },
+      {
+        "deleted": 2,
+        "operations": [
+          {
+            "after_hash": "f25c77850f236ee3650e79fc32ce9cdd083c915c01721ee36f88b148b77b552a",
+            "key": {
+              "base": "SOL",
+              "category": "decisions",
+              "decision": "skip",
+              "hour_start_ms": 1791972000000,
+              "mode": "paper",
+              "name": "DECISION_MADE",
+              "reason_code": "",
+              "skip_reason": "spread"
+            },
+            "op": "upsert",
+            "row": {
+              "base": "SOL",
+              "category": "decisions",
+              "decision": "skip",
+              "depth_fut_count": 0,
+              "depth_fut_sum": "0",
+              "depth_spot_count": 0,
+              "depth_spot_sum": "0",
+              "event_count": 1,
+              "hour_start_ms": 1791972000000,
+              "mode": "paper",
+              "name": "DECISION_MADE",
+              "net_spread_count": 0,
+              "net_spread_max": null,
+              "net_spread_min": null,
+              "net_spread_sum": "0",
+              "raw_spread_count": 0,
+              "raw_spread_max": null,
+              "raw_spread_min": null,
+              "raw_spread_sum": "0",
+              "reason_code": "",
+              "skip_reason": "spread",
+              "telemetry_age_count": 0,
+              "telemetry_age_max": null,
+              "telemetry_age_sum": "0"
+            },
+            "table": "hourly_raw_rollups"
+          },
+          {
+            "after_hash": "8979d5bb9dd632dc82b5a0f68de53d728ab1d64e53da4ae2a92f27c502019c42",
+            "key": {
+              "base": "SOL",
+              "category": "signals",
+              "decision": "",
+              "hour_start_ms": 1791968400000,
+              "mode": "paper",
+              "name": "SIGNAL_SEEN",
+              "reason_code": "",
+              "skip_reason": ""
+            },
+            "op": "upsert",
+            "row": {
+              "base": "SOL",
+              "category": "signals",
+              "decision": "",
+              "depth_fut_count": 3,
+              "depth_fut_sum": "70.75",
+              "depth_spot_count": 3,
+              "depth_spot_sum": "135.75",
+              "event_count": 3,
+              "hour_start_ms": 1791968400000,
+              "mode": "paper",
+              "name": "SIGNAL_SEEN",
+              "net_spread_count": 3,
+              "net_spread_max": "0.50",
+              "net_spread_min": "-1.00",
+              "net_spread_sum": "-0.25",
+              "raw_spread_count": 3,
+              "raw_spread_max": "2.30",
+              "raw_spread_min": "-0.30",
+              "raw_spread_sum": "3.20",
+              "reason_code": "",
+              "skip_reason": "",
+              "telemetry_age_count": 3,
+              "telemetry_age_max": "3.5",
+              "telemetry_age_sum": "7.00"
+            },
+            "table": "hourly_raw_rollups"
+          },
+          {
+            "key": {
+              "event_id": "r496_s3"
+            },
+            "op": "delete",
+            "table": "signals"
+          },
+          {
+            "key": {
+              "event_id": "r496_d1"
+            },
+            "op": "delete",
+            "table": "decisions"
+          },
+          {
+            "key": {
+              "event_id": "r496_s3"
+            },
+            "op": "delete",
+            "table": "events"
+          },
+          {
+            "key": {
+              "event_id": "r496_d1"
+            },
+            "op": "delete",
+            "table": "events"
+          },
+          {
+            "after_hash": "ea095ea90fb867e6cc5a90108ee742de53724f0a6d97b69ee9300e2e30257397",
+            "key": {
+              "key": "rolled_up_raw_events"
+            },
+            "op": "upsert",
+            "row": {
+              "key": "rolled_up_raw_events",
+              "value": "4"
+            },
+            "table": "metadata"
+          }
+        ],
+        "operations_canonical": "[{\"after_hash\":\"f25c77850f236ee3650e79fc32ce9cdd083c915c01721ee36f88b148b77b552a\",\"key\":{\"base\":\"SOL\",\"category\":\"decisions\",\"decision\":\"skip\",\"hour_start_ms\":1791972000000,\"mode\":\"paper\",\"name\":\"DECISION_MADE\",\"reason_code\":\"\",\"skip_reason\":\"spread\"},\"op\":\"upsert\",\"row\":{\"base\":\"SOL\",\"category\":\"decisions\",\"decision\":\"skip\",\"depth_fut_count\":0,\"depth_fut_sum\":\"0\",\"depth_spot_count\":0,\"depth_spot_sum\":\"0\",\"event_count\":1,\"hour_start_ms\":1791972000000,\"mode\":\"paper\",\"name\":\"DECISION_MADE\",\"net_spread_count\":0,\"net_spread_max\":null,\"net_spread_min\":null,\"net_spread_sum\":\"0\",\"raw_spread_count\":0,\"raw_spread_max\":null,\"raw_spread_min\":null,\"raw_spread_sum\":\"0\",\"reason_code\":\"\",\"skip_reason\":\"spread\",\"telemetry_age_count\":0,\"telemetry_age_max\":null,\"telemetry_age_sum\":\"0\"},\"table\":\"hourly_raw_rollups\"},{\"after_hash\":\"8979d5bb9dd632dc82b5a0f68de53d728ab1d64e53da4ae2a92f27c502019c42\",\"key\":{\"base\":\"SOL\",\"category\":\"signals\",\"decision\":\"\",\"hour_start_ms\":1791968400000,\"mode\":\"paper\",\"name\":\"SIGNAL_SEEN\",\"reason_code\":\"\",\"skip_reason\":\"\"},\"op\":\"upsert\",\"row\":{\"base\":\"SOL\",\"category\":\"signals\",\"decision\":\"\",\"depth_fut_count\":3,\"depth_fut_sum\":\"70.75\",\"depth_spot_count\":3,\"depth_spot_sum\":\"135.75\",\"event_count\":3,\"hour_start_ms\":1791968400000,\"mode\":\"paper\",\"name\":\"SIGNAL_SEEN\",\"net_spread_count\":3,\"net_spread_max\":\"0.50\",\"net_spread_min\":\"-1.00\",\"net_spread_sum\":\"-0.25\",\"raw_spread_count\":3,\"raw_spread_max\":\"2.30\",\"raw_spread_min\":\"-0.30\",\"raw_spread_sum\":\"3.20\",\"reason_code\":\"\",\"skip_reason\":\"\",\"telemetry_age_count\":3,\"telemetry_age_max\":\"3.5\",\"telemetry_age_sum\":\"7.00\"},\"table\":\"hourly_raw_rollups\"},{\"key\":{\"event_id\":\"r496_s3\"},\"op\":\"delete\",\"table\":\"signals\"},{\"key\":{\"event_id\":\"r496_d1\"},\"op\":\"delete\",\"table\":\"decisions\"},{\"key\":{\"event_id\":\"r496_s3\"},\"op\":\"delete\",\"table\":\"events\"},{\"key\":{\"event_id\":\"r496_d1\"},\"op\":\"delete\",\"table\":\"events\"},{\"after_hash\":\"ea095ea90fb867e6cc5a90108ee742de53724f0a6d97b69ee9300e2e30257397\",\"key\":{\"key\":\"rolled_up_raw_events\"},\"op\":\"upsert\",\"row\":{\"key\":\"rolled_up_raw_events\",\"value\":\"4\"},\"table\":\"metadata\"}]",
+        "operations_sha256": "b58b23d2c84f2b611de12ec131a71d1736fb9628706a1360a08af0ba1359689e",
+        "rolled_up_raw_events": "4",
+        "rollups": [
+          {
+            "base": "SOL",
+            "category": "signals",
+            "decision": "",
+            "depth_fut_count": 3,
+            "depth_fut_sum": "70.75",
+            "depth_spot_count": 3,
+            "depth_spot_sum": "135.75",
+            "event_count": 3,
+            "hour_start_ms": 1791968400000,
+            "mode": "paper",
+            "name": "SIGNAL_SEEN",
+            "net_spread_count": 3,
+            "net_spread_max": "0.50",
+            "net_spread_min": "-1.00",
+            "net_spread_sum": "-0.25",
+            "raw_spread_count": 3,
+            "raw_spread_max": "2.30",
+            "raw_spread_min": "-0.30",
+            "raw_spread_sum": "3.20",
+            "reason_code": "",
+            "skip_reason": "",
+            "telemetry_age_count": 3,
+            "telemetry_age_max": "3.5",
+            "telemetry_age_sum": "7.00"
+          },
+          {
+            "base": "SOL",
+            "category": "decisions",
+            "decision": "skip",
+            "depth_fut_count": 0,
+            "depth_fut_sum": "0",
+            "depth_spot_count": 0,
+            "depth_spot_sum": "0",
+            "event_count": 1,
+            "hour_start_ms": 1791972000000,
+            "mode": "paper",
+            "name": "DECISION_MADE",
+            "net_spread_count": 0,
+            "net_spread_max": null,
+            "net_spread_min": null,
+            "net_spread_sum": "0",
+            "raw_spread_count": 0,
+            "raw_spread_max": null,
+            "raw_spread_min": null,
+            "raw_spread_sum": "0",
+            "reason_code": "",
+            "skip_reason": "spread",
+            "telemetry_age_count": 0,
+            "telemetry_age_max": null,
+            "telemetry_age_sum": "0"
+          }
+        ]
+      }
+    ]
+  },
+  "events": [
+    {
+      "at": 1791968800000,
+      "cat": "signals",
+      "id": "r496_s1",
+      "payload": {
+        "depth_fut_usdt": "25.00",
+        "depth_spot_usdt": "100.50",
+        "net_spread_bps": "0.50",
+        "raw_spread_bps": "1.20",
+        "telemetry_age_sec": "2.0"
+      }
+    },
+    {
+      "at": 1791968801000,
+      "cat": "signals",
+      "id": "r496_s2",
+      "payload": {
+        "depth_fut_usdt": "30.00",
+        "depth_spot_usdt": "25.00",
+        "net_spread_bps": "-1.00",
+        "raw_spread_bps": "2.30",
+        "telemetry_age_sec": "3.5"
+      }
+    },
+    {
+      "at": 1791968802000,
+      "cat": "signals",
+      "id": "r496_s3",
+      "payload": {
+        "depth_fut_usdt": "15.75",
+        "depth_spot_usdt": "10.25",
+        "net_spread_bps": "0.25",
+        "raw_spread_bps": "-0.30",
+        "telemetry_age_sec": "1.50"
+      }
+    },
+    {
+      "at": 1791972400000,
+      "cat": "decisions",
+      "id": "r496_d1",
+      "payload": {
+        "decision": "skip",
+        "skip_reason": "spread"
+      }
+    }
+  ],
+  "now_ms": 1792660000000,
+  "source": "original collector.py prune_raw twice + mirror_outbox.py"
+}

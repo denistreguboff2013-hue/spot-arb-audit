@@ -1,0 +1,1452 @@
+{
+  "schema": "R113_OFFLINE_AUDIT_V1",
+  "date": "2026-10-17",
+  "migration_state": "OPEN",
+  "source": "config/native_field_status.json",
+  "tracked_fields": 160,
+  "original_mirror_only": 131,
+  "proof_class": "rust_research_only_not_active",
+  "note": "Registry is an explicit conservative review; exact operational cutover, independent currentness and private exchange truth are unverified.",
+  "entries": [
+    {
+      "field": "adaptive_entry.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "adaptive_entry.max_entry_usdt",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "adaptive_entry.max_usdt",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "adaptive_entry.min_usdt",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "adaptive_entry.require_scanner_depth",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "adaptive_entry.slip_bps",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "adaptive_entry.step_usdt",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "adaptive_entry.tg_report.show_applied",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "adaptive_entry.tg_report.show_wanted",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "analytics.database_path",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "analytics.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "analytics.max_db_mb",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "analytics.max_wal_mb",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "analytics.mirror_database_path",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "analytics.mode",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "analytics.raw_retention_days",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "blacklist",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "sequence",
+      "confirmed_scope": "research_paper",
+      "consumer": "R109 source-bound DecisionConfig/evaluate",
+      "test": "p106_r109_spoofed_entry_cannot_bypass_yaml_blacklist_price_or_quantity",
+      "active_binary_proven": false
+    },
+    {
+      "field": "cooldown.symbol_after_close_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "research_paper",
+      "consumer": "R112 SupervisedStrategyPaper::new/PaperPortfolio",
+      "test": "r112_cooldown_is_bound_to_legacy_yaml_and_replay",
+      "active_binary_proven": false
+    },
+    {
+      "field": "dynamic.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "dynamic.segments",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "sequence",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "dynamic_entry.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "dynamic_entry.segments",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "sequence",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "entry_lock_ttl_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "execution.fut_entry_mode",
+      "source_status": "native_read_only_policy_validation_or_preview",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "execution.fut_retry_ms",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "execution.fut_retry_n",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "execution.spot_entry_mode",
+      "source_status": "native_read_only_policy_validation_or_preview",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "execution.spot_limit_ticks",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "execution.spot_retry_ms",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "execution.spot_retry_n",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "execution.unwind_mode",
+      "source_status": "native_read_only_policy_validation_or_preview",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "exit_safety.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "exit_safety.hedge_recover",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "exit_safety.leg_gap_ms",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "exit_safety.spot_chase.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "exit_safety.spot_chase.hard_deadline_ms",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "exit_safety.spot_chase.limit_ticks_start",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "exit_safety.spot_chase.limit_ticks_step",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "exit_safety.spot_chase.max_steps",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "exit_safety.spot_chase.step_wait_ms",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.event_prefilter",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.max_log_mb",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.queue_max",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.summary_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.targeted_confirmation.cooldown_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.targeted_confirmation.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.targeted_confirmation.max_queue",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.targeted_confirmation.max_wait_ms",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.targeted_confirmation.min_interval_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.targeted_confirmation.timeout_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.targeted_thread_diagnostics.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.ws_fleet.base_limit",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.ws_fleet.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.ws_fleet.group_size",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "fast_market_shadow.ws_fleet.start_interval_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "filters.max_price",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "research_paper",
+      "consumer": "R109 DecisionConfig/evaluate",
+      "test": "p106_r109_spoofed_entry_cannot_bypass_yaml_blacklist_price_or_quantity",
+      "active_binary_proven": false
+    },
+    {
+      "field": "filters.max_sanity_spread_bps",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "research_paper",
+      "consumer": "R110 PublicMarketEntryBounds/admit",
+      "test": "r110_sanity_spread_and_exact_volume_bounds",
+      "active_binary_proven": false
+    },
+    {
+      "field": "filters.min_24h_volume_usdt",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "research_paper",
+      "consumer": "R110 PublicMarketEntryBounds/admit",
+      "test": "r110_missing_and_incorrect_public_volume_denies_new_entry",
+      "active_binary_proven": false
+    },
+    {
+      "field": "filters.min_price",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "research_paper",
+      "consumer": "R109 DecisionConfig/evaluate",
+      "test": "p106_r109_spoofed_entry_cannot_bypass_yaml_blacklist_price_or_quantity",
+      "active_binary_proven": false
+    },
+    {
+      "field": "futures_emergency_stop.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "futures_emergency_stop.notify_on_place",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "futures_emergency_stop.order_type",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "futures_emergency_stop.paper_simulate",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "futures_emergency_stop.place_in_real",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "futures_emergency_stop.retry_ms",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "futures_emergency_stop.retry_n",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "futures_emergency_stop.stop_spread_bps",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "futures_emergency_stop.working_type",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "general.base_quote",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "general.bot_name",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "general.debug_write_liquidity",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "general.heartbeat_interval_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "general.liquidity_bps",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "general.loop_interval_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "general.mode",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "general.paper_entries_enabled",
+      "source_status": "native_review_paper_daily_accounting_slot_gate",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "general.report_time",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "general.report_timezone",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "general.trade_enabled",
+      "source_status": "native_read_only_policy_validation_or_preview",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "limits.max_daily_loss_usdt",
+      "source_status": "native_review_real_risk_synthetic_arithmetic_only_not_live_counter",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "limits.max_okx_fees_per_day_usdt",
+      "source_status": "native_review_real_risk_synthetic_arithmetic_only_not_live_counter",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "limits.max_trades_per_day",
+      "source_status": "native_read_only_policy_validation_or_preview",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "limits.paper_max_trades_per_day",
+      "source_status": "native_review_paper_daily_accounting_slot_gate",
+      "syntax_type": "integer",
+      "confirmed_scope": "hard_stop",
+      "consumer": "verify_paper_portfolio_quota_parity",
+      "test": "p106_r101_unmodified_operator_yaml_quota_denied",
+      "active_binary_proven": false
+    },
+    {
+      "field": "limits.symbol_cooldown_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "research_paper_separate_scan_gate_partial_parity",
+      "consumer": "R115/R116 independent scanner candidate cooldown, partial Python parity",
+      "test": "r116_scanner_cooldown_and_close_cooldown_are_independent",
+      "active_binary_proven": false
+    },
+    {
+      "field": "limits.top_n_per_scan",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "logging.level",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "native_runtime.config_schema_version",
+      "source_status": "review_hard_safety_field",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "native_runtime.mutation_capability_enabled",
+      "source_status": "review_hard_safety_field",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "native_runtime.production_cutover_authorized",
+      "source_status": "review_hard_safety_field",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "native_runtime.real_execution_authorized",
+      "source_status": "review_hard_safety_field",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "paths.data_dir",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "probe.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "probe.orderbook_levels",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.allowed_spot_inventory_bases",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "sequence",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.autonomous_real_enabled",
+      "source_status": "legacy_flag_preserved_not_rust_authority",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.bootstrap_first_trade",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.deny_on_unknown",
+      "source_status": "native_read_only_policy_validation_or_preview",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.deny_on_untracked_assets",
+      "source_status": "native_read_only_policy_validation_or_preview",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.enabled",
+      "source_status": "legacy_flag_preserved_not_rust_authority",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.entry_cooldown_sec",
+      "source_status": "native_review_real_risk_synthetic_arithmetic_only_not_live_counter",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.kill_switch_disengaged_max_age_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.kill_switch_drill_max_age_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.kill_switch_path",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.max_mirror_lag_records",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.max_open_positions",
+      "source_status": "native_read_only_policy_validation_or_preview",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.max_trades_per_day",
+      "source_status": "native_read_only_policy_validation_or_preview",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.operator_approved",
+      "source_status": "legacy_flag_preserved_not_rust_authority",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.preflight_max_age_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.preflight_path",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.resolved_incident_path",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.supervised_retrial_enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.supervised_retrial_permit_path",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.supervised_retrial_plan_path",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "real_trial.telegram_delivery_max_age_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "risk.futures_order_usdt",
+      "source_status": "native_read_only_policy_validation_or_preview",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "risk.max_open_positions",
+      "source_status": "native_review_paper_daily_accounting_slot_gate",
+      "syntax_type": "integer",
+      "confirmed_scope": "hard_stop",
+      "consumer": "verify_paper_portfolio_quota_parity",
+      "test": "p106_r101_unmodified_operator_yaml_quota_denied",
+      "active_binary_proven": false
+    },
+    {
+      "field": "runtime_reconcile.every_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "scale_in_hints.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "scale_in_hints.min_depth_usdt",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "scale_in_hints.min_imbalance",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "scale_in_hints.min_vel_bps_s",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "scale_in_hints.send_negative",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "scale_in_hints.telemetry_path",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "spread.buffer_bps",
+      "source_status": "native_read_only_policy_validation_or_preview",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "spread.entry_bps",
+      "source_status": "native_read_only_policy_validation_or_preview",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "spread.exit_bps",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "spread.funding_bps",
+      "source_status": "native_read_only_policy_validation_or_preview",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "spread.history_window",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "spread.min_lifetime_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "spread.net_target_bps",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "spread.round_fees_bps",
+      "source_status": "native_read_only_policy_validation_or_preview",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "spread.slippage_bps",
+      "source_status": "native_read_only_policy_validation_or_preview",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "telegram.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "telegram.proxy_url",
+      "source_status": "secret_value_redacted",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "telegram.send_errors",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "telegram.send_heartbeat",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "telegram.send_signals",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "telemetry.orderbook.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "telemetry.orderbook.levels",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "telemetry.orderbook.max_age_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "telemetry.orderbook.slip_bps",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "telemetry.orderbook.slip_bps_trade",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "telemetry.orderbook.slip_bps_upsize",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "telemetry.service.interval_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "telemetry.service.send_tg",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "telemetry.velocity.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "velocity.emergency_guard_spread_bps",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "velocity.emergency_neg_bps_s",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "velocity.emergency_spread_bps",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "velocity.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "velocity.hold_log_every_sec",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "velocity.hold_pos_bps_s",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "number",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "websocket.enabled",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "boolean",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "websocket.max_book_levels",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "websocket.okx_channel",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "websocket.quote",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "string",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "websocket.stale_ms",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "websocket.top_max",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    },
+    {
+      "field": "websocket.top_min",
+      "source_status": "mirrored_schema_only_NOT_YET_runtime_wired",
+      "syntax_type": "integer",
+      "confirmed_scope": "not_verified_active_runtime",
+      "consumer": null,
+      "test": null,
+      "active_binary_proven": false
+    }
+  ]
+}

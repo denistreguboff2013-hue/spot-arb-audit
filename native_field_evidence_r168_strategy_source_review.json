@@ -1,0 +1,145 @@
+{
+  "schema": "astra_p1_06_r168_research_source_mutation_overlay_v1",
+  "parent_git_head": "0e03455abfeb19eb564636cb269b4e89ea2ab22b",
+  "parent_r166_160_field_ledger_sha256": "7e6a4dcdfdf146359971f0eb17e82434dddbcc0c47b5af605c2e6c612ab075dd",
+  "source_suite": "src/native_r168_strategy_source_review.rs",
+  "source_suite_sha256": "eb3c505d51c1639d379fddc12aa12d6f6dc3659d854a74a22df1770b1ecbc66e",
+  "source_path": "config/native_trading_operator_baseline_r64.yaml",
+  "evidence_scope": "offline source YAML parse + unique path mutation => existing Rust R97/R98/R99 diagnostic consumer changed output; no installed application",
+  "parent_research_evidenced": 123,
+  "new_distinct_research_evidenced": 16,
+  "cumulative_research_evidenced": 139,
+  "remaining_research_not_evidenced": 21,
+  "original_source_fields": 160,
+  "installed_paper_source_fields_proven": 0,
+  "real_execution_authorized": false,
+  "network_used_by_source_tests": false,
+  "exchange_authenticated": false,
+  "deployed_paper_changed": false,
+  "r155_stale_ingress_fixed": false,
+  "test_observation": {
+    "targeted": "17 PASS, 0 FAIL",
+    "full_rust_lib": "1104 PASS, 0 FAIL, 2 ignored",
+    "paper_bin": "12 PASS, 0 FAIL"
+  },
+  "new_research_fields": [
+    {
+      "field": "dynamic.enabled",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_01_dynamic_enabled_changes_min_lifetime",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    },
+    {
+      "field": "dynamic.segments",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_02_dynamic_segments_change_exit_threshold",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    },
+    {
+      "field": "dynamic_entry.enabled",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_03_dynamic_entry_enabled_changes_target",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    },
+    {
+      "field": "dynamic_entry.segments",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_04_dynamic_entry_segment_changes_target",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    },
+    {
+      "field": "velocity.hold_pos_bps_s",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_05_velocity_hold_changes_close_to_hold",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    },
+    {
+      "field": "velocity.emergency_neg_bps_s",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_06_velocity_emergency_neg_changes_trigger",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    },
+    {
+      "field": "velocity.emergency_spread_bps",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_07_velocity_emergency_spread_changes_trigger",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    },
+    {
+      "field": "velocity.emergency_guard_spread_bps",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_08_velocity_guard_changes_trigger",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    },
+    {
+      "field": "adaptive_entry.enabled",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_09_adaptive_enabled_changes_none_to_sizing",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    },
+    {
+      "field": "adaptive_entry.min_usdt",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_10_adaptive_min_usdt_changes_optional_trade_cap",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    },
+    {
+      "field": "adaptive_entry.max_usdt",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_11_adaptive_max_usdt_changes_wanted",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    },
+    {
+      "field": "adaptive_entry.step_usdt",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_12_adaptive_step_usdt_changes_quantization",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    },
+    {
+      "field": "adaptive_entry.slip_bps",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_13_adaptive_slip_bps_gates_sizing",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    },
+    {
+      "field": "adaptive_entry.require_scanner_depth",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_14_adaptive_require_depth_changes_gate",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    },
+    {
+      "field": "adaptive_entry.max_entry_usdt",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_15_adaptive_manual_max_changes_size",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    },
+    {
+      "field": "scale_in_hints.min_depth_usdt",
+      "research_evidence": "TESTED_RESEARCH_READONLY",
+      "test": "native_r168_strategy_source_review::tests::r168_16_scanner_min_depth_changes_admission_threshold",
+      "installed_paper": "NOT_PROVEN",
+      "real": "NOT_PROVEN"
+    }
+  ],
+  "outstanding_diagnostic_fields": [
+    "general.loop_interval_sec",
+    "general.report_time",
+    "general.report_timezone"
+  ],
+  "warning": "Do not credit these source-only previews as installed PAPER, trade execution, Python full parity, host CI, or REAL."
+}

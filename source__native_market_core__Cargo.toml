@@ -1,0 +1,37 @@
+[package]
+name = "spotarb-native-market-core"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# R1305A: observation integration tests belong to this binary harness, not --lib.
+# Compile without execution: cargo test --offline --locked --bin native_paper_live_portfolio_v1 --no-run
+[[bin]]
+name = "native_paper_live_portfolio_v1"
+path = "src/bin/native_paper_live_portfolio_v1.rs"
+test = true
+harness = true
+
+[features]
+# Explicit offline harness support; never enable in deployed artifacts.
+offline-test-clock = []
+offline-b6-review = ["dep:b6_catalogue"]
+
+[dependencies]
+b6_catalogue = { package = "spotarb-trade2f3b6-untrusted-coverage-catalogue", path = "offline_review_trade2f3b6", optional = true }
+serde = { version = "=1.0.197", features = ["derive"] }
+serde_json = { version = "=1.0.114", features = ["raw_value", "float_roundtrip"] }
+serde_yaml = "=0.9.34"
+# Cargo 1.75 compatibility; serde_yaml's transitive indexmap 2.14 needs edition2024.
+indexmap = "=2.2.6"
+libc = "=0.2.153"
+tokio = { version = "=1.36.0", features = ["rt-multi-thread", "macros", "sync", "time"] }
+tokio-tungstenite = { version = "=0.21.0", features = ["native-tls"] }
+futures-util = "=0.3.32"
+native-tls = "=0.2.11"
+url = "=2.4.1"
+openssl = "=0.10.64"
+openssl-sys = "=0.9.101"
+
+[build-dependencies]
+openssl = "=0.10.64"

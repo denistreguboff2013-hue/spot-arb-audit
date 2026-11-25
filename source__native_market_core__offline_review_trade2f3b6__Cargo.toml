@@ -1,0 +1,9 @@
+[package]
+name = "spotarb-trade2f3b6-untrusted-coverage-catalogue"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# Intentionally dependency-free, source-only, separate from production.
+# NOT referenced by the trading runtime or the B5 Cargo package.
+[dependencies]

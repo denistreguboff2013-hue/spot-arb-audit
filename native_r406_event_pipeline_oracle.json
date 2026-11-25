@@ -1,0 +1,103 @@
+{
+  "source": "/home/tmpadmin/spotbot/ai/schemas.py",
+  "count": 2,
+  "cases": [
+    {
+      "name": "decisions",
+      "event": {
+        "event_id": "r406_decisions",
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "r406_run",
+        "occurred_at_ms": 1792660000000,
+        "payload": {
+          "z_state": {
+            "last": 2,
+            "first": 1
+          },
+          "decision": "hold",
+          "api_key": "FAKE_API_KEY",
+          "skip_reason": "spread"
+        },
+        "verification": {
+          "status": "observed",
+          "origin": "public depth",
+          "private_key": "FAKE_PRIVATE"
+        }
+      },
+      "payload_raw_json": "{\"z_state\": {\"last\": 2, \"first\": 1}, \"decision\": \"hold\", \"api_key\": \"FAKE_API_KEY\", \"skip_reason\": \"spread\"}",
+      "verification_raw_json": "{\"status\": \"observed\", \"origin\": \"public depth\", \"private_key\": \"FAKE_PRIVATE\"}",
+      "expected_record": {
+        "event_id": "r406_decisions",
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "r406_run",
+        "occurred_at_ms": 1792660000000,
+        "correlation_id": null,
+        "signal_id": null,
+        "base": null,
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "schema_version": 1,
+        "verification_status": "observed",
+        "is_exchange_verified": 0,
+        "payload_json": "{\"z_state\": {\"last\": 2, \"first\": 1}, \"decision\": \"hold\", \"api_key\": \"[REDACTED]\", \"skip_reason\": \"spread\"}",
+        "verification_json": "{\"status\": \"observed\", \"origin\": \"public depth\", \"private_key\": \"[REDACTED]\"}"
+      },
+      "expected_content_sha256": "93bde16b3436dea43f9959039635c9d5d4eeef5bf1148c7c233e154b76aab000",
+      "expected_canonical_record": "{\"base\": null, \"category\": \"decisions\", \"comparison_id\": null, \"correlation_id\": null, \"event_id\": \"r406_decisions\", \"is_exchange_verified\": 0, \"mode\": \"paper\", \"name\": \"DECISION_MADE\", \"occurred_at_ms\": 1792660000000, \"payload_json\": \"{\\\"z_state\\\": {\\\"last\\\": 2, \\\"first\\\": 1}, \\\"decision\\\": \\\"hold\\\", \\\"api_key\\\": \\\"[REDACTED]\\\", \\\"skip_reason\\\": \\\"spread\\\"}\", \"reason_code\": null, \"run_id\": \"r406_run\", \"schema_version\": 1, \"shadow_group_id\": null, \"signal_id\": null, \"source\": \"native.paper\", \"verification_json\": \"{\\\"status\\\": \\\"observed\\\", \\\"origin\\\": \\\"public depth\\\", \\\"private_key\\\": \\\"[REDACTED]\\\"}\", \"verification_status\": \"observed\"}"
+    },
+    {
+      "name": "errors",
+      "event": {
+        "event_id": "r406_errors",
+        "mode": "paper",
+        "category": "errors",
+        "name": "ERROR",
+        "source": "native.paper",
+        "run_id": "r406_run",
+        "occurred_at_ms": 1792660000000,
+        "payload": {
+          "module": "r406_probe",
+          "note": "password: demo",
+          "error_type": "test_error",
+          "message": "проверка"
+        },
+        "verification": {
+          "source": "PUBLIC_BOOKS_ONLY",
+          "status": "unverified"
+        }
+      },
+      "payload_raw_json": "{\"module\": \"r406_probe\", \"note\": \"password: demo\", \"error_type\": \"test_error\", \"message\": \"проверка\"}",
+      "verification_raw_json": "{\"source\": \"PUBLIC_BOOKS_ONLY\", \"status\": \"unverified\"}",
+      "expected_record": {
+        "event_id": "r406_errors",
+        "mode": "paper",
+        "category": "errors",
+        "name": "ERROR",
+        "source": "native.paper",
+        "run_id": "r406_run",
+        "occurred_at_ms": 1792660000000,
+        "correlation_id": null,
+        "signal_id": null,
+        "base": null,
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "schema_version": 1,
+        "verification_status": "unverified",
+        "is_exchange_verified": 0,
+        "payload_json": "{\"module\": \"r406_probe\", \"note\": \"password: [REDACTED]\", \"error_type\": \"test_error\", \"message\": \"проверка\"}",
+        "verification_json": "{\"source\": \"PUBLIC_BOOKS_ONLY\", \"status\": \"unverified\"}"
+      },
+      "expected_content_sha256": "2273ef136197761d51556dffaeef1bc5d38efcd189c729329e0d83cc4499dd8d",
+      "expected_canonical_record": "{\"base\": null, \"category\": \"errors\", \"comparison_id\": null, \"correlation_id\": null, \"event_id\": \"r406_errors\", \"is_exchange_verified\": 0, \"mode\": \"paper\", \"name\": \"ERROR\", \"occurred_at_ms\": 1792660000000, \"payload_json\": \"{\\\"module\\\": \\\"r406_probe\\\", \\\"note\\\": \\\"password: [REDACTED]\\\", \\\"error_type\\\": \\\"test_error\\\", \\\"message\\\": \\\"проверка\\\"}\", \"reason_code\": null, \"run_id\": \"r406_run\", \"schema_version\": 1, \"shadow_group_id\": null, \"signal_id\": null, \"source\": \"native.paper\", \"verification_json\": \"{\\\"source\\\": \\\"PUBLIC_BOOKS_ONLY\\\", \\\"status\\\": \\\"unverified\\\"}\", \"verification_status\": \"unverified\"}"
+    }
+  ],
+  "synthetic_only": true
+}

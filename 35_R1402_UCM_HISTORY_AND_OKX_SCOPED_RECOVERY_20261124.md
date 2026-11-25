@@ -1,0 +1,21 @@
+# R1402 PARTIAL — existing UCM worker history and scoped OKX recovery
+UTC checkpoint: 2026-11-24T07:16:28.182349+00:00
+Status: worker protocol prerequisites PASS; actual Engine one-owner cutover NOT DONE. P0 latency OPEN; PAPER NO-GO.
+
+## Restored evidence and safety
+Desktop Commander spb-3-vm-4r2s. Read server rules, current canonical KB checkpoints and R1401 report/handoff; R1401 SHA evidence checked before mutation. Existing checkout only; HEAD 6d4d403c35e4893224c8f0f0541718ec831fa2dd, 32 inherited modified/untracked paths preserved, diff-check PASS. Actual config autonomous_real_enabled:false, kill switch ENGAGED, spotbot and continuous PAPER services inactive. No public WS, PAPER, REAL, orders or protected path mutation. Existing Cargo target /mnt/spotarb_db_test/SPOT_ARB_R1333_PRODUCTION_INGRESS_LATENCY_20261122/cargo_target reused.
+
+## Implemented in native_market_core/src/universal_connection_manager_r1209.rs only
+A/B: same bounded FIFO worker accepts ordered scope readiness-mask/dual-HOT history, retire session and census, returns revision-stamped applied history receipts via nonblocking poll. Historical facts survive later revisions, not current authority; no changes to scoped freshness fences. Caller must consume receipts in submission order; Engine still owns all book/final checks.
+C/D: source audit identified actual Engine line 824 uses reconnecting/quarantine for per-symbol OKX books failures, whereas old worker rejects observations after either state. Added explicit same-generation scoped BookReset event (sequence or checksum/schema failure) using existing manager transitions. Worker-owned local-reset marker distinguishes a still-live physical socket from physically retired source; physical Close/Reconnect/Quarantine clear marker and late observations still fail closed. Engine must validate subsequent snapshot/delta, checksum, sequence, generation and witness before final admission. Original legacy manager prefix byte-for-byte unchanged. No new thread/mailbox/capacity/threshold or trading policy.
+Backup R1402_PREEDIT_universal_connection_manager_r1209.rs SHA256 70d96e913b529f1114b9287fcf9784edcda459da81ea1ecdf57eec967c122467.
+Final source SHA256 7760a1bfe513cde1bbb26bdb0055dc0ed608be1091e3ddf0bfb7efc00602bc92.
+
+## Tests
+R1402_TARGETED.exit=0, 3/3 new history tests PASS before C/D.
+R1402_UCM_FULL.exit=0, 34/34 PASS (29 inherited plus all 5 R1402 new tests, including same-generation book reset parity at 800/801ms and physical retirement refusal after reset).
+R1402_LIB_CHECK.exit=0 (cargo check --offline --locked --lib); warnings present.
+git diff --check PASS. Engine/local WSS/public tests NOT RUN, since Engine runtime is still unchanged.
+
+## Actual next integration (R1402 continuation)
+No second mutable manager. Engine manager field still synchronous. Remaining cutover must move ALL read and write sites in market_data_ingress_r1205.rs (register 194-233, readiness 403-583, observations 720-925, select 970-1163, tick/disconnect 1165-1173) to existing worker/projections. Keep Engine source registration/generation and book/highwater/witness as final authority. Map line824 scoped reset to new BookReset; physical lifecycle must remain distinct. Consume ordered history receipts with exact historical audit context, never rebuild audit from newer mutable state. For select_inner, separate preparation from asynchronous continuation: scoped health+candidate; submit applied commit; validate current scope revision, latest two independent HOT, book/witness/generation/highwater and both clocks at actual publication. On superseded applied ACK, withhold/revoke Permit, explicitly reconcile worker active and Engine selected before publishing new epoch/Reset or Permit. Runtime ingress_runtime_r1205.rs must service replies without synchronous blocking or waiting only for next 50ms tick; avoid multiplying per-scope round trips (80 scopes/tick). Do not introduce a parallel Engine, second UCM, additional queue, checkout or build root. Must preserve existing test expectations in actual Engine integration; test parity, local WSS, late ACK, resync and saturation offline before any separately approved public quote test. No measured latency improvement from R1402 so far.

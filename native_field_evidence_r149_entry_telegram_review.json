@@ -1,0 +1,37 @@
+{
+  "schema": "R149_TWO_ENTRY_SEVEN_TELEGRAM_EXISTING_RUST_CONSUMERS_V1",
+  "scope": "rust_research_lib_tests_no_io_only",
+  "consumer": "NativeTradingConfig::inspect_legacy_general_entry_budget_readonly; NativeObservePolicy::from_config; inspect_native_observation_without_io; OfflineObservationReplayFence::inspect_once",
+  "source_modules": [
+    "src/native_trading_config.rs",
+    "src/native_observability_review.rs"
+  ],
+  "tests": [
+    "r149_two_distinct_yaml_fields_change_legacy_local_reject_without_trade",
+    "r149_unknown_day_count_and_source_drift_fail_closed",
+    "r149_five_original_source_channel_flags_independently_change_preview",
+    "r149_two_original_intervals_change_real_replay_fence_decision_only",
+    "r149_source_mutation_rejected_before_telegram_preview"
+  ],
+  "real_order_authority": false,
+  "active_binary_proven": false,
+  "linked_to_installed_paper": false,
+  "authenticated_exchange_count": false,
+  "telegram_delivery_proven": false,
+  "telegram_network_actions": false,
+  "replay_fence_durable": false,
+  "installed_paper_source_attested": false,
+  "note": "2 historical general gate fields are only local deny previews and never PAPER/REAL trading permits. 7 telegram/telemetry fields change already existing Rust code's candidate/fault/heartbeat preview suppression or in-memory heartbeat replay delay; Telegram not sent. spread.history_window intentionally NOT included; Rust behavior unconfirmed.",
+  "fields": [
+    "general.trade_enabled",
+    "limits.max_trades_per_day",
+    "general.heartbeat_interval_sec",
+    "telegram.enabled",
+    "telegram.send_signals",
+    "telegram.send_errors",
+    "telegram.send_heartbeat",
+    "telemetry.service.send_tg",
+    "telemetry.service.interval_sec"
+  ],
+  "unproven_entry_field": "spread.history_window"
+}

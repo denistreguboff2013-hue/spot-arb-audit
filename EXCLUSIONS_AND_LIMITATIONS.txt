@@ -1,0 +1,18 @@
+No .git, production config, live DB/WAL, credentials, binaries, live UNIVERSUM, archives or certificate files. Source snapshot is read-only audit, not a deployable package. Original logs contain server paths; use archive-relative paths. Original historical manifests refer to original server locations and prior versions.
+{
+  "excluded": [
+    [
+      "source/native_market_core/tests/fixtures/r1257_local_tls_identity.p12",
+      "non-text or unapproved type"
+    ],
+    [
+      "source/native_market_core/src/native_paper_event_scrub_r336_review.rs",
+      "credential-pattern review required at line 177; file excluded"
+    ],
+    [
+      "source/native_market_core/config/native_r346_python_scrub_fixtures.json",
+      "credential-pattern review required at line 219; file excluded"
+    ]
+  ],
+  "reviewed_test_markers": []
+}
