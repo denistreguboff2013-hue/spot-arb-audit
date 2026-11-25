@@ -1,0 +1,19 @@
+{
+  "schema": "R130_PAPER_DECISION_CONFIG_RESEARCH_OVERLAY_V1",
+  "scope": "rust_research_readonly_only",
+  "consumer": "bind_public_paper_decision_config",
+  "source_module": "native_paper_config_bridge.rs",
+  "test": "r130_decision_config_seven_fields_mutation_consumed",
+  "active_binary_proven": false,
+  "real_order_authority": false,
+  "note": "Only source-linked, tested Rust research consumers; no runtime service cutover or private exchange truth.",
+  "fields": [
+    "general.paper_entries_enabled",
+    "risk.futures_order_usdt",
+    "spread.entry_bps",
+    "spread.round_fees_bps",
+    "spread.slippage_bps",
+    "spread.funding_bps",
+    "spread.buffer_bps"
+  ]
+}

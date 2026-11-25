@@ -1,0 +1,44 @@
+{
+  "schema": "ASTRA_R166_SHADOW_16_STATIC_RESEARCH_CONSUMER_V1",
+  "scope": "rust_offline_caller_supplied_shadow_envelope_only",
+  "source_module": "src/native_shadow_config_review.rs",
+  "source_consumer": "NativeShadowReview::from_config -> project_bounded_shadow_review_r166",
+  "source_test": "r166_all_sixteen_original_keys_change_offline_decision_without_io",
+  "other_tests": [
+    "r166_static_projection_fleet_python_clamp_and_bounded_inputs",
+    "r166_never_confuses_policy_projection_with_operational_success"
+  ],
+  "preexisting_python_reference": [
+    "/home/tmpadmin/spotbot/fast_market_shadow.py",
+    "/home/tmpadmin/spotbot/fast_market_ws_fleet.py"
+  ],
+  "source_type": "original_native_trading_yaml_160_paths",
+  "reason": "Each existing original shadow knob is parsed and separately perturbed in read-only Rust simulation to change a concrete resource/diagnostic decision. Does not prove installed WS use or full Python parity.",
+  "offline_rust_tests_executed_and_passed": true,
+  "source_consumer_semantics_equal_to_installed_python": false,
+  "actual_websocket_fleet_launched": false,
+  "installed_native_binary_consumption_proven": false,
+  "active_binary_proven": false,
+  "private_exchange_used": false,
+  "real_order_authority": false,
+  "telegram_sent": false,
+  "external_peer_attested": false,
+  "fields": [
+    "fast_market_shadow.enabled",
+    "fast_market_shadow.event_prefilter",
+    "fast_market_shadow.max_log_mb",
+    "fast_market_shadow.queue_max",
+    "fast_market_shadow.summary_sec",
+    "fast_market_shadow.targeted_confirmation.cooldown_sec",
+    "fast_market_shadow.targeted_confirmation.enabled",
+    "fast_market_shadow.targeted_confirmation.max_queue",
+    "fast_market_shadow.targeted_confirmation.max_wait_ms",
+    "fast_market_shadow.targeted_confirmation.min_interval_sec",
+    "fast_market_shadow.targeted_confirmation.timeout_sec",
+    "fast_market_shadow.targeted_thread_diagnostics.enabled",
+    "fast_market_shadow.ws_fleet.base_limit",
+    "fast_market_shadow.ws_fleet.enabled",
+    "fast_market_shadow.ws_fleet.group_size",
+    "fast_market_shadow.ws_fleet.start_interval_sec"
+  ]
+}

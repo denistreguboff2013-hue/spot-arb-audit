@@ -1,0 +1,27 @@
+{
+  "schema": "R147_EIGHT_REAL_TRIAL_WINDOW_CONFIG_FIELDS_READONLY_OVERLAY_V1",
+  "scope": "rust_research_readonly_only",
+  "consumer": "NativeTradingConfig::inspect_real_trial_guard_windows_readonly",
+  "source_module": "src/native_trading_config.rs",
+  "test": "r147_eight_original_source_fields_independently_change_local_guard_outcomes; r147_unknown_sources_never_become_zero_or_real_grant; r147_invalid_windows_and_postparse_changes_fail_closed",
+  "active_binary_proven": false,
+  "real_order_authority": false,
+  "original_exchange_authenticated": false,
+  "preflight_read_or_verified": false,
+  "kill_switch_loaded_or_disengaged": false,
+  "mirror_state_verified": false,
+  "durable_cooldown_verified": false,
+  "telegram_delivery_verified": false,
+  "real_trade_allowed": false,
+  "note": "8 distinct real_trial source knobs change only caller-supplied local timing/lag diagnostic or configured trial/bootstrap mode. Even six 'fresh' local booleans are NOT account, database, preflight, Telegram or kill switch authentication. Do not interpret original enabled=true as production permit. No installed PAPER verification.",
+  "fields": [
+    "real_trial.enabled",
+    "real_trial.bootstrap_first_trade",
+    "real_trial.entry_cooldown_sec",
+    "real_trial.preflight_max_age_sec",
+    "real_trial.max_mirror_lag_records",
+    "real_trial.kill_switch_disengaged_max_age_sec",
+    "real_trial.kill_switch_drill_max_age_sec",
+    "real_trial.telegram_delivery_max_age_sec"
+  ]
+}

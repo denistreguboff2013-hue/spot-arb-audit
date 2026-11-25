@@ -1,0 +1,20 @@
+{
+  "classification": "HISTORICAL_ONLY",
+  "current_gate": "METADATA_SNAPSHOT_BLOCKED",
+  "capture_evidence": "R1246 evidence directory dated 2026-11-07; filesystem mtime is not independent freshness proof",
+  "reference_date": "2026-11-16",
+  "files": [
+    {
+      "file": "binance_historical.json",
+      "source": "/mnt/spotarb_db_test/r1246_runs/evidence_R1246_20261107/binance_usdm_exchangeInfo.json",
+      "sha256": "f285ae711f2dd2457997e5c83e24f926bb15ae9685b9ad1f818f66604bc44936",
+      "bytes": 1172239
+    },
+    {
+      "file": "okx_historical.json",
+      "source": "/mnt/spotarb_db_test/r1246_runs/evidence_R1246_20261107/okx_spot_instruments.json",
+      "sha256": "8ecffc1e6e50e53c614eebdab57333b39e2d97d383a05d2563735e9057fe75cf",
+      "bytes": 1306838
+    }
+  ]
+}

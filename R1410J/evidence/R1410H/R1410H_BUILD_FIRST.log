@@ -1,0 +1,544 @@
+   Compiling spotarb-native-market-core v0.1.0 (/mnt/spotarb_db_test/r1273_r1275_engine_latency_20261111/source/native_market_core)
+warning: unnecessary parentheses around function argument
+   --> src/lib.rs:420:21
+    |
+420 |                     (frame.source.is_some() || std::env::var("ASTRA_R1121_BOOKS5_SNAPSHOT_RESET")
+    |                     ^
+...
+423 |                       .ok().as_deref()==Some("YES"))) &&
+    |                                                    ^
+    |
+    = note: `#[warn(unused_parens)]` on by default
+help: remove these parentheses
+    |
+420 ~                     frame.source.is_some() || std::env::var("ASTRA_R1121_BOOKS5_SNAPSHOT_RESET")
+421 |                       .ok().as_deref()==Some("YES") &&
+422 |                     std::env::var("ASTRA_R1119_FULL_RUST_PAPER")
+423 ~                       .ok().as_deref()==Some("YES")) &&
+    |
+
+warning: unused import: `PathBuf`
+ --> src/native_r1113_offline_supervisor_join.rs:7:73
+  |
+7 |   os::unix::fs::{MetadataExt,OpenOptionsExt,PermissionsExt},path::{Path,PathBuf},
+  |                                                                         ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `UcmPendingSnapshot`
+ --> src/market_data_ingress_r1205.rs:5:226
+  |
+5 | ...UcmWorker,UcmWorkerEvent,UcmGroupAction,UcmWorkerSnapshot,UcmPendingSnapshot,UcmPendingCommit,UcmPendingHistory,UcmHistoryEvent,UcmHis...
+  |                                                              ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `UniversalConnectionManager`
+ --> src/ingress_runtime_r1205.rs:5:76
+  |
+5 | use crate::universal_connection_manager_r1209::{adapter_for,AdapterControl,UniversalConnectionManager};
+  |                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused variable: `test_rcvbuf_requested`
+   --> src/ingress_runtime_r1205.rs:364:143
+    |
+364 | ...=0u64;let mut test_rcvbuf_requested:Option<i32>=None;let mut test_rcvbuf_actual:Option<i32>=None;
+    |                  ^^^^^^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_test_rcvbuf_requested`
+    |
+    = note: `#[warn(unused_variables)]` on by default
+
+warning: unused variable: `test_rcvbuf_actual`
+   --> src/ingress_runtime_r1205.rs:364:190
+    |
+364 | ...32>=None;let mut test_rcvbuf_actual:Option<i32>=None;
+    |                     ^^^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_test_rcvbuf_actual`
+
+warning: variable does not need to be mutable
+   --> src/ingress_runtime_r1205.rs:364:139
+    |
+364 | ...ed_mono_ns=0u64;let mut tls_ws_handshake_ns=0u64;let mut test_rcvbuf_requested:Option<i32>=None;let mut test_rcvbuf_actual:Option<i32>...
+    |                                                         ----^^^^^^^^^^^^^^^^^^^^^
+    |                                                         |
+    |                                                         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` on by default
+
+warning: variable does not need to be mutable
+   --> src/ingress_runtime_r1205.rs:364:186
+    |
+364 | ...4;let mut test_rcvbuf_requested:Option<i32>=None;let mut test_rcvbuf_actual:Option<i32>=None;
+    |                                                         ----^^^^^^^^^^^^^^^^^^
+    |                                                         |
+    |                                                         help: remove this `mut`
+
+warning: function `probe_test_socket_r192` is never used
+ --> src/native_witness_transport_r192_review.rs:5:4
+  |
+5 | fn probe_test_socket_r192(addr:std::net::SocketAddr,deadline_ms:u64)
+  |    ^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` on by default
+
+warning: function `r386_after_image` is never used
+  --> src/native_python_json_canonical_r386_review.rs:48:4
+   |
+48 | fn r386_after_image(table:&str,key:serde_json::Value,row:serde_json::Value)
+   |    ^^^^^^^^^^^^^^^^
+
+warning: function `r396_python_scrubbed_inner_json` is never used
+   --> src/native_python_ordered_inner_r396_review.rs:112:4
+    |
+112 | fn r396_python_scrubbed_inner_json(raw:&str,secrets:&[&str])
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r406_source_owned_record` is never used
+ --> src/native_ordered_event_pipeline_r406_review.rs:4:4
+  |
+4 | fn r406_source_owned_record(
+  |    ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: constant `R496_KEYS` is never used
+ --> src/native_python_rollup_multibatch_r496_review.rs:3:7
+  |
+3 | const R496_KEYS:[&str;8]=["hour_start_ms","mode","base","category",
+  |       ^^^^^^^^^
+
+warning: constant `R496_COUNT` is never used
+ --> src/native_python_rollup_multibatch_r496_review.rs:5:7
+  |
+5 | const R496_COUNT:[&str;6]=["event_count","raw_spread_count",
+  |       ^^^^^^^^^^
+
+warning: constant `R496_SUM` is never used
+ --> src/native_python_rollup_multibatch_r496_review.rs:7:7
+  |
+7 | const R496_SUM:[&str;5]=["raw_spread_sum","net_spread_sum",
+  |       ^^^^^^^^
+
+warning: constant `R496_MIN` is never used
+ --> src/native_python_rollup_multibatch_r496_review.rs:9:7
+  |
+9 | const R496_MIN:[&str;2]=["raw_spread_min","net_spread_min"];
+  |       ^^^^^^^^
+
+warning: constant `R496_MAX` is never used
+  --> src/native_python_rollup_multibatch_r496_review.rs:10:7
+   |
+10 | const R496_MAX:[&str;3]=["raw_spread_max","net_spread_max","telemetry_age_max"];
+   |       ^^^^^^^^
+
+warning: function `r496_key` is never used
+  --> src/native_python_rollup_multibatch_r496_review.rs:11:4
+   |
+11 | fn r496_key(row:&serde_json::Value)->Result<String,EventOutboxR366Error>{
+   |    ^^^^^^^^
+
+warning: function `r496_required_decimal` is never used
+  --> src/native_python_rollup_multibatch_r496_review.rs:23:4
+   |
+23 | fn r496_required_decimal(value:&serde_json::Value)
+   |    ^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r496_optional_decimal` is never used
+  --> src/native_python_rollup_multibatch_r496_review.rs:28:4
+   |
+28 | fn r496_optional_decimal(value:&serde_json::Value)
+   |    ^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r496_merge_row` is never used
+  --> src/native_python_rollup_multibatch_r496_review.rs:33:4
+   |
+33 | fn r496_merge_row(old:&serde_json::Value,new:&serde_json::Value)
+   |    ^^^^^^^^^^^^^^
+
+warning: function `r496_merge_batch` is never used
+  --> src/native_python_rollup_multibatch_r496_review.rs:81:4
+   |
+81 | fn r496_merge_batch(previous:&[serde_json::Value],
+   |    ^^^^^^^^^^^^^^^^
+
+warning: method `r526_cleanup_preview` is never used
+  --> src/native_isolated_cleanup_preview_r526_review.rs:10:5
+   |
+9  | impl R506IsolatedReplica{
+   | ------------------------ method in this implementation
+10 |  fn r526_cleanup_preview(&self,source:&IsolatedEventOutboxR366)
+   |     ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r536_check_python_rebaseline` is never used
+ --> src/native_python_mirror_rebaseline_r536_review.rs:8:4
+  |
+8 | fn r536_check_python_rebaseline(
+  |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r546_private_generation` is never used
+ --> src/native_isolated_baseline_witness_r546_review.rs:9:4
+  |
+9 | fn r546_private_generation(g:&str)->bool{
+  |    ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r546_local_prefix` is never used
+  --> src/native_isolated_baseline_witness_r546_review.rs:13:4
+   |
+13 | fn r546_local_prefix(db1:&Db,db2:&Db,through:u64)
+   |    ^^^^^^^^^^^^^^^^^
+
+warning: function `r546_create_local_schema` is never used
+  --> src/native_isolated_baseline_witness_r546_review.rs:36:4
+   |
+36 | fn r546_create_local_schema(db:&Db)->Result<(),EventOutboxR366Error>{
+   |    ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: methods `r546_preview_identity`, `r546_stage`, and `r546_verify` are never used
+   --> src/native_isolated_baseline_witness_r546_review.rs:44:5
+    |
+43  | impl R506IsolatedReplica{
+    | ------------------------ methods in this implementation
+44  |  fn r546_preview_identity(&self,source:&IsolatedEventOutboxR366)
+    |     ^^^^^^^^^^^^^^^^^^^^^
+...
+53  |  fn r546_stage(&self,source:&IsolatedEventOutboxR366,
+    |     ^^^^^^^^^^
+...
+103 |  fn r546_verify(&self,source:&IsolatedEventOutboxR366)
+    |     ^^^^^^^^^^^
+
+warning: constant `R556_TABLES` is never used
+ --> src/native_isolated_snapshot_manifest_r556_review.rs:3:7
+  |
+3 | const R556_TABLES:[&str;3]=[
+  |       ^^^^^^^^^^^
+
+warning: function `r556_fixture_schema` is never used
+ --> src/native_isolated_snapshot_manifest_r556_review.rs:6:4
+  |
+6 | fn r556_fixture_schema(db:&Db)->Result<(),EventOutboxR366Error>{
+  |    ^^^^^^^^^^^^^^^^^^^
+
+warning: function `r556_manifest` is never used
+  --> src/native_isolated_snapshot_manifest_r556_review.rs:15:4
+   |
+15 | fn r556_manifest(db:&Db,boundary:u64,generation:&str)
+   |    ^^^^^^^^^^^^^
+
+warning: methods `r556_snapshot_compare`, `r556_snapshot_stage`, `r546_verify_locked`, and `r556_snapshot_verify` are never used
+   --> src/native_isolated_snapshot_manifest_r556_review.rs:78:5
+    |
+77  | impl R506IsolatedReplica{
+    | ------------------------ methods in this implementation
+78  |  fn r556_snapshot_compare(&self,source:&IsolatedEventOutboxR366)
+    |     ^^^^^^^^^^^^^^^^^^^^^
+...
+92  |  fn r556_snapshot_stage(&self,source:&IsolatedEventOutboxR366,
+    |     ^^^^^^^^^^^^^^^^^^^
+...
+144 |  fn r546_verify_locked(&self,db1:&Db,db2:&Db,boundary:u64)
+    |     ^^^^^^^^^^^^^^^^^^
+...
+166 |  fn r556_snapshot_verify(&self,source:&IsolatedEventOutboxR366)
+    |     ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r566_recreate_original_schema_in_memory` is never used
+  --> src/native_original_collector_schema_r566_review.rs:67:4
+   |
+67 | fn r566_recreate_original_schema_in_memory(v:&serde_json::Value)
+   |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r586_memory_original_schema` is never used
+ --> src/native_original_mirror_operations_r586_review.rs:8:4
+  |
+8 | fn r586_memory_original_schema(v:&serde_json::Value)->Result<Db,EventOutboxR366Error>{
+  |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r659_mem_pair` is never used
+ --> src/native_original_17table_ack_r659_review.rs:5:4
+  |
+5 | fn r659_mem_pair()->Result<(Db,Db,serde_json::Value),EventOutboxR366Error>{
+  |    ^^^^^^^^^^^^^
+
+warning: function `r659_append` is never used
+  --> src/native_original_17table_ack_r659_review.rs:40:4
+   |
+40 | fn r659_append(source:&Db,manifest:&serde_json::Value,operations:&[serde_json::Value])
+   |    ^^^^^^^^^^^
+
+warning: function `r659_source_frame` is never used
+  --> src/native_original_17table_ack_r659_review.rs:61:4
+   |
+61 | fn r659_source_frame(source:&Db,seq:u64)
+   |    ^^^^^^^^^^^^^^^^^
+
+warning: function `r659_replay` is never used
+  --> src/native_original_17table_ack_r659_review.rs:77:4
+   |
+77 | fn r659_replay(source:&Db,sink:&Db,manifest:&serde_json::Value,seq:u64,
+   |    ^^^^^^^^^^^
+
+warning: function `r659_ack_cleanup` is never used
+   --> src/native_original_17table_ack_r659_review.rs:103:4
+    |
+103 | fn r659_ack_cleanup(source:&Db,sink:&Db,seq:u64)
+    |    ^^^^^^^^^^^^^^^^
+
+warning: function `r671_file_pair` is never used
+  --> src/native_original_17table_file_r671_review.rs:78:4
+   |
+78 | fn r671_file_pair(root:&Path)
+   |    ^^^^^^^^^^^^^^
+
+warning: function `r671_reopen_pair` is never used
+   --> src/native_original_17table_file_r671_review.rs:115:4
+    |
+115 | fn r671_reopen_pair(root:&Path)
+    |    ^^^^^^^^^^^^^^^^
+
+warning: function `r683_verify_original_physical_schema` is never used
+   --> src/native_original_17table_file_r671_review.rs:124:4
+    |
+124 | fn r683_verify_original_physical_schema(
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r671_check_source_witness` is never used
+   --> src/native_original_17table_file_r671_review.rs:181:4
+    |
+181 | fn r671_check_source_witness(root:&Path,src:&Db,dst:&Db)
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r671_replay_file` is never used
+   --> src/native_original_17table_file_r671_review.rs:207:4
+    |
+207 | fn r671_replay_file(root:&Path,src:&Db,dst:&Db,
+    |    ^^^^^^^^^^^^^^^^
+
+warning: function `r691_original_rows_match` is never used
+   --> src/native_original_17table_file_r671_review.rs:217:4
+    |
+217 | fn r691_original_rows_match(src:&Db,dst:&Db,v:&serde_json::Value)
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r671_ack_file` is never used
+   --> src/native_original_17table_file_r671_review.rs:262:4
+    |
+262 | fn r671_ack_file(root:&Path,src:&Db,dst:&Db,seq:u64)
+    |    ^^^^^^^^^^^^^
+
+warning: function `r696_init` is never used
+  --> src/native_original_17table_batches_r696_review.rs:10:4
+   |
+10 | fn r696_init(root:&Path,src:&Db,dst:&Db)
+   |    ^^^^^^^^^
+
+warning: function `r696_check_fence` is never used
+  --> src/native_original_17table_batches_r696_review.rs:32:4
+   |
+32 | fn r696_check_fence(root:&Path,src:&Db,dst:&Db)
+   |    ^^^^^^^^^^^^^^^^
+
+warning: function `r696_append` is never used
+  --> src/native_original_17table_batches_r696_review.rs:59:4
+   |
+59 | fn r696_append(root:&Path,src:&Db,dst:&Db,v:&serde_json::Value,
+   |    ^^^^^^^^^^^
+
+warning: function `r696_replay_batch` is never used
+  --> src/native_original_17table_batches_r696_review.rs:70:4
+   |
+70 | fn r696_replay_batch(root:&Path,src:&Db,dst:&Db,v:&serde_json::Value,
+   |    ^^^^^^^^^^^^^^^^^
+
+warning: function `r696_finalize_ack` is never used
+  --> src/native_original_17table_batches_r696_review.rs:86:4
+   |
+86 | fn r696_finalize_ack(root:&Path,src:&Db,dst:&Db)
+   |    ^^^^^^^^^^^^^^^^^
+
+warning: function `r756_replay` is never used
+   --> src/native_original_physical_python_r756_review.rs:181:4
+    |
+181 | fn r756_replay(root:&Path,src:&Db,dst:&Db,v:&serde_json::Value,
+    |    ^^^^^^^^^^^
+
+warning: function `r756_cleanup` is never used
+   --> src/native_original_physical_python_r756_review.rs:216:4
+    |
+216 | fn r756_cleanup(root:&Path,src:&Db,dst:&Db,v:&serde_json::Value)
+    |    ^^^^^^^^^^^^
+
+warning: function `r790_arm_private_baseline` is never used
+ --> src/native_python_rust_bootstrap_r790_review.rs:4:4
+  |
+4 | fn r790_arm_private_baseline(root:&Path,src:&Db,dst:&Db)
+  |    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r790_copy_wal_snapshot` is never used
+  --> src/native_python_rust_bootstrap_r790_review.rs:18:4
+   |
+18 | fn r790_copy_wal_snapshot<F:FnOnce()>(
+   |    ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r790_replay_cutover` is never used
+  --> src/native_python_rust_bootstrap_r790_review.rs:48:4
+   |
+48 | fn r790_replay_cutover(root:&Path,src:&Db,dst:&Db,v:&serde_json::Value)
+   |    ^^^^^^^^^^^^^^^^^^^
+
+warning: function `r804_stream_original_table` is never used
+  --> src/native_original_streaming_parity_r800_review.rs:56:4
+   |
+56 | fn r804_stream_original_table(
+   |    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r895_verify_new_paper_rows` is never used
+ --> src/native_r879_private_paper_prefix_ack_review.rs:4:4
+  |
+4 | fn r895_verify_new_paper_rows(
+  |    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r879_private_paper_prefix_parity` is never used
+  --> src/native_r879_private_paper_prefix_ack_review.rs:39:4
+   |
+39 | fn r879_private_paper_prefix_parity(
+   |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r948_retained_with_optional_fingerprints` is never used
+ --> src/native_r907_fused_retained_verify_review.rs:5:4
+  |
+5 | fn r948_retained_with_optional_fingerprints(
+  |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r907_verify_retained_and_extract_prefix` is never used
+  --> src/native_r907_fused_retained_verify_review.rs:79:4
+   |
+79 | fn r907_verify_retained_and_extract_prefix(
+   |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `r879_private_paper_prefix_ack` is never used
+  --> src/native_r879_private_paper_prefix_ack_review.rs:94:4
+   |
+94 | fn r879_private_paper_prefix_ack(
+   |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `sqlite3_extended_errcode` is never used
+  --> src/native_isolated_sqlite_mirror_r147_review.rs:35:5
+   |
+35 |  fn sqlite3_extended_errcode(db:*mut c_void)->c_int;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: methods `ensure_manager_source` and `ucm_stable_tick` are never used
+    --> src/market_data_ingress_r1205.rs:517:5
+     |
+416  | impl Engine{
+     | ----------- methods in this implementation
+...
+517  |  fn ensure_manager_source(&mut self,frame:&RawFrame,base:&str)->Result<SourceId,String>{self.ensure_manager_source_decoded(frame,base,None)}
+     |     ^^^^^^^^^^^^^^^^^^^^^
+...
+1989 |  fn ucm_stable_tick(&mut self,k:&str,ns:u64,wall:i64)->bool{
+     |     ^^^^^^^^^^^^^^^
+
+warning: function `enqueue_reader_frame` is never used
+   --> src/ingress_runtime_r1205.rs:232:21
+    |
+232 | pub(crate) async fn enqueue_reader_frame(tx:&mpsc::Sender<RawFrame>,mut frame:RawFrame)->(bool,u64){
+    |                     ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `drain_frame_batch` is never used
+   --> src/ingress_runtime_r1205.rs:256:4
+    |
+256 | fn drain_frame_batch(rx:&mut mpsc::Receiver<Input>,first:RawFrame)->(Vec<RawFrame>,Option<Input>){drain_frame_batch_profiled(rx,first,Non...
+    |    ^^^^^^^^^^^^^^^^^
+
+warning: function `frame` is never used
+   --> src/ingress_runtime_r1205.rs:791:5
+    |
+791 |  fn frame(ns:u64)->RawFrame{RawFrame{venue:Venue::OkxSpot,epoch:1,received_ns:ns,received_wall_ms:1_000,raw:String::new(),source:None}}
+    |     ^^^^^
+
+warning: method `readiness_has_session` is never used
+   --> src/universal_connection_manager_r1209.rs:148:16
+    |
+135 | impl UniversalConnectionManager {
+    | ------------------------------- method in this implementation
+...
+148 |  pub(crate) fn readiness_has_session(&self,session:&str)->bool{self.readiness_previous.keys().any(|(_,s)|s==session)}
+    |                ^^^^^^^^^^^^^^^^^^^^^
+
+warning: variant `Reconnect` is never constructed
+   --> src/universal_connection_manager_r1209.rs:332:5
+    |
+326 | pub(crate) enum UcmWorkerEvent {
+    |                 -------------- variant in this enum
+...
+332 |     Reconnect(SourceId),
+    |     ^^^^^^^^^
+    |
+    = note: `UcmWorkerEvent` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+
+warning: variants `Snapshot` and `Propose` are never constructed
+   --> src/universal_connection_manager_r1209.rs:653:5
+    |
+644 | enum UcmWorkerCommand {
+    |      ---------------- variants in this enum
+...
+653 |     Snapshot {
+    |     ^^^^^^^^
+...
+657 |     Propose {
+    |     ^^^^^^^
+
+warning: struct `UcmPendingProposal` is never constructed
+   --> src/universal_connection_manager_r1209.rs:678:19
+    |
+678 | pub(crate) struct UcmPendingProposal {
+    |                   ^^^^^^^^^^^^^^^^^^
+
+warning: struct `UcmPendingSnapshot` is never constructed
+   --> src/universal_connection_manager_r1209.rs:695:19
+    |
+695 | pub(crate) struct UcmPendingSnapshot {
+    |                   ^^^^^^^^^^^^^^^^^^
+
+warning: multiple associated items are never used
+    --> src/universal_connection_manager_r1209.rs:738:19
+     |
+737  | impl UcmWorker {
+     | -------------- associated items in this implementation
+738  |     pub(crate) fn start(policy: QualityPolicy, capacity: usize) -> Result<Self,String> {
+     |                   ^^^^^
+...
+1390 |     pub(crate) fn poll_commit(&mut self,pending:&mut UcmPendingCommit)
+     |                   ^^^^^^^^^^^
+...
+1420 |     pub(crate) fn begin_snapshot(&mut self,expected_revision:u64)
+     |                   ^^^^^^^^^^^^^^
+...
+1427 |     pub(crate) fn begin_scoped_snapshot(&mut self,expected_revision:u64,id:&SourceId)
+     |                   ^^^^^^^^^^^^^^^^^^^^^
+...
+1432 |     fn begin_snapshot_inner(&mut self,expected_revision:u64,only_scope:Option<UcmScopeKey>)
+     |        ^^^^^^^^^^^^^^^^^^^^
+...
+1448 |     pub(crate) fn poll_snapshot(&mut self,pending:&mut UcmPendingSnapshot)
+     |                   ^^^^^^^^^^^^^
+...
+1476 |     pub(crate) fn begin_proposal(&mut self,expected_revision:u64,eligible:Vec<SourceId>,
+     |                   ^^^^^^^^^^^^^^
+...
+1481 |     pub(crate) fn begin_scoped_proposal(&mut self,expected_revision:u64,
+     |                   ^^^^^^^^^^^^^^^^^^^^^
+...
+1487 |     fn begin_proposal_inner(&mut self,expected_revision:u64,
+     |        ^^^^^^^^^^^^^^^^^^^^
+...
+1509 |     pub(crate) fn poll_proposal(&mut self,pending:&mut UcmPendingProposal)
+     |                   ^^^^^^^^^^^^^
+
+warning: method `bind` is never used
+   --> src/native_paper_bridge_r1301.rs:241:5
+    |
+216 | impl Provider {
+    | ------------- method in this implementation
+...
+241 |  fn bind(&mut self,f:RawFrame,u:Update,now:u64,wall:i64)->Result<ValidatedInput,Denial>{
+    |     ^^^^
+
+warning: `spotarb-native-market-core` (lib) generated 74 warnings (run `cargo fix --lib -p spotarb-native-market-core` to apply 8 suggestions)
+    Finished dev [unoptimized + debuginfo] target(s) in 51.12s

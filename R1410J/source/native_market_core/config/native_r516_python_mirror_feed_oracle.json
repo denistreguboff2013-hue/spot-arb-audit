@@ -1,0 +1,119 @@
+{
+  "canonical": "{\"operations\":[{\"after_hash\":\"14df6ae042a67ef0ad803f0398b7abc3256578e26964856a913b78fc31deed81\",\"key\":{\"correlation_id\":\"attempt_r516\"},\"op\":\"insert\",\"row\":{\"correlation_id\":\"attempt_r516\",\"mode\":\"paper\"},\"table\":\"attempts\"},{\"after_hash\":\"553f270ac40b138e5a9fe62c4b772073e38a65e9a239d13484b2716c9b21b84d\",\"key\":{\"event_id\":\"r516_one\"},\"op\":\"insert\",\"row\":{\"category\":\"decisions\",\"event_id\":\"r516_one\",\"mode\":\"paper\",\"name\":\"DECISION_MADE\",\"payload_json\":\"{\\\"decision\\\":\\\"hold\\\"}\"},\"table\":\"events\"},{\"after_hash\":\"7339ba888d53b405dc9a368e31bf6a4833102ad2adedd87895d62dce5d7d044a\",\"key\":{\"event_id\":\"r516_one\"},\"op\":\"insert\",\"row\":{\"decision\":\"hold\",\"event_id\":\"r516_one\",\"skip_reason\":\"spread\"},\"table\":\"decisions\"}],\"protocol_version\":1,\"schema_generation\":1,\"tx_kind\":\"event_append\"}",
+  "control": {
+    "feed_generation": "legacy",
+    "latest_seq": 1,
+    "retained_bytes": 1170,
+    "retained_records": 1,
+    "state": "BOOTSTRAP_REQUIRED"
+  },
+  "frame": {
+    "operations": [
+      {
+        "after_hash": "14df6ae042a67ef0ad803f0398b7abc3256578e26964856a913b78fc31deed81",
+        "key": {
+          "correlation_id": "attempt_r516"
+        },
+        "op": "insert",
+        "row": {
+          "correlation_id": "attempt_r516",
+          "mode": "paper"
+        },
+        "table": "attempts"
+      },
+      {
+        "after_hash": "553f270ac40b138e5a9fe62c4b772073e38a65e9a239d13484b2716c9b21b84d",
+        "key": {
+          "event_id": "r516_one"
+        },
+        "op": "insert",
+        "row": {
+          "category": "decisions",
+          "event_id": "r516_one",
+          "mode": "paper",
+          "name": "DECISION_MADE",
+          "payload_json": "{\"decision\":\"hold\"}"
+        },
+        "table": "events"
+      },
+      {
+        "after_hash": "7339ba888d53b405dc9a368e31bf6a4833102ad2adedd87895d62dce5d7d044a",
+        "key": {
+          "event_id": "r516_one"
+        },
+        "op": "insert",
+        "row": {
+          "decision": "hold",
+          "event_id": "r516_one",
+          "skip_reason": "spread"
+        },
+        "table": "decisions"
+      }
+    ],
+    "protocol_version": 1,
+    "schema_generation": 1,
+    "tx_kind": "event_append"
+  },
+  "note": "Original Python canonical/after/record/ensure_schema; only private disk guard overridden for in-memory SQLite",
+  "operations": [
+    {
+      "after_hash": "14df6ae042a67ef0ad803f0398b7abc3256578e26964856a913b78fc31deed81",
+      "key": {
+        "correlation_id": "attempt_r516"
+      },
+      "op": "insert",
+      "row": {
+        "correlation_id": "attempt_r516",
+        "mode": "paper"
+      },
+      "table": "attempts"
+    },
+    {
+      "after_hash": "553f270ac40b138e5a9fe62c4b772073e38a65e9a239d13484b2716c9b21b84d",
+      "key": {
+        "event_id": "r516_one"
+      },
+      "op": "insert",
+      "row": {
+        "category": "decisions",
+        "event_id": "r516_one",
+        "mode": "paper",
+        "name": "DECISION_MADE",
+        "payload_json": "{\"decision\":\"hold\"}"
+      },
+      "table": "events"
+    },
+    {
+      "after_hash": "7339ba888d53b405dc9a368e31bf6a4833102ad2adedd87895d62dce5d7d044a",
+      "key": {
+        "event_id": "r516_one"
+      },
+      "op": "insert",
+      "row": {
+        "decision": "hold",
+        "event_id": "r516_one",
+        "skip_reason": "spread"
+      },
+      "table": "decisions"
+    }
+  ],
+  "payload_bytes": 1170,
+  "protocol_version": 1,
+  "record": {
+    "feed_generation": "legacy",
+    "payload_bytes": 1170,
+    "payload_hash": "fa356900231fa1b64b5a4af98b854d90d000ea274efe741738ea623535d88acd",
+    "payload_json": "{\"operations\":[{\"after_hash\":\"14df6ae042a67ef0ad803f0398b7abc3256578e26964856a913b78fc31deed81\",\"key\":{\"correlation_id\":\"attempt_r516\"},\"op\":\"insert\",\"row\":{\"correlation_id\":\"attempt_r516\",\"mode\":\"paper\"},\"table\":\"attempts\"},{\"after_hash\":\"553f270ac40b138e5a9fe62c4b772073e38a65e9a239d13484b2716c9b21b84d\",\"key\":{\"event_id\":\"r516_one\"},\"op\":\"insert\",\"row\":{\"category\":\"decisions\",\"event_id\":\"r516_one\",\"mode\":\"paper\",\"name\":\"DECISION_MADE\",\"payload_json\":\"{\\\"decision\\\":\\\"hold\\\"}\"},\"table\":\"events\"},{\"after_hash\":\"7339ba888d53b405dc9a368e31bf6a4833102ad2adedd87895d62dce5d7d044a\",\"key\":{\"event_id\":\"r516_one\"},\"op\":\"insert\",\"row\":{\"decision\":\"hold\",\"event_id\":\"r516_one\",\"skip_reason\":\"spread\"},\"table\":\"decisions\"}],\"protocol_version\":1,\"schema_generation\":1,\"tx_kind\":\"event_append\"}",
+    "prev_seq": 0,
+    "schema_generation": 1,
+    "seq": 1,
+    "tx_kind": "event_append"
+  },
+  "schema_generation": 1,
+  "sha256": "fa356900231fa1b64b5a4af98b854d90d000ea274efe741738ea623535d88acd",
+  "states": [
+    "BOOTSTRAP_REQUIRED",
+    "NORMAL",
+    "REBUILD_REQUIRED"
+  ]
+}

@@ -1,0 +1,9 @@
+//! R6 exact same-frame Python-semantics vs Rust parser parity. Review-only.
+use serde_json::Value;use spotarb_native_market_core::{parse,RawFrame,Venue};
+fn main(){let lines=std::io::read_to_string(std::io::stdin()).unwrap();let mut n=0u64;
+ for line in lines.lines(){let v:Value=serde_json::from_str(line).unwrap();let venue=if v["venue"]=="binance"{Venue::BinanceFutures}else{Venue::OkxSpot};let raw=v["raw"].as_str().unwrap().to_string();let f=RawFrame{source:None,venue,epoch:1,received_ns:1,received_wall_ms:1,raw:raw.clone()};let u=parse(&f).unwrap();
+  let j:Value=serde_json::from_str(&raw).unwrap();let (base,bid,bq,ask,aq,ts)=match venue{
+   Venue::BinanceFutures=>{let d=&j["data"];let s=d["s"].as_str().unwrap();(s.trim_end_matches("USDT").to_string(),d["b"].as_str().unwrap().parse::<f64>().unwrap(),d["B"].as_str().unwrap().parse::<f64>().unwrap(),d["a"].as_str().unwrap().parse::<f64>().unwrap(),d["A"].as_str().unwrap().parse::<f64>().unwrap(),d["E"].as_i64().unwrap())},
+   Venue::OkxSpot=>{let d=&j["data"][0];let s=j["arg"]["instId"].as_str().unwrap();(s.trim_end_matches("-USDT").to_string(),d["bids"][0][0].as_str().unwrap().parse::<f64>().unwrap(),d["bids"][0][1].as_str().unwrap().parse::<f64>().unwrap(),d["asks"][0][0].as_str().unwrap().parse::<f64>().unwrap(),d["asks"][0][1].as_str().unwrap().parse::<f64>().unwrap(),d["ts"].as_str().unwrap().parse::<i64>().unwrap())}};
+  assert_eq!(u.base,base);assert_eq!(u.book.bids[0].0,bid);assert_eq!(u.book.bids[0].1,bq);assert_eq!(u.book.asks[0].0,ask);assert_eq!(u.book.asks[0].1,aq);assert_eq!(u.book.exchange_ts_ms,Some(ts));n+=1;
+ }println!("{{\"r6_same_frame_parity\":\"PASS\",\"frames\":{n},\"mismatches\":0,\"trading\":false}}");}

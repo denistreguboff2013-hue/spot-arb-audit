@@ -1,0 +1,28 @@
+{
+  "schema": "R146_TEN_HARDSTOP_AND_FINANCIAL_FIELDS_READONLY_OVERLAY_V1",
+  "scope": "rust_research_readonly_only",
+  "consumer": "NativeTradingConfig::parse hard-stop policy + inspect_financial_day_source_limits_without_io",
+  "source_module": "src/native_trading_config.rs",
+  "test": "r146_eight_native_and_real_trial_yaml_hard_stops_deny_before_rust_trade; r146_original_financial_caps_change_known_lower_bound_threshold_only; r146_missing_source_observations_are_unknown_never_zero_or_authority",
+  "active_binary_proven": false,
+  "real_order_authority": false,
+  "account_history_complete_proven": false,
+  "independent_daily_loss_verified": false,
+  "independent_daily_okx_fees_verified": false,
+  "unknown_ack_retry_authorized": false,
+  "may_open_real": false,
+  "installed_paper_source_attested": false,
+  "note": "Exactly 8 mandatory source values reject incompatible config at parse time; 2 financial caps change only untrusted/local threshold preview and unknown stays unknown. No authentic venue facts, automated daily risk enforcement in deployed PAPER, real permission, external witness or live order.",
+  "fields": [
+    "native_runtime.config_schema_version",
+    "native_runtime.mutation_capability_enabled",
+    "native_runtime.production_cutover_authorized",
+    "native_runtime.real_execution_authorized",
+    "real_trial.max_trades_per_day",
+    "real_trial.max_open_positions",
+    "real_trial.deny_on_unknown",
+    "real_trial.deny_on_untracked_assets",
+    "limits.max_daily_loss_usdt",
+    "limits.max_okx_fees_per_day_usdt"
+  ]
+}

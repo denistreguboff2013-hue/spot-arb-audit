@@ -1,0 +1,24 @@
+{
+  "schema": "R144_EIGHT_EXECUTION_ORIGINAL_YAML_SOURCE_OFFLINE_REVIEW_V1",
+  "scope": "rust_research_readonly_only",
+  "consumer": "NativeTradingConfig::inspect_original_execution_timing_read_only delegates to pre-existing inspect_execution_retry_bounds_read_only",
+  "source_module": "src/native_trading_config.rs",
+  "test": "p106_execution_eight_original_fields_bound_to_bounded_review_schedule; p106_execution_wrong_original_modes_and_source_drift_fail_closed",
+  "active_binary_proven": false,
+  "real_order_authority": false,
+  "original_exchange_acknowledged": false,
+  "retry_after_unknown_ack_permitted": false,
+  "order_submission_permitted": false,
+  "installed_paper_source_attested": false,
+  "note": "Eight source knobs influence ONLY a bounded local timing+ticks review. Mode enum deviations are rejected by existing NativeTradingConfig::parse and wrapper; five numeric changes yield distinct review plans. No exchange attempt, order send, unknown-ack resend, recovery authorization or deployed binary parity is implied.",
+  "fields": [
+    "execution.spot_entry_mode",
+    "execution.fut_entry_mode",
+    "execution.unwind_mode",
+    "execution.spot_limit_ticks",
+    "execution.spot_retry_n",
+    "execution.spot_retry_ms",
+    "execution.fut_retry_n",
+    "execution.fut_retry_ms"
+  ]
+}

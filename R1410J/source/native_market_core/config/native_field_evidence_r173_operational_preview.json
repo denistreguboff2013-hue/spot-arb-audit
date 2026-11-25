@@ -1,0 +1,61 @@
+{
+  "schema": "astra_p1_06_r173_source_operational_preview_overlay_v1",
+  "parent_r172_git_head": "3947b8db63ec1b42cfe6691e14e4d1300a7d8177",
+  "parent_r169_overlay_sha256": "4b414538de540c2174a91c2187fb73d4ee493f7afcc983c16526d128997d8558",
+  "source_suite": "src/native_r173_config_operational_preview.rs",
+  "source_suite_sha256": "c12e3ef489c7a4170876221da8245274d981abde8dc3956f75e1837a121371fa",
+  "parent_research_evidenced": 144,
+  "new_distinct_research_evidenced": 5,
+  "cumulative_research_evidenced": 149,
+  "remaining_research_not_evidenced": 11,
+  "original_field_count": 160,
+  "installed_paper_yaml_applications_proven": 0,
+  "real_execution_authorized": false,
+  "evidence_scope": "source YAML mutation changes pure Rust diagnostic decisions; no actual scheduling, filesystem, OS environment, network, Telegram delivery, or installed PAPER application",
+  "test_observation": {
+    "targeted": "6 R173 module PASS; 9 total matching r173_ prefix",
+    "full_library": "1121 PASS / 0 FAIL / 2 ignored",
+    "binary": "16 PASS / 0 FAIL"
+  },
+  "new_research_fields": [
+    {
+      "field": "general.report_time",
+      "test": "native_r173_config_operational_preview::tests::r173_report_time_changes_schedule",
+      "classification": "OFFLINE_PREVIEW_TESTED",
+      "installed_paper": "NOT_PROVEN"
+    },
+    {
+      "field": "general.report_timezone",
+      "test": "native_r173_config_operational_preview::tests::r173_timezone_changes_schedule_fail_closed_unknown",
+      "classification": "OFFLINE_PREVIEW_TESTED_LIMITED_ZONES",
+      "installed_paper": "NOT_PROVEN"
+    },
+    {
+      "field": "paths.data_dir",
+      "test": "native_r173_config_operational_preview::tests::r173_data_dir_changes_scanner_only",
+      "classification": "OFFLINE_PREVIEW_TESTED",
+      "installed_paper": "NOT_PROVEN"
+    },
+    {
+      "field": "scale_in_hints.telemetry_path",
+      "test": "native_r173_config_operational_preview::tests::r173_telemetry_path_is_independent",
+      "classification": "OFFLINE_PREVIEW_TESTED",
+      "installed_paper": "NOT_PROVEN"
+    },
+    {
+      "field": "telegram.proxy_url",
+      "test": "native_r173_config_operational_preview::tests::r173_proxy_precedence_and_no_network",
+      "classification": "OFFLINE_PREVIEW_TESTED",
+      "installed_paper": "NOT_PROVEN"
+    }
+  ],
+  "additional_negative_test": "native_r173_config_operational_preview::tests::r173_mutated_unparsed_projection_denied",
+  "explicit_limitations": [
+    "No calendar scheduler wired into installed ELF",
+    "UTC and Asia/Yekaterinburg 2020-2035 only; full IANA/DST parity unsupported",
+    "Path selection has no actual filesystem operations",
+    "No Telegram network operations, real environment access or secrets",
+    "Cache path parser fail-closed on unsafe or nonabsolute directory even if Python might accept it",
+    "No evidence of installed PAPER YAML application"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "R142_ANALYTICS_AI_SOURCE_CONSUMER_RESEARCH_OVERLAY_V1",
+  "scope": "rust_research_readonly_only",
+  "consumer": "paper_ai_analytics_source_review_without_io; R50 diagnostic binary, not deployed PAPER",
+  "source_module": "native_ai_storage_review.rs + native_paper_ai_bridge_review.rs + bin/r50_public_paper_ai_readonly_once.rs",
+  "test": "p106_all_analytics_source_parameters_change_observed_result_or_fail_closed",
+  "companion_tests": [
+    "p106_analytics_all_seven_yaml_fields_reach_readonly_ai_report",
+    "p106_untrusted_pressure_stays_advisory_and_cannot_prune_or_trade",
+    "p106_invalid_analytics_paths_and_bad_paper_source_fail_closed"
+  ],
+  "source_decision_proven": false,
+  "active_binary_proven": false,
+  "real_order_authority": false,
+  "original_exchange_authenticated": false,
+  "sqlite_writer_running_proven": false,
+  "dataset_source": "config/native_trading.yaml 26-section legacy-mirror reviewed against native runtime hard-disable; safe offline Rust test fixture",
+  "note": "Seven distinct original analytics keys are checked by R47 strict typed parser and consumed by R50 offline aggregated diagnostic output. Invalid mode fails closed. This does NOT prove a working SQLite writer, mirror, retention cleanup, actual disk measurement, installed binary consumption, network, AI auto-tuning or REAL.",
+  "fields": [
+    "analytics.database_path",
+    "analytics.enabled",
+    "analytics.max_db_mb",
+    "analytics.max_wal_mb",
+    "analytics.mirror_database_path",
+    "analytics.mode",
+    "analytics.raw_retention_days"
+  ]
+}

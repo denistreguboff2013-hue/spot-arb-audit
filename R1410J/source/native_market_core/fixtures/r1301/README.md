@@ -1,0 +1,2 @@
+# R1301 fixtures
+Explicit synthetic AAA template only. Not a runnable authorization or real instrument profile. No real economic values are inferred. Current-boot clock binding is deliberately absent. Contract fixtures are in native_paper_bridge_r1301_tests.rs; actual entrypoint fixtures in native_paper_observation_r1301_tests.rs. Those use a test-only minting function, compiled out of production. They do not claim existing Engine-to-bridge E2E coverage. All tests prepared, NOT RUN by Astra.

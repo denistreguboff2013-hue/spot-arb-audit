@@ -1,0 +1,504 @@
+{
+  "source": "Python sqlite3 with static original collector.py FIELDS",
+  "synthetic_only": true,
+  "fields": {
+    "signals": [
+      "symbol_spot",
+      "symbol_fut",
+      "okx_bid",
+      "okx_ask",
+      "binance_bid",
+      "binance_ask",
+      "raw_spread_bps",
+      "net_spread_bps",
+      "telemetry_age_sec",
+      "depth_spot_usdt",
+      "depth_fut_usdt",
+      "trade200",
+      "liquidity_score"
+    ],
+    "decisions": [
+      "decision",
+      "skip_reason",
+      "original_reason"
+    ],
+    "orders": [
+      "exchange",
+      "leg",
+      "symbol",
+      "client_order_id",
+      "order_id",
+      "call_id",
+      "action",
+      "side",
+      "order_type",
+      "time_in_force",
+      "requested_amount",
+      "requested_price",
+      "status",
+      "executed_amount",
+      "remaining_amount",
+      "average_price",
+      "cost",
+      "exchange_event_time_ms",
+      "request_sent_at_ms",
+      "response_received_at_ms",
+      "latency_ms",
+      "retry_count",
+      "failure_stage",
+      "evidence_source"
+    ],
+    "entries": [
+      "entry_id",
+      "planned_usdt",
+      "planned_amount",
+      "entry_spread_bps",
+      "spot_entry_mode",
+      "fut_entry_mode",
+      "spot_order_id",
+      "fut_order_id",
+      "spot_expected_price",
+      "spot_actual_price",
+      "fut_expected_price",
+      "fut_actual_price",
+      "spot_fill_ratio",
+      "fut_fill_ratio",
+      "entry_slippage_bps",
+      "fees_entry_usdt",
+      "entry_status"
+    ],
+    "exits": [
+      "exit_id",
+      "entry_id",
+      "exit_reason",
+      "exit_spread_bps",
+      "spot_close_price",
+      "fut_close_price",
+      "exit_slippage_bps",
+      "fees_exit_usdt",
+      "gross_pnl_usdt",
+      "net_pnl_usdt",
+      "dust_left",
+      "cleanup_status",
+      "stop_cancel_status",
+      "telegram_status"
+    ],
+    "fills": [
+      "exchange",
+      "leg",
+      "symbol",
+      "side",
+      "client_order_id",
+      "order_id",
+      "fill_id",
+      "price",
+      "amount",
+      "cost",
+      "fee_amount",
+      "fee_currency",
+      "fee_usdt",
+      "fee_conversion_source",
+      "exchange_event_time_ms",
+      "liquidity_role",
+      "evidence_source",
+      "observation_call_id"
+    ],
+    "errors": [
+      "module",
+      "function",
+      "exchange",
+      "error_type",
+      "error_text",
+      "traceback",
+      "severity",
+      "resolved"
+    ],
+    "daily_reports": [
+      "date",
+      "report_id"
+    ],
+    "parameter_snapshots": [
+      "snapshot_id",
+      "code_revision",
+      "config_hash"
+    ],
+    "ai_recommendations": [
+      "recommendation_id",
+      "status",
+      "parameter",
+      "current",
+      "recommended",
+      "reason"
+    ]
+  },
+  "cases": [
+    {
+      "category": "signals",
+      "event_id": "r427_0",
+      "payload": {
+        "symbol_spot": "value_0"
+      },
+      "expected_after": {
+        "table": "signals",
+        "op": "insert",
+        "key": {
+          "event_id": "r427_0"
+        },
+        "row": {
+          "event_id": "r427_0",
+          "mode": "paper",
+          "is_exchange_verified": 0,
+          "symbol_spot": "value_0",
+          "symbol_fut": null,
+          "okx_bid": null,
+          "okx_ask": null,
+          "binance_bid": null,
+          "binance_ask": null,
+          "raw_spread_bps": null,
+          "net_spread_bps": null,
+          "telemetry_age_sec": null,
+          "depth_spot_usdt": null,
+          "depth_fut_usdt": null,
+          "trade200": null,
+          "liquidity_score": null
+        },
+        "after_hash": "de9afff11e6a2e00bedad95b2f2a4f41c76571acaabf05257794edd5646ac400"
+      },
+      "canonical_row": "{\"binance_ask\":null,\"binance_bid\":null,\"depth_fut_usdt\":null,\"depth_spot_usdt\":null,\"event_id\":\"r427_0\",\"is_exchange_verified\":0,\"liquidity_score\":null,\"mode\":\"paper\",\"net_spread_bps\":null,\"okx_ask\":null,\"okx_bid\":null,\"raw_spread_bps\":null,\"symbol_fut\":null,\"symbol_spot\":\"value_0\",\"telemetry_age_sec\":null,\"trade200\":null}"
+    },
+    {
+      "category": "decisions",
+      "event_id": "r427_1",
+      "payload": {
+        "decision": "value_1"
+      },
+      "expected_after": {
+        "table": "decisions",
+        "op": "insert",
+        "key": {
+          "event_id": "r427_1"
+        },
+        "row": {
+          "event_id": "r427_1",
+          "mode": "paper",
+          "is_exchange_verified": 0,
+          "decision": "value_1",
+          "skip_reason": null,
+          "original_reason": null
+        },
+        "after_hash": "a0e75aa0d745452cad4c90eb3ef15f29371ea78ed4a46aa3e0148b5052075375"
+      },
+      "canonical_row": "{\"decision\":\"value_1\",\"event_id\":\"r427_1\",\"is_exchange_verified\":0,\"mode\":\"paper\",\"original_reason\":null,\"skip_reason\":null}"
+    },
+    {
+      "category": "decisions",
+      "event_id": "evt_001",
+      "payload": {
+        "decision": "hold",
+        "skip_reason": "spread low"
+      },
+      "expected_after": {
+        "table": "decisions",
+        "op": "insert",
+        "key": {
+          "event_id": "evt_001"
+        },
+        "row": {
+          "event_id": "evt_001",
+          "mode": "paper",
+          "is_exchange_verified": 0,
+          "decision": "hold",
+          "skip_reason": "spread low",
+          "original_reason": null
+        },
+        "after_hash": "4abb99958f1c0d99ac79de3ec6e47cf606606b0aa12a24986e712d6c4876b441"
+      },
+      "canonical_row": "{\"decision\":\"hold\",\"event_id\":\"evt_001\",\"is_exchange_verified\":0,\"mode\":\"paper\",\"original_reason\":null,\"skip_reason\":\"spread low\"}"
+    },
+    {
+      "category": "decisions",
+      "event_id": "evt_002",
+      "payload": {
+        "decision": "отказ",
+        "skip_reason": "нет ликвидности"
+      },
+      "expected_after": {
+        "table": "decisions",
+        "op": "insert",
+        "key": {
+          "event_id": "evt_002"
+        },
+        "row": {
+          "event_id": "evt_002",
+          "mode": "paper",
+          "is_exchange_verified": 0,
+          "decision": "отказ",
+          "skip_reason": "нет ликвидности",
+          "original_reason": null
+        },
+        "after_hash": "34026952c5deaf5080b8fa00008c587e391febadb0e953c0f1f405e8b822fe85"
+      },
+      "canonical_row": "{\"decision\":\"отказ\",\"event_id\":\"evt_002\",\"is_exchange_verified\":0,\"mode\":\"paper\",\"original_reason\":null,\"skip_reason\":\"нет ликвидности\"}"
+    },
+    {
+      "category": "orders",
+      "event_id": "r427_2",
+      "payload": {
+        "exchange": "value_2"
+      },
+      "expected_after": {
+        "table": "orders",
+        "op": "insert",
+        "key": {
+          "event_id": "r427_2"
+        },
+        "row": {
+          "event_id": "r427_2",
+          "mode": "paper",
+          "is_exchange_verified": 0,
+          "exchange": "value_2",
+          "leg": null,
+          "symbol": null,
+          "client_order_id": null,
+          "order_id": null,
+          "call_id": null,
+          "action": null,
+          "side": null,
+          "order_type": null,
+          "time_in_force": null,
+          "requested_amount": null,
+          "requested_price": null,
+          "status": null,
+          "executed_amount": null,
+          "remaining_amount": null,
+          "average_price": null,
+          "cost": null,
+          "exchange_event_time_ms": null,
+          "request_sent_at_ms": null,
+          "response_received_at_ms": null,
+          "latency_ms": null,
+          "retry_count": null,
+          "failure_stage": null,
+          "evidence_source": null
+        },
+        "after_hash": "26f8b4db7b3539ec70365b4e6bcc0208b9edbcd9238144aa102ff2306129ebc1"
+      },
+      "canonical_row": "{\"action\":null,\"average_price\":null,\"call_id\":null,\"client_order_id\":null,\"cost\":null,\"event_id\":\"r427_2\",\"evidence_source\":null,\"exchange\":\"value_2\",\"exchange_event_time_ms\":null,\"executed_amount\":null,\"failure_stage\":null,\"is_exchange_verified\":0,\"latency_ms\":null,\"leg\":null,\"mode\":\"paper\",\"order_id\":null,\"order_type\":null,\"remaining_amount\":null,\"request_sent_at_ms\":null,\"requested_amount\":null,\"requested_price\":null,\"response_received_at_ms\":null,\"retry_count\":null,\"side\":null,\"status\":null,\"symbol\":null,\"time_in_force\":null}"
+    },
+    {
+      "category": "entries",
+      "event_id": "r427_3",
+      "payload": {
+        "entry_id": "value_3"
+      },
+      "expected_after": {
+        "table": "entries",
+        "op": "insert",
+        "key": {
+          "event_id": "r427_3"
+        },
+        "row": {
+          "event_id": "r427_3",
+          "mode": "paper",
+          "is_exchange_verified": 0,
+          "entry_id": "value_3",
+          "planned_usdt": null,
+          "planned_amount": null,
+          "entry_spread_bps": null,
+          "spot_entry_mode": null,
+          "fut_entry_mode": null,
+          "spot_order_id": null,
+          "fut_order_id": null,
+          "spot_expected_price": null,
+          "spot_actual_price": null,
+          "fut_expected_price": null,
+          "fut_actual_price": null,
+          "spot_fill_ratio": null,
+          "fut_fill_ratio": null,
+          "entry_slippage_bps": null,
+          "fees_entry_usdt": null,
+          "entry_status": null
+        },
+        "after_hash": "581e7ffdad0012236aa457c0effa58f8fa9223c00c1b0fb0773585f243771979"
+      },
+      "canonical_row": "{\"entry_id\":\"value_3\",\"entry_slippage_bps\":null,\"entry_spread_bps\":null,\"entry_status\":null,\"event_id\":\"r427_3\",\"fees_entry_usdt\":null,\"fut_actual_price\":null,\"fut_entry_mode\":null,\"fut_expected_price\":null,\"fut_fill_ratio\":null,\"fut_order_id\":null,\"is_exchange_verified\":0,\"mode\":\"paper\",\"planned_amount\":null,\"planned_usdt\":null,\"spot_actual_price\":null,\"spot_entry_mode\":null,\"spot_expected_price\":null,\"spot_fill_ratio\":null,\"spot_order_id\":null}"
+    },
+    {
+      "category": "exits",
+      "event_id": "r427_4",
+      "payload": {
+        "exit_id": "value_4"
+      },
+      "expected_after": {
+        "table": "exits",
+        "op": "insert",
+        "key": {
+          "event_id": "r427_4"
+        },
+        "row": {
+          "event_id": "r427_4",
+          "mode": "paper",
+          "is_exchange_verified": 0,
+          "exit_id": "value_4",
+          "entry_id": null,
+          "exit_reason": null,
+          "exit_spread_bps": null,
+          "spot_close_price": null,
+          "fut_close_price": null,
+          "exit_slippage_bps": null,
+          "fees_exit_usdt": null,
+          "gross_pnl_usdt": null,
+          "net_pnl_usdt": null,
+          "dust_left": null,
+          "cleanup_status": null,
+          "stop_cancel_status": null,
+          "telegram_status": null
+        },
+        "after_hash": "7b284d3f3af07543a15c0b88462a9c38f503787f8d726a4794b6eb517630ea57"
+      },
+      "canonical_row": "{\"cleanup_status\":null,\"dust_left\":null,\"entry_id\":null,\"event_id\":\"r427_4\",\"exit_id\":\"value_4\",\"exit_reason\":null,\"exit_slippage_bps\":null,\"exit_spread_bps\":null,\"fees_exit_usdt\":null,\"fut_close_price\":null,\"gross_pnl_usdt\":null,\"is_exchange_verified\":0,\"mode\":\"paper\",\"net_pnl_usdt\":null,\"spot_close_price\":null,\"stop_cancel_status\":null,\"telegram_status\":null}"
+    },
+    {
+      "category": "fills",
+      "event_id": "r427_5",
+      "payload": {
+        "exchange": "value_5"
+      },
+      "expected_after": {
+        "table": "fills",
+        "op": "insert",
+        "key": {
+          "event_id": "r427_5"
+        },
+        "row": {
+          "event_id": "r427_5",
+          "mode": "paper",
+          "is_exchange_verified": 0,
+          "exchange": "value_5",
+          "leg": null,
+          "symbol": null,
+          "side": null,
+          "client_order_id": null,
+          "order_id": null,
+          "fill_id": null,
+          "price": null,
+          "amount": null,
+          "cost": null,
+          "fee_amount": null,
+          "fee_currency": null,
+          "fee_usdt": null,
+          "fee_conversion_source": null,
+          "exchange_event_time_ms": null,
+          "liquidity_role": null,
+          "evidence_source": null,
+          "observation_call_id": null
+        },
+        "after_hash": "0590a4c95cdeaaf96dfa3c9c2a682da21c8747288ab1f5801088bcabac35a917"
+      },
+      "canonical_row": "{\"amount\":null,\"client_order_id\":null,\"cost\":null,\"event_id\":\"r427_5\",\"evidence_source\":null,\"exchange\":\"value_5\",\"exchange_event_time_ms\":null,\"fee_amount\":null,\"fee_conversion_source\":null,\"fee_currency\":null,\"fee_usdt\":null,\"fill_id\":null,\"is_exchange_verified\":0,\"leg\":null,\"liquidity_role\":null,\"mode\":\"paper\",\"observation_call_id\":null,\"order_id\":null,\"price\":null,\"side\":null,\"symbol\":null}"
+    },
+    {
+      "category": "errors",
+      "event_id": "r427_6",
+      "payload": {
+        "module": "value_6"
+      },
+      "expected_after": {
+        "table": "errors",
+        "op": "insert",
+        "key": {
+          "event_id": "r427_6"
+        },
+        "row": {
+          "event_id": "r427_6",
+          "mode": "paper",
+          "is_exchange_verified": 0,
+          "module": "value_6",
+          "function": null,
+          "exchange": null,
+          "error_type": null,
+          "error_text": null,
+          "traceback": null,
+          "severity": null,
+          "resolved": null
+        },
+        "after_hash": "f0874539730267e5813c3ca46352cfe8edd396bd590ac18b357cbd5db9c3e82e"
+      },
+      "canonical_row": "{\"error_text\":null,\"error_type\":null,\"event_id\":\"r427_6\",\"exchange\":null,\"function\":null,\"is_exchange_verified\":0,\"mode\":\"paper\",\"module\":\"value_6\",\"resolved\":null,\"severity\":null,\"traceback\":null}"
+    },
+    {
+      "category": "daily_reports",
+      "event_id": "r427_7",
+      "payload": {
+        "date": "value_7"
+      },
+      "expected_after": {
+        "table": "daily_reports",
+        "op": "insert",
+        "key": {
+          "event_id": "r427_7"
+        },
+        "row": {
+          "event_id": "r427_7",
+          "mode": "paper",
+          "is_exchange_verified": 0,
+          "date": "value_7",
+          "report_id": null
+        },
+        "after_hash": "4ebac64b47e659fe5c09f17325ed3e3f5038b29b3e6c7282a5ed1e6785d00ea6"
+      },
+      "canonical_row": "{\"date\":\"value_7\",\"event_id\":\"r427_7\",\"is_exchange_verified\":0,\"mode\":\"paper\",\"report_id\":null}"
+    },
+    {
+      "category": "parameter_snapshots",
+      "event_id": "r427_8",
+      "payload": {
+        "snapshot_id": "value_8"
+      },
+      "expected_after": {
+        "table": "parameter_snapshots",
+        "op": "insert",
+        "key": {
+          "event_id": "r427_8"
+        },
+        "row": {
+          "event_id": "r427_8",
+          "mode": "paper",
+          "is_exchange_verified": 0,
+          "snapshot_id": "value_8",
+          "code_revision": null,
+          "config_hash": null
+        },
+        "after_hash": "4b11209db6735c66925b705708f67dc3c3861ad2376d729a7c10e83743ede957"
+      },
+      "canonical_row": "{\"code_revision\":null,\"config_hash\":null,\"event_id\":\"r427_8\",\"is_exchange_verified\":0,\"mode\":\"paper\",\"snapshot_id\":\"value_8\"}"
+    },
+    {
+      "category": "ai_recommendations",
+      "event_id": "r427_9",
+      "payload": {
+        "recommendation_id": "value_9"
+      },
+      "expected_after": {
+        "table": "ai_recommendations",
+        "op": "insert",
+        "key": {
+          "event_id": "r427_9"
+        },
+        "row": {
+          "event_id": "r427_9",
+          "mode": "paper",
+          "is_exchange_verified": 0,
+          "recommendation_id": "value_9",
+          "status": null,
+          "parameter": null,
+          "current": null,
+          "recommended": null,
+          "reason": null
+        },
+        "after_hash": "0fc7c81672d5b35f10d85dcb998a9c8587703a752f0115dd13caf185f70bb101"
+      },
+      "canonical_row": "{\"current\":null,\"event_id\":\"r427_9\",\"is_exchange_verified\":0,\"mode\":\"paper\",\"parameter\":null,\"reason\":null,\"recommendation_id\":\"value_9\",\"recommended\":null,\"status\":null}"
+    }
+  ]
+}

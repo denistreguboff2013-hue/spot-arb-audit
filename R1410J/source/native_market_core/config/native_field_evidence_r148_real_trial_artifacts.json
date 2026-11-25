@@ -1,0 +1,30 @@
+{
+  "schema": "R148_NINE_REAL_TRIAL_PATH_FLAGS_INVENTORY_RESEARCH_V1",
+  "scope": "rust_research_isolated_integration_test_only",
+  "consumer": "native_real_trial_artifact_policy_review::inspect_real_trial_artifacts_without_io (compiled in isolated tests/r148_real_trial_artifact_review.rs)",
+  "source_module": "src/native_real_trial_artifact_policy_review.rs",
+  "test": "r148_nine_original_keys_have_distinct_local_consumers; r148_invalid_paths_and_inventory_fail_closed; r148_in_memory_source_drift_and_real_flag_denied",
+  "active_binary_proven": false,
+  "linked_into_main_rust_library": false,
+  "installed_paper_source_attested": false,
+  "real_order_authority": false,
+  "source_path_files_opened": false,
+  "filesystem_symlinks_verified": false,
+  "inventory_account_owner_verified": false,
+  "authenticated_retrial_incident_verified": false,
+  "preflight_validity_proven": false,
+  "kill_switch_disengaged_proven": false,
+  "real_launch_authorized": false,
+  "note": "Exactly 9 previously-uncovered source keys tested as Rust read-only consumer in standalone integration target; not wired into normal library or installed PAPER. Flag changes alter only report; inert relative path syntax and inventory list validated but no real file open, safe filesystem canonicalization, owner reconciliation or certified recovery.",
+  "fields": [
+    "real_trial.allowed_spot_inventory_bases",
+    "real_trial.autonomous_real_enabled",
+    "real_trial.kill_switch_path",
+    "real_trial.operator_approved",
+    "real_trial.preflight_path",
+    "real_trial.resolved_incident_path",
+    "real_trial.supervised_retrial_enabled",
+    "real_trial.supervised_retrial_permit_path",
+    "real_trial.supervised_retrial_plan_path"
+  ]
+}

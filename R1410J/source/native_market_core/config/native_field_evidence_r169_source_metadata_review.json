@@ -1,0 +1,68 @@
+{
+  "schema": "astra_p1_06_r169_source_preview_overlay_v1",
+  "parent_r168_git_head": "82bf348d10f5968c00c9f577193d1a48d34f84d5",
+  "parent_r168_overlay_sha256": "1e665cfcc88260de5937acc2b75fc29f6840dd6bad88ab40cbe2522544da33fb",
+  "source_suite": "src/native_r169_source_metadata_review.rs",
+  "source_suite_sha256": "5f7acf69664ee272fe1bbfb1b9fb8ea7241999a177df658355b52b3ddbaad79a",
+  "parent_research_evidenced": 139,
+  "new_distinct_research_evidenced": 5,
+  "cumulative_research_evidenced": 144,
+  "remaining_research_not_evidenced": 16,
+  "original_field_count": 160,
+  "installed_paper_yaml_applications_proven": 0,
+  "real_execution_authorized": false,
+  "evidence_scope": "local source YAML mutation -> typed Rust diagnostic preview only; NO runtime scheduler/Telegram or live market source",
+  "test_observation": {
+    "targeted": "7 PASS / 0 FAIL",
+    "full_library": "1111 PASS / 0 FAIL / 2 ignored",
+    "binary": "12 PASS / 0 FAIL"
+  },
+  "new_research_fields": [
+    {
+      "field": "general.loop_interval_sec",
+      "test": "native_r169_source_metadata_review::tests::r169_01_general_loop_interval_changes_local_tick",
+      "classification": "OFFLINE_PREVIEW_TESTED",
+      "installed_paper": "NOT_PROVEN"
+    },
+    {
+      "field": "general.base_quote",
+      "test": "native_r169_source_metadata_review::tests::r169_02_general_base_quote_changes_both_venue_intersection",
+      "classification": "OFFLINE_PREVIEW_TESTED",
+      "installed_paper": "NOT_PROVEN"
+    },
+    {
+      "field": "adaptive_entry.tg_report.show_wanted",
+      "test": "native_r169_source_metadata_review::tests::r169_03_adaptive_show_wanted_changes_local_text",
+      "classification": "OFFLINE_PREVIEW_TESTED",
+      "installed_paper": "NOT_PROVEN"
+    },
+    {
+      "field": "adaptive_entry.tg_report.show_applied",
+      "test": "native_r169_source_metadata_review::tests::r169_04_adaptive_show_applied_changes_local_text",
+      "classification": "OFFLINE_PREVIEW_TESTED",
+      "installed_paper": "NOT_PROVEN"
+    },
+    {
+      "field": "velocity.hold_log_every_sec",
+      "test": "native_r169_source_metadata_review::tests::r169_05_hold_log_every_changes_local_cadence",
+      "classification": "OFFLINE_PREVIEW_TESTED",
+      "installed_paper": "NOT_PROVEN"
+    }
+  ],
+  "not_credited": [
+    "general.report_time",
+    "general.report_timezone",
+    "scale_in_hints.min_vel_bps_s"
+  ],
+  "why_not_credited": {
+    "general.report_time": "R57 rejects any value except 23:59, does not demonstrate actual rescheduling",
+    "general.report_timezone": "R57 rejects any zone except Asia/Yekaterinburg, does not demonstrate actual schedule conversion",
+    "scale_in_hints.min_vel_bps_s": "Python fallback only in absence of velocity.hold_pos_bps_s, but Rust 160-field schema requires this primary source"
+  },
+  "explicit_limitations": [
+    "fixture quote intersection not exchange authenticated",
+    "local adaptive text not dispatched",
+    "HOLD preview no logging or wall clock",
+    "local scanner tick not actual scheduling"
+  ]
+}

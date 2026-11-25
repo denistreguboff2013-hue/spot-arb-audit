@@ -1,0 +1,11 @@
+{
+  "schema": "R133_PAPER_EXIT_TARGET_RESEARCH_OVERLAY_V1",
+  "scope": "rust_research_optional_paper_only",
+  "consumer": "PaperPortfolio::on_frame",
+  "source_module": "native_paper_config_bridge.rs + native_paper_portfolio_review.rs",
+  "test": "p106_model_exit_target_consumes_real_portfolio_value",
+  "active_binary_proven": false,
+  "real_order_authority": false,
+  "note": "Only optional research PAPER modeled take-profit target, not authenticated fills, REAL PnL or deployed supervisor. Source R61 preview previously parsed field but did not mutate PAPER.",
+  "fields": ["spread.net_target_bps"]
+}

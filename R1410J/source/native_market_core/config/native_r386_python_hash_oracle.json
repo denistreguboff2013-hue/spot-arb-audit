@@ -1,0 +1,165 @@
+{
+  "schema": "SPOTARB/R386/PYTHON-HASH-REFERENCE/V1",
+  "source": "actual ai.schemas.Event.record and ai.collector.append_record, ai.mirror_outbox.canonical",
+  "cases": [
+    {
+      "name": "simple_paper",
+      "record": {
+        "event_id": "r356_base_001",
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "schema_version": 1,
+        "verification_status": "observed",
+        "is_exchange_verified": 0,
+        "payload_json": "{\"spread_bps\": 42, \"api_key\": \"[REDACTED]\"}",
+        "verification_json": "{\"status\": \"observed\", \"source\": \"PUBLIC_DEPTH_MODEL_ONLY\"}"
+      },
+      "expected_python_record_json": "{\"base\": \"ONE\", \"category\": \"decisions\", \"comparison_id\": null, \"correlation_id\": null, \"event_id\": \"r356_base_001\", \"is_exchange_verified\": 0, \"mode\": \"paper\", \"name\": \"DECISION_MADE\", \"occurred_at_ms\": 1792600000000, \"payload_json\": \"{\\\"spread_bps\\\": 42, \\\"api_key\\\": \\\"[REDACTED]\\\"}\", \"reason_code\": null, \"run_id\": \"session_20748\", \"schema_version\": 1, \"shadow_group_id\": null, \"signal_id\": \"signal_1\", \"source\": \"native.paper\", \"verification_json\": \"{\\\"status\\\": \\\"observed\\\", \\\"source\\\": \\\"PUBLIC_DEPTH_MODEL_ONLY\\\"}\", \"verification_status\": \"observed\"}",
+      "expected_record_hash": "5a9729229df7832d3bf96d79c105e1f3103d829c9f9545b5d9a4fad49854e760",
+      "python_payload_json": "{\"spread_bps\": 42, \"api_key\": \"[REDACTED]\"}",
+      "python_verification_json": "{\"status\": \"observed\", \"source\": \"PUBLIC_DEPTH_MODEL_ONLY\"}"
+    },
+    {
+      "name": "observed_mismatch",
+      "record": {
+        "event_id": "r356_base_001",
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "schema_version": 1,
+        "verification_status": "contradicted",
+        "is_exchange_verified": 0,
+        "payload_json": "{\"spread_bps\": 42, \"api_key\": \"[REDACTED]\"}",
+        "verification_json": "{\"status\": \"mismatch\", \"api-key\": \"[REDACTED]\"}"
+      },
+      "expected_python_record_json": "{\"base\": \"ONE\", \"category\": \"decisions\", \"comparison_id\": null, \"correlation_id\": null, \"event_id\": \"r356_base_001\", \"is_exchange_verified\": 0, \"mode\": \"paper\", \"name\": \"DECISION_MADE\", \"occurred_at_ms\": 1792600000000, \"payload_json\": \"{\\\"spread_bps\\\": 42, \\\"api_key\\\": \\\"[REDACTED]\\\"}\", \"reason_code\": null, \"run_id\": \"session_20748\", \"schema_version\": 1, \"shadow_group_id\": null, \"signal_id\": \"signal_1\", \"source\": \"native.paper\", \"verification_json\": \"{\\\"status\\\": \\\"mismatch\\\", \\\"api-key\\\": \\\"[REDACTED]\\\"}\", \"verification_status\": \"contradicted\"}",
+      "expected_record_hash": "76c0e57ac6400444d6b15008f039845662d28b6e4cb240021273e39d16be006e",
+      "python_payload_json": "{\"spread_bps\": 42, \"api_key\": \"[REDACTED]\"}",
+      "python_verification_json": "{\"status\": \"mismatch\", \"api-key\": \"[REDACTED]\"}"
+    },
+    {
+      "name": "pending_recommendation",
+      "record": {
+        "event_id": "r356_recommendation_001",
+        "mode": "paper",
+        "category": "ai_recommendations",
+        "name": "RECOMMENDATION_PENDING",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "schema_version": 1,
+        "verification_status": "observed",
+        "is_exchange_verified": 0,
+        "payload_json": "{\"spread_bps\": 42, \"api_key\": \"[REDACTED]\"}",
+        "verification_json": "{\"status\": \"observed\", \"source\": \"PUBLIC_DEPTH_MODEL_ONLY\"}"
+      },
+      "expected_python_record_json": "{\"base\": \"ONE\", \"category\": \"ai_recommendations\", \"comparison_id\": null, \"correlation_id\": null, \"event_id\": \"r356_recommendation_001\", \"is_exchange_verified\": 0, \"mode\": \"paper\", \"name\": \"RECOMMENDATION_PENDING\", \"occurred_at_ms\": 1792600000000, \"payload_json\": \"{\\\"spread_bps\\\": 42, \\\"api_key\\\": \\\"[REDACTED]\\\"}\", \"reason_code\": null, \"run_id\": \"session_20748\", \"schema_version\": 1, \"shadow_group_id\": null, \"signal_id\": \"signal_1\", \"source\": \"native.paper\", \"verification_json\": \"{\\\"status\\\": \\\"observed\\\", \\\"source\\\": \\\"PUBLIC_DEPTH_MODEL_ONLY\\\"}\", \"verification_status\": \"observed\"}",
+      "expected_record_hash": "a6d87132aeeb2af22993b8b74c8b0d2c2b1e3e3071afd189a4633b34ecb321ee",
+      "python_payload_json": "{\"spread_bps\": 42, \"api_key\": \"[REDACTED]\"}",
+      "python_verification_json": "{\"status\": \"observed\", \"source\": \"PUBLIC_DEPTH_MODEL_ONLY\"}"
+    },
+    {
+      "name": "synthetic_known_secret",
+      "record": {
+        "event_id": "r356_safe_secret_001",
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "schema_version": 1,
+        "verification_status": "observed",
+        "is_exchange_verified": 0,
+        "payload_json": "{\"note\": \"contains [REDACTED]\"}",
+        "verification_json": "{\"status\": \"observed\", \"source\": \"PUBLIC_DEPTH_MODEL_ONLY\"}"
+      },
+      "expected_python_record_json": "{\"base\": \"ONE\", \"category\": \"decisions\", \"comparison_id\": null, \"correlation_id\": null, \"event_id\": \"r356_safe_secret_001\", \"is_exchange_verified\": 0, \"mode\": \"paper\", \"name\": \"DECISION_MADE\", \"occurred_at_ms\": 1792600000000, \"payload_json\": \"{\\\"note\\\": \\\"contains [REDACTED]\\\"}\", \"reason_code\": null, \"run_id\": \"session_20748\", \"schema_version\": 1, \"shadow_group_id\": null, \"signal_id\": \"signal_1\", \"source\": \"native.paper\", \"verification_json\": \"{\\\"status\\\": \\\"observed\\\", \\\"source\\\": \\\"PUBLIC_DEPTH_MODEL_ONLY\\\"}\", \"verification_status\": \"observed\"}",
+      "expected_record_hash": "b35b0b2c1d57a56bef27cf91cf16c45e54b80fbbc98240085d77c96c16a4b0dc",
+      "python_payload_json": "{\"note\": \"contains [REDACTED]\"}",
+      "python_verification_json": "{\"status\": \"observed\", \"source\": \"PUBLIC_DEPTH_MODEL_ONLY\"}"
+    },
+    {
+      "name": "paper_execution_with_correlation",
+      "record": {
+        "event_id": "r356_fill_001",
+        "mode": "paper",
+        "category": "fills",
+        "name": "FILL_OBSERVED",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": "correlation_001",
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "schema_version": 1,
+        "verification_status": "observed",
+        "is_exchange_verified": 0,
+        "payload_json": "{\"spread_bps\": 42, \"api_key\": \"[REDACTED]\"}",
+        "verification_json": "{\"status\": \"observed\", \"source\": \"PUBLIC_DEPTH_MODEL_ONLY\"}"
+      },
+      "expected_python_record_json": "{\"base\": \"ONE\", \"category\": \"fills\", \"comparison_id\": null, \"correlation_id\": \"correlation_001\", \"event_id\": \"r356_fill_001\", \"is_exchange_verified\": 0, \"mode\": \"paper\", \"name\": \"FILL_OBSERVED\", \"occurred_at_ms\": 1792600000000, \"payload_json\": \"{\\\"spread_bps\\\": 42, \\\"api_key\\\": \\\"[REDACTED]\\\"}\", \"reason_code\": null, \"run_id\": \"session_20748\", \"schema_version\": 1, \"shadow_group_id\": null, \"signal_id\": \"signal_1\", \"source\": \"native.paper\", \"verification_json\": \"{\\\"status\\\": \\\"observed\\\", \\\"source\\\": \\\"PUBLIC_DEPTH_MODEL_ONLY\\\"}\", \"verification_status\": \"observed\"}",
+      "expected_record_hash": "7a904800e62bf6c03045424a66856bbf45750bb71d125311d3752abe4a61243f",
+      "python_payload_json": "{\"spread_bps\": 42, \"api_key\": \"[REDACTED]\"}",
+      "python_verification_json": "{\"status\": \"observed\", \"source\": \"PUBLIC_DEPTH_MODEL_ONLY\"}"
+    }
+  ],
+  "mirror_frame": {
+    "protocol_version": 1,
+    "schema_generation": 1,
+    "tx_kind": "event_append",
+    "operations": [
+      {
+        "table": "decisions",
+        "op": "insert",
+        "key": {
+          "event_id": "demo_2026"
+        },
+        "row": {
+          "event_id": "demo_2026",
+          "mode": "paper",
+          "decision": "observe"
+        },
+        "after_hash": "d53aea781988471a9099dae4c8e7a99a2f93fe344fd1d0603374772f7ace6b53"
+      }
+    ]
+  },
+  "mirror_canonical": "{\"operations\":[{\"after_hash\":\"d53aea781988471a9099dae4c8e7a99a2f93fe344fd1d0603374772f7ace6b53\",\"key\":{\"event_id\":\"demo_2026\"},\"op\":\"insert\",\"row\":{\"decision\":\"observe\",\"event_id\":\"demo_2026\",\"mode\":\"paper\"},\"table\":\"decisions\"}],\"protocol_version\":1,\"schema_generation\":1,\"tx_kind\":\"event_append\"}",
+  "mirror_hash": "94f202b17002fd57158b4aebf7c84bf4d3e323243be6f5e2cc33471dfea2b755",
+  "mirror_after_row_canonical": "{\"decision\":\"observe\",\"event_id\":\"demo_2026\",\"mode\":\"paper\"}",
+  "mirror_after_hash": "d53aea781988471a9099dae4c8e7a99a2f93fe344fd1d0603374772f7ace6b53"
+}

@@ -1,0 +1,12 @@
+{
+  "seq": 43,
+  "prev_seq": 42,
+  "tx_id": "tx-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "tx_kind": "paper_decision",
+  "schema_generation": 1,
+  "payload_json": "{\"operations\":[{\"id\":\"id-17\",\"label\":\"решение\",\"op\":\"upsert\",\"quantity\":\"42.500\",\"table\":\"decisions\"}],\"protocol_version\":1,\"schema_generation\":1,\"tx_kind\":\"paper_decision\"}",
+  "payload_hash": "027c53678d6a421d2b3be360335356ba78251cafd378b68fea4708eb5ea5180b",
+  "payload_bytes": 564,
+  "committed_at_ms": 1791783999200,
+  "feed_generation": "rebase-bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "R143_ENTRY_RESEARCH_BEHAVIOR_OVERLAY_V1",
+  "scope": "rust_research_readonly_only",
+  "consumer": "NativeTradingConfig::inspect_candidate_and_ws_selection_read_only; CandidateHoldoffPolicy::inspect_local_entry_lock_readonly",
+  "source_module": "src/native_trading_config.rs + src/native_candidate_holdoff_review.rs",
+  "test": "p106_top_n_original_yaml_changes_ranked_local_candidate_set_not_ws_owner; p106_source_entry_lock_ttl_changes_local_gate_not_trade_authority",
+  "active_binary_proven": false,
+  "real_order_authority": false,
+  "network_order_permitted": false,
+  "distributed_lock_proven": false,
+  "source_fills_authenticated": false,
+  "note": "Only bounded, caller-supplied local candidate ranking and simulated timestamp-based lock exclusion; not installed PAPER admission or a durable exchange lock. Three remaining original entry fields are intentionally NOT claimed.",
+  "fields": [
+    "entry_lock_ttl_sec",
+    "limits.top_n_per_scan"
+  ],
+  "pending_original_entry_fields": [
+    "general.trade_enabled",
+    "limits.max_trades_per_day",
+    "spread.history_window"
+  ]
+}

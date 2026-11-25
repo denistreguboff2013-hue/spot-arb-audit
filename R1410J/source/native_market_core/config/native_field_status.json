@@ -1,0 +1,642 @@
+{
+  "adaptive_entry.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "adaptive_entry.max_entry_usdt": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "adaptive_entry.max_usdt": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "adaptive_entry.min_usdt": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "adaptive_entry.require_scanner_depth": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "adaptive_entry.slip_bps": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "adaptive_entry.step_usdt": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "adaptive_entry.tg_report.show_applied": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "adaptive_entry.tg_report.show_wanted": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "analytics.database_path": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "analytics.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "analytics.max_db_mb": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "analytics.max_wal_mb": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "analytics.mirror_database_path": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "analytics.mode": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "analytics.raw_retention_days": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "blacklist": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "sequence"
+  },
+  "cooldown.symbol_after_close_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "dynamic.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "dynamic.segments": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "sequence"
+  },
+  "dynamic_entry.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "dynamic_entry.segments": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "sequence"
+  },
+  "entry_lock_ttl_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "execution.fut_entry_mode": {
+    "status": "native_read_only_policy_validation_or_preview",
+    "type": "string"
+  },
+  "execution.fut_retry_ms": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "execution.fut_retry_n": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "execution.spot_entry_mode": {
+    "status": "native_read_only_policy_validation_or_preview",
+    "type": "string"
+  },
+  "execution.spot_limit_ticks": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "execution.spot_retry_ms": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "execution.spot_retry_n": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "execution.unwind_mode": {
+    "status": "native_read_only_policy_validation_or_preview",
+    "type": "string"
+  },
+  "exit_safety.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "exit_safety.hedge_recover": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "exit_safety.leg_gap_ms": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "exit_safety.spot_chase.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "exit_safety.spot_chase.hard_deadline_ms": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "exit_safety.spot_chase.limit_ticks_start": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "exit_safety.spot_chase.limit_ticks_step": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "exit_safety.spot_chase.max_steps": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "exit_safety.spot_chase.step_wait_ms": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "fast_market_shadow.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "fast_market_shadow.event_prefilter": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "fast_market_shadow.max_log_mb": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "fast_market_shadow.queue_max": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "fast_market_shadow.summary_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "fast_market_shadow.targeted_confirmation.cooldown_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "fast_market_shadow.targeted_confirmation.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "fast_market_shadow.targeted_confirmation.max_queue": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "fast_market_shadow.targeted_confirmation.max_wait_ms": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "fast_market_shadow.targeted_confirmation.min_interval_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "fast_market_shadow.targeted_confirmation.timeout_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "fast_market_shadow.targeted_thread_diagnostics.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "fast_market_shadow.ws_fleet.base_limit": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "fast_market_shadow.ws_fleet.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "fast_market_shadow.ws_fleet.group_size": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "fast_market_shadow.ws_fleet.start_interval_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "filters.max_price": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "filters.max_sanity_spread_bps": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "filters.min_24h_volume_usdt": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "filters.min_price": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "futures_emergency_stop.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "futures_emergency_stop.notify_on_place": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "futures_emergency_stop.order_type": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "futures_emergency_stop.paper_simulate": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "futures_emergency_stop.place_in_real": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "futures_emergency_stop.retry_ms": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "futures_emergency_stop.retry_n": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "futures_emergency_stop.stop_spread_bps": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "futures_emergency_stop.working_type": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "general.base_quote": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "general.bot_name": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "general.debug_write_liquidity": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "general.heartbeat_interval_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "general.liquidity_bps": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "general.loop_interval_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "general.mode": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "general.paper_entries_enabled": {
+    "status": "native_review_paper_daily_accounting_slot_gate",
+    "type": "boolean"
+  },
+  "general.report_time": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "general.report_timezone": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "general.trade_enabled": {
+    "status": "native_read_only_policy_validation_or_preview",
+    "type": "boolean"
+  },
+  "limits.max_daily_loss_usdt": {
+    "status": "native_review_real_risk_synthetic_arithmetic_only_not_live_counter",
+    "type": "number"
+  },
+  "limits.max_okx_fees_per_day_usdt": {
+    "status": "native_review_real_risk_synthetic_arithmetic_only_not_live_counter",
+    "type": "number"
+  },
+  "limits.max_trades_per_day": {
+    "status": "native_read_only_policy_validation_or_preview",
+    "type": "integer"
+  },
+  "limits.paper_max_trades_per_day": {
+    "status": "native_review_paper_daily_accounting_slot_gate",
+    "type": "integer"
+  },
+  "limits.symbol_cooldown_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "limits.top_n_per_scan": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "logging.level": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "native_runtime.config_schema_version": {
+    "status": "review_hard_safety_field",
+    "type": "integer"
+  },
+  "native_runtime.mutation_capability_enabled": {
+    "status": "review_hard_safety_field",
+    "type": "boolean"
+  },
+  "native_runtime.production_cutover_authorized": {
+    "status": "review_hard_safety_field",
+    "type": "boolean"
+  },
+  "native_runtime.real_execution_authorized": {
+    "status": "review_hard_safety_field",
+    "type": "boolean"
+  },
+  "paths.data_dir": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "probe.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "probe.orderbook_levels": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "real_trial.allowed_spot_inventory_bases": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "sequence"
+  },
+  "real_trial.autonomous_real_enabled": {
+    "status": "legacy_flag_preserved_not_rust_authority",
+    "type": "boolean"
+  },
+  "real_trial.bootstrap_first_trade": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "real_trial.deny_on_unknown": {
+    "status": "native_read_only_policy_validation_or_preview",
+    "type": "boolean"
+  },
+  "real_trial.deny_on_untracked_assets": {
+    "status": "native_read_only_policy_validation_or_preview",
+    "type": "boolean"
+  },
+  "real_trial.enabled": {
+    "status": "legacy_flag_preserved_not_rust_authority",
+    "type": "boolean"
+  },
+  "real_trial.entry_cooldown_sec": {
+    "status": "native_review_real_risk_synthetic_arithmetic_only_not_live_counter",
+    "type": "integer"
+  },
+  "real_trial.kill_switch_disengaged_max_age_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "real_trial.kill_switch_drill_max_age_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "real_trial.kill_switch_path": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "real_trial.max_mirror_lag_records": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "real_trial.max_open_positions": {
+    "status": "native_read_only_policy_validation_or_preview",
+    "type": "integer"
+  },
+  "real_trial.max_trades_per_day": {
+    "status": "native_read_only_policy_validation_or_preview",
+    "type": "integer"
+  },
+  "real_trial.operator_approved": {
+    "status": "legacy_flag_preserved_not_rust_authority",
+    "type": "boolean"
+  },
+  "real_trial.preflight_max_age_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "real_trial.preflight_path": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "real_trial.resolved_incident_path": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "real_trial.supervised_retrial_enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "real_trial.supervised_retrial_permit_path": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "real_trial.supervised_retrial_plan_path": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "real_trial.telegram_delivery_max_age_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "risk.futures_order_usdt": {
+    "status": "native_read_only_policy_validation_or_preview",
+    "type": "integer"
+  },
+  "risk.max_open_positions": {
+    "status": "native_review_paper_daily_accounting_slot_gate",
+    "type": "integer"
+  },
+  "runtime_reconcile.every_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "scale_in_hints.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "scale_in_hints.min_depth_usdt": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "scale_in_hints.min_imbalance": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "scale_in_hints.min_vel_bps_s": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "scale_in_hints.send_negative": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "scale_in_hints.telemetry_path": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "spread.buffer_bps": {
+    "status": "native_read_only_policy_validation_or_preview",
+    "type": "number"
+  },
+  "spread.entry_bps": {
+    "status": "native_read_only_policy_validation_or_preview",
+    "type": "number"
+  },
+  "spread.exit_bps": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "spread.funding_bps": {
+    "status": "native_read_only_policy_validation_or_preview",
+    "type": "number"
+  },
+  "spread.history_window": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "spread.min_lifetime_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "spread.net_target_bps": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "spread.round_fees_bps": {
+    "status": "native_read_only_policy_validation_or_preview",
+    "type": "number"
+  },
+  "spread.slippage_bps": {
+    "status": "native_read_only_policy_validation_or_preview",
+    "type": "number"
+  },
+  "telegram.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "telegram.proxy_url": {
+    "status": "secret_value_redacted",
+    "type": "string"
+  },
+  "telegram.send_errors": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "telegram.send_heartbeat": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "telegram.send_signals": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "telemetry.orderbook.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "telemetry.orderbook.levels": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "telemetry.orderbook.max_age_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "telemetry.orderbook.slip_bps": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "telemetry.orderbook.slip_bps_trade": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "telemetry.orderbook.slip_bps_upsize": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "telemetry.service.interval_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "telemetry.service.send_tg": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "telemetry.velocity.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "velocity.emergency_guard_spread_bps": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "velocity.emergency_neg_bps_s": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "velocity.emergency_spread_bps": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "velocity.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "velocity.hold_log_every_sec": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "velocity.hold_pos_bps_s": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "number"
+  },
+  "websocket.enabled": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "boolean"
+  },
+  "websocket.max_book_levels": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "websocket.okx_channel": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "websocket.quote": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "string"
+  },
+  "websocket.stale_ms": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "websocket.top_max": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  },
+  "websocket.top_min": {
+    "status": "mirrored_schema_only_NOT_YET_runtime_wired",
+    "type": "integer"
+  }
+}

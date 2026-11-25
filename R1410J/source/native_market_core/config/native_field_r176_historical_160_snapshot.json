@@ -1,0 +1,969 @@
+{
+  "schema": "R176_ORIGINAL_R166_HISTORICAL_SOURCE_SNAPSHOT_V1",
+  "origin_sha256": "7e6a4dcdfdf146359971f0eb17e82434dddbcc0c47b5af605c2e6c612ab075dd",
+  "origin_schema": "astra_a5_original_160_research_overlay_r166_v1",
+  "origin_reported_research": 123,
+  "installed_paper_proven": 0,
+  "rows": [
+    {
+      "field": "adaptive_entry.enabled",
+      "type": "boolean",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "adaptive_entry.max_entry_usdt",
+      "type": "integer",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "adaptive_entry.max_usdt",
+      "type": "integer",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "adaptive_entry.min_usdt",
+      "type": "integer",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "adaptive_entry.require_scanner_depth",
+      "type": "boolean",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "adaptive_entry.slip_bps",
+      "type": "integer",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "adaptive_entry.step_usdt",
+      "type": "integer",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "adaptive_entry.tg_report.show_applied",
+      "type": "boolean",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "adaptive_entry.tg_report.show_wanted",
+      "type": "boolean",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "analytics.database_path",
+      "type": "string",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r142_analytics_ai_review.json"
+    },
+    {
+      "field": "analytics.enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r142_analytics_ai_review.json"
+    },
+    {
+      "field": "analytics.max_db_mb",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r142_analytics_ai_review.json"
+    },
+    {
+      "field": "analytics.max_wal_mb",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r142_analytics_ai_review.json"
+    },
+    {
+      "field": "analytics.mirror_database_path",
+      "type": "string",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r142_analytics_ai_review.json"
+    },
+    {
+      "field": "analytics.mode",
+      "type": "string",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r142_analytics_ai_review.json"
+    },
+    {
+      "field": "analytics.raw_retention_days",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r142_analytics_ai_review.json"
+    },
+    {
+      "field": "blacklist",
+      "type": "sequence",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "cooldown.symbol_after_close_sec",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "dynamic.enabled",
+      "type": "boolean",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "dynamic.segments",
+      "type": "sequence",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "dynamic_entry.enabled",
+      "type": "boolean",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "dynamic_entry.segments",
+      "type": "sequence",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "entry_lock_ttl_sec",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r143_entry_review.json"
+    },
+    {
+      "field": "execution.fut_entry_mode",
+      "type": "string",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r144_execution_review.json"
+    },
+    {
+      "field": "execution.fut_retry_ms",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r144_execution_review.json"
+    },
+    {
+      "field": "execution.fut_retry_n",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r144_execution_review.json"
+    },
+    {
+      "field": "execution.spot_entry_mode",
+      "type": "string",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r144_execution_review.json"
+    },
+    {
+      "field": "execution.spot_limit_ticks",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r144_execution_review.json"
+    },
+    {
+      "field": "execution.spot_retry_ms",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r144_execution_review.json"
+    },
+    {
+      "field": "execution.spot_retry_n",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r144_execution_review.json"
+    },
+    {
+      "field": "execution.unwind_mode",
+      "type": "string",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r144_execution_review.json"
+    },
+    {
+      "field": "exit_safety.enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "exit_safety.hedge_recover",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "exit_safety.leg_gap_ms",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "exit_safety.spot_chase.enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "exit_safety.spot_chase.hard_deadline_ms",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "exit_safety.spot_chase.limit_ticks_start",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "exit_safety.spot_chase.limit_ticks_step",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "exit_safety.spot_chase.max_steps",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "exit_safety.spot_chase.step_wait_ms",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "fast_market_shadow.enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "fast_market_shadow.event_prefilter",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "fast_market_shadow.max_log_mb",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "fast_market_shadow.queue_max",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "fast_market_shadow.summary_sec",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "fast_market_shadow.targeted_confirmation.cooldown_sec",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "fast_market_shadow.targeted_confirmation.enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "fast_market_shadow.targeted_confirmation.max_queue",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "fast_market_shadow.targeted_confirmation.max_wait_ms",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "fast_market_shadow.targeted_confirmation.min_interval_sec",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "fast_market_shadow.targeted_confirmation.timeout_sec",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "fast_market_shadow.targeted_thread_diagnostics.enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "fast_market_shadow.ws_fleet.base_limit",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "fast_market_shadow.ws_fleet.enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "fast_market_shadow.ws_fleet.group_size",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "fast_market_shadow.ws_fleet.start_interval_sec",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r166_shadow_source_review.json (ISOLATED_SIMULATOR_ONLY)"
+    },
+    {
+      "field": "filters.max_price",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "filters.max_sanity_spread_bps",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "filters.min_24h_volume_usdt",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "filters.min_price",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "futures_emergency_stop.enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "futures_emergency_stop.notify_on_place",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "futures_emergency_stop.order_type",
+      "type": "string",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "futures_emergency_stop.paper_simulate",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "futures_emergency_stop.place_in_real",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "futures_emergency_stop.retry_ms",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "futures_emergency_stop.retry_n",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "futures_emergency_stop.stop_spread_bps",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "futures_emergency_stop.working_type",
+      "type": "string",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r145_exit_emergency_review.json"
+    },
+    {
+      "field": "general.base_quote",
+      "type": "string",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "general.bot_name",
+      "type": "string",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "general.debug_write_liquidity",
+      "type": "boolean",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "general.heartbeat_interval_sec",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r149_entry_telegram_review.json (RUST_REVIEW_ONLY)"
+    },
+    {
+      "field": "general.liquidity_bps",
+      "type": "integer",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "general.loop_interval_sec",
+      "type": "integer",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "general.mode",
+      "type": "string",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "general.paper_entries_enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "general.report_time",
+      "type": "string",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "general.report_timezone",
+      "type": "string",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "general.trade_enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r149_entry_telegram_review.json (RUST_REVIEW_ONLY)"
+    },
+    {
+      "field": "limits.max_daily_loss_usdt",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r146_hardstop_financial_review.json"
+    },
+    {
+      "field": "limits.max_okx_fees_per_day_usdt",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r146_hardstop_financial_review.json"
+    },
+    {
+      "field": "limits.max_trades_per_day",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r149_entry_telegram_review.json (RUST_REVIEW_ONLY)"
+    },
+    {
+      "field": "limits.paper_max_trades_per_day",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "limits.symbol_cooldown_sec",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "limits.top_n_per_scan",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r143_entry_review.json"
+    },
+    {
+      "field": "logging.level",
+      "type": "string",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "native_runtime.config_schema_version",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r146_hardstop_financial_review.json"
+    },
+    {
+      "field": "native_runtime.mutation_capability_enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r146_hardstop_financial_review.json"
+    },
+    {
+      "field": "native_runtime.production_cutover_authorized",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r146_hardstop_financial_review.json"
+    },
+    {
+      "field": "native_runtime.real_execution_authorized",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r146_hardstop_financial_review.json"
+    },
+    {
+      "field": "paths.data_dir",
+      "type": "string",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "probe.enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "probe.orderbook_levels",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "real_trial.allowed_spot_inventory_bases",
+      "type": "sequence",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r148_real_trial_artifacts.json (ISOLATED_TEST_ONLY)"
+    },
+    {
+      "field": "real_trial.autonomous_real_enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r148_real_trial_artifacts.json (ISOLATED_TEST_ONLY)"
+    },
+    {
+      "field": "real_trial.bootstrap_first_trade",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r147_real_trial_guard_review.json"
+    },
+    {
+      "field": "real_trial.deny_on_unknown",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r146_hardstop_financial_review.json"
+    },
+    {
+      "field": "real_trial.deny_on_untracked_assets",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r146_hardstop_financial_review.json"
+    },
+    {
+      "field": "real_trial.enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r147_real_trial_guard_review.json"
+    },
+    {
+      "field": "real_trial.entry_cooldown_sec",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r147_real_trial_guard_review.json"
+    },
+    {
+      "field": "real_trial.kill_switch_disengaged_max_age_sec",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r147_real_trial_guard_review.json"
+    },
+    {
+      "field": "real_trial.kill_switch_drill_max_age_sec",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r147_real_trial_guard_review.json"
+    },
+    {
+      "field": "real_trial.kill_switch_path",
+      "type": "string",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r148_real_trial_artifacts.json (ISOLATED_TEST_ONLY)"
+    },
+    {
+      "field": "real_trial.max_mirror_lag_records",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r147_real_trial_guard_review.json"
+    },
+    {
+      "field": "real_trial.max_open_positions",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r146_hardstop_financial_review.json"
+    },
+    {
+      "field": "real_trial.max_trades_per_day",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r146_hardstop_financial_review.json"
+    },
+    {
+      "field": "real_trial.operator_approved",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r148_real_trial_artifacts.json (ISOLATED_TEST_ONLY)"
+    },
+    {
+      "field": "real_trial.preflight_max_age_sec",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r147_real_trial_guard_review.json"
+    },
+    {
+      "field": "real_trial.preflight_path",
+      "type": "string",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r148_real_trial_artifacts.json (ISOLATED_TEST_ONLY)"
+    },
+    {
+      "field": "real_trial.resolved_incident_path",
+      "type": "string",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r148_real_trial_artifacts.json (ISOLATED_TEST_ONLY)"
+    },
+    {
+      "field": "real_trial.supervised_retrial_enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r148_real_trial_artifacts.json (ISOLATED_TEST_ONLY)"
+    },
+    {
+      "field": "real_trial.supervised_retrial_permit_path",
+      "type": "string",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r148_real_trial_artifacts.json (ISOLATED_TEST_ONLY)"
+    },
+    {
+      "field": "real_trial.supervised_retrial_plan_path",
+      "type": "string",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r148_real_trial_artifacts.json (ISOLATED_TEST_ONLY)"
+    },
+    {
+      "field": "real_trial.telegram_delivery_max_age_sec",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r147_real_trial_guard_review.json"
+    },
+    {
+      "field": "risk.futures_order_usdt",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "risk.max_open_positions",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "runtime_reconcile.every_sec",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "scale_in_hints.enabled",
+      "type": "boolean",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "scale_in_hints.min_depth_usdt",
+      "type": "integer",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "scale_in_hints.min_imbalance",
+      "type": "number",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "scale_in_hints.min_vel_bps_s",
+      "type": "number",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "scale_in_hints.send_negative",
+      "type": "boolean",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "scale_in_hints.telemetry_path",
+      "type": "string",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "spread.buffer_bps",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "spread.entry_bps",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "spread.exit_bps",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r132_paper_temporal_review.json"
+    },
+    {
+      "field": "spread.funding_bps",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "spread.history_window",
+      "type": "integer",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "spread.min_lifetime_sec",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r132_paper_temporal_review.json"
+    },
+    {
+      "field": "spread.net_target_bps",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r133_paper_exit_target_review.json"
+    },
+    {
+      "field": "spread.round_fees_bps",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "spread.slippage_bps",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "telegram.enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r149_entry_telegram_review.json (RUST_REVIEW_ONLY)"
+    },
+    {
+      "field": "telegram.proxy_url",
+      "type": "string",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "telegram.send_errors",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r149_entry_telegram_review.json (RUST_REVIEW_ONLY)"
+    },
+    {
+      "field": "telegram.send_heartbeat",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r149_entry_telegram_review.json (RUST_REVIEW_ONLY)"
+    },
+    {
+      "field": "telegram.send_signals",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r149_entry_telegram_review.json (RUST_REVIEW_ONLY)"
+    },
+    {
+      "field": "telemetry.orderbook.enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "telemetry.orderbook.levels",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "telemetry.orderbook.max_age_sec",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "telemetry.orderbook.slip_bps",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "telemetry.orderbook.slip_bps_trade",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "telemetry.orderbook.slip_bps_upsize",
+      "type": "number",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "telemetry.service.interval_sec",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r149_entry_telegram_review.json (RUST_REVIEW_ONLY)"
+    },
+    {
+      "field": "telemetry.service.send_tg",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "native_field_evidence_r149_entry_telegram_review.json (RUST_REVIEW_ONLY)"
+    },
+    {
+      "field": "telemetry.velocity.enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "velocity.emergency_guard_spread_bps",
+      "type": "number",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "velocity.emergency_neg_bps_s",
+      "type": "number",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "velocity.emergency_spread_bps",
+      "type": "number",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "velocity.enabled",
+      "type": "boolean",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "velocity.hold_log_every_sec",
+      "type": "integer",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "velocity.hold_pos_bps_s",
+      "type": "number",
+      "research": "NOT_EVIDENCED",
+      "prior_sources": ""
+    },
+    {
+      "field": "websocket.enabled",
+      "type": "boolean",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "websocket.max_book_levels",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "websocket.okx_channel",
+      "type": "string",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "websocket.quote",
+      "type": "string",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "websocket.stale_ms",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "websocket.top_max",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    },
+    {
+      "field": "websocket.top_min",
+      "type": "integer",
+      "research": "TESTED_RESEARCH_READONLY",
+      "prior_sources": "R130_BASELINE"
+    }
+  ]
+}

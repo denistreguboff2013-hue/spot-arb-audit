@@ -1,0 +1,14 @@
+{
+  "schema": "R132_PAPER_TEMPORAL_CONFIG_RESEARCH_OVERLAY_V1",
+  "scope": "rust_research_optional_paper_only",
+  "consumer": "bind_public_paper_temporal_policy_review + PaperPortfolio::on_frame",
+  "source_module": "native_paper_config_bridge.rs + native_paper_portfolio_review.rs",
+  "test": "p106_temporal_yaml_changes_reach_real_research_paper_consumer",
+  "active_binary_proven": false,
+  "real_order_authority": false,
+  "note": "Two new unique field claims. cooldown.symbol_after_close_sec was already recorded by original R113/R112 ledger; optional PAPER binding is additive, not counted twice. No deployed binary claim.",
+  "fields": [
+    "spread.exit_bps",
+    "spread.min_lifetime_sec"
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "now_ms": 1792660000000,
+  "rows": [
+    {
+      "base": "SOL",
+      "category": "signals",
+      "decision": "",
+      "depth_fut_count": 3,
+      "depth_fut_sum": "125.00",
+      "depth_spot_count": 2,
+      "depth_spot_sum": "125.50",
+      "event_count": 3,
+      "hour_start_ms": 1791968400000,
+      "mode": "paper",
+      "name": "SIGNAL_SEEN",
+      "net_spread_count": 2,
+      "net_spread_max": "0.75",
+      "net_spread_min": "-0.25",
+      "net_spread_sum": "0.50",
+      "raw_spread_count": 2,
+      "raw_spread_max": "2.30",
+      "raw_spread_min": "1.20",
+      "raw_spread_sum": "3.50",
+      "reason_code": "",
+      "skip_reason": "",
+      "telemetry_age_count": 2,
+      "telemetry_age_max": "3.5",
+      "telemetry_age_sum": "5.5"
+    },
+    {
+      "base": "SOL",
+      "category": "decisions",
+      "decision": "skip",
+      "depth_fut_count": 0,
+      "depth_fut_sum": "0",
+      "depth_spot_count": 0,
+      "depth_spot_sum": "0",
+      "event_count": 1,
+      "hour_start_ms": 1791972000000,
+      "mode": "paper",
+      "name": "DECISION_MADE",
+      "net_spread_count": 0,
+      "net_spread_max": null,
+      "net_spread_min": null,
+      "net_spread_sum": "0",
+      "raw_spread_count": 0,
+      "raw_spread_max": null,
+      "raw_spread_min": null,
+      "raw_spread_sum": "0",
+      "reason_code": "SPREAD_COLLAPSED",
+      "skip_reason": "spread",
+      "telemetry_age_count": 0,
+      "telemetry_age_max": null,
+      "telemetry_age_sum": "0"
+    }
+  ],
+  "samples": [
+    {
+      "base": "SOL",
+      "category": "signals",
+      "id": "r456_s1",
+      "name": "SIGNAL_SEEN",
+      "occurred": 1791968800000,
+      "payload": {
+        "depth_fut_usdt": "95.25",
+        "depth_spot_usdt": "100.50",
+        "net_spread_bps": "-0.25",
+        "raw_spread_bps": "1.20",
+        "telemetry_age_sec": "2.0"
+      },
+      "reason_code": null
+    },
+    {
+      "base": "SOL",
+      "category": "signals",
+      "id": "r456_s2",
+      "name": "SIGNAL_SEEN",
+      "occurred": 1791968801000,
+      "payload": {
+        "depth_fut_usdt": "30.00",
+        "depth_spot_usdt": "25.00",
+        "net_spread_bps": "0.75",
+        "raw_spread_bps": "2.30",
+        "telemetry_age_sec": "3.5"
+      },
+      "reason_code": null
+    },
+    {
+      "base": "SOL",
+      "category": "signals",
+      "id": "r456_s3",
+      "name": "SIGNAL_SEEN",
+      "occurred": 1791968802000,
+      "payload": {
+        "depth_fut_usdt": "-0.25",
+        "depth_spot_usdt": "Infinity",
+        "net_spread_bps": null,
+        "raw_spread_bps": "not_numeric",
+        "telemetry_age_sec": "NaN"
+      },
+      "reason_code": null
+    },
+    {
+      "base": "SOL",
+      "category": "decisions",
+      "id": "r456_d1",
+      "name": "DECISION_MADE",
+      "occurred": 1791972400000,
+      "payload": {
+        "decision": "skip",
+        "skip_reason": "spread"
+      },
+      "reason_code": "SPREAD_COLLAPSED"
+    }
+  ],
+  "source_function": "collector.py:_rollup_raw_rows"
+}

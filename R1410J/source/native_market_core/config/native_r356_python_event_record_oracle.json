@@ -1,0 +1,454 @@
+{
+  "schema": "SPOTARB/R356/PYTHON-EVENT-RECORD-ORACLE/V1",
+  "source": "/home/tmpadmin/spotbot/ai/schemas.py",
+  "case_count": 12,
+  "cases": [
+    {
+      "name": "simple_paper",
+      "event": {
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "payload": {
+          "spread_bps": 42,
+          "api_key": "synthetic"
+        },
+        "event_id": "r356_base_001",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "verification": {
+          "status": "observed",
+          "source": "PUBLIC_DEPTH_MODEL_ONLY"
+        }
+      },
+      "known_secrets": [],
+      "accept": true,
+      "expected": {
+        "event_id": "r356_base_001",
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "schema_version": 1,
+        "verification_status": "observed",
+        "is_exchange_verified": 0,
+        "payload_json": "{\"spread_bps\": 42, \"api_key\": \"[REDACTED]\"}",
+        "verification_json": "{\"status\": \"observed\", \"source\": \"PUBLIC_DEPTH_MODEL_ONLY\"}"
+      }
+    },
+    {
+      "name": "observed_mismatch",
+      "event": {
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "payload": {
+          "spread_bps": 42,
+          "api_key": "synthetic"
+        },
+        "event_id": "r356_base_001",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "verification": {
+          "status": "mismatch",
+          "api-key": "notreal"
+        }
+      },
+      "known_secrets": [],
+      "accept": true,
+      "expected": {
+        "event_id": "r356_base_001",
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "schema_version": 1,
+        "verification_status": "contradicted",
+        "is_exchange_verified": 0,
+        "payload_json": "{\"spread_bps\": 42, \"api_key\": \"[REDACTED]\"}",
+        "verification_json": "{\"status\": \"mismatch\", \"api-key\": \"[REDACTED]\"}"
+      }
+    },
+    {
+      "name": "pending_recommendation",
+      "event": {
+        "mode": "paper",
+        "category": "ai_recommendations",
+        "name": "RECOMMENDATION_PENDING",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "payload": {
+          "spread_bps": 42,
+          "api_key": "synthetic"
+        },
+        "event_id": "r356_recommendation_001",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "verification": {
+          "status": "observed",
+          "source": "PUBLIC_DEPTH_MODEL_ONLY"
+        }
+      },
+      "known_secrets": [],
+      "accept": true,
+      "expected": {
+        "event_id": "r356_recommendation_001",
+        "mode": "paper",
+        "category": "ai_recommendations",
+        "name": "RECOMMENDATION_PENDING",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "schema_version": 1,
+        "verification_status": "observed",
+        "is_exchange_verified": 0,
+        "payload_json": "{\"spread_bps\": 42, \"api_key\": \"[REDACTED]\"}",
+        "verification_json": "{\"status\": \"observed\", \"source\": \"PUBLIC_DEPTH_MODEL_ONLY\"}"
+      }
+    },
+    {
+      "name": "synthetic_known_secret",
+      "event": {
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "payload": {
+          "note": "contains LITERAL_DEMO_SECRET_888"
+        },
+        "event_id": "r356_safe_secret_001",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "verification": {
+          "status": "observed",
+          "source": "PUBLIC_DEPTH_MODEL_ONLY"
+        }
+      },
+      "known_secrets": [
+        "LITERAL_DEMO_SECRET_888"
+      ],
+      "accept": true,
+      "expected": {
+        "event_id": "r356_safe_secret_001",
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "schema_version": 1,
+        "verification_status": "observed",
+        "is_exchange_verified": 0,
+        "payload_json": "{\"note\": \"contains [REDACTED]\"}",
+        "verification_json": "{\"status\": \"observed\", \"source\": \"PUBLIC_DEPTH_MODEL_ONLY\"}"
+      }
+    },
+    {
+      "name": "paper_execution_with_correlation",
+      "event": {
+        "mode": "paper",
+        "category": "fills",
+        "name": "FILL_OBSERVED",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "payload": {
+          "spread_bps": 42,
+          "api_key": "synthetic"
+        },
+        "event_id": "r356_fill_001",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": "correlation_001",
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "verification": {
+          "status": "observed",
+          "source": "PUBLIC_DEPTH_MODEL_ONLY"
+        }
+      },
+      "known_secrets": [],
+      "accept": true,
+      "expected": {
+        "event_id": "r356_fill_001",
+        "mode": "paper",
+        "category": "fills",
+        "name": "FILL_OBSERVED",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": "correlation_001",
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "schema_version": 1,
+        "verification_status": "observed",
+        "is_exchange_verified": 0,
+        "payload_json": "{\"spread_bps\": 42, \"api_key\": \"[REDACTED]\"}",
+        "verification_json": "{\"status\": \"observed\", \"source\": \"PUBLIC_DEPTH_MODEL_ONLY\"}"
+      }
+    },
+    {
+      "name": "claimed_verified_paper",
+      "event": {
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "payload": {
+          "spread_bps": 42,
+          "api_key": "synthetic"
+        },
+        "event_id": "r356_base_001",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "verification": {
+          "status": "verified",
+          "source": "exchange_reconcile",
+          "state_matches": true
+        }
+      },
+      "known_secrets": [],
+      "accept": false,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "missing_correlation",
+      "event": {
+        "mode": "paper",
+        "category": "orders",
+        "name": "ORDER_REQUEST",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "payload": {
+          "spread_bps": 42,
+          "api_key": "synthetic"
+        },
+        "event_id": "r356_base_001",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "verification": {
+          "status": "observed",
+          "source": "PUBLIC_DEPTH_MODEL_ONLY"
+        }
+      },
+      "known_secrets": [],
+      "accept": false,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "comparison_missing_shadow",
+      "event": {
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "payload": {
+          "spread_bps": 42,
+          "api_key": "synthetic"
+        },
+        "event_id": "r356_base_001",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": "cmp_1",
+        "reason_code": null,
+        "verification": {
+          "status": "observed",
+          "source": "PUBLIC_DEPTH_MODEL_ONLY"
+        }
+      },
+      "known_secrets": [],
+      "accept": false,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "unknown_reason",
+      "event": {
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "payload": {
+          "spread_bps": 42,
+          "api_key": "synthetic"
+        },
+        "event_id": "r356_base_001",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": "NOT_SUPPORTED",
+        "verification": {
+          "status": "observed",
+          "source": "PUBLIC_DEPTH_MODEL_ONLY"
+        }
+      },
+      "known_secrets": [],
+      "accept": false,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "payload_envelope_shadow",
+      "event": {
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "payload": {
+          "mode": "real"
+        },
+        "event_id": "r356_base_001",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "verification": {
+          "status": "observed",
+          "source": "PUBLIC_DEPTH_MODEL_ONLY"
+        }
+      },
+      "known_secrets": [],
+      "accept": false,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "future_event",
+      "event": {
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "payload": {
+          "spread_bps": 42,
+          "api_key": "synthetic"
+        },
+        "event_id": "r356_base_001",
+        "occurred_at_ms": 1799999999999,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "verification": {
+          "status": "observed",
+          "source": "PUBLIC_DEPTH_MODEL_ONLY"
+        }
+      },
+      "known_secrets": [],
+      "accept": false,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "configured_secret_in_id",
+      "event": {
+        "mode": "paper",
+        "category": "decisions",
+        "name": "DECISION_MADE",
+        "source": "native.paper",
+        "run_id": "session_20748",
+        "payload": {
+          "spread_bps": 42,
+          "api_key": "synthetic"
+        },
+        "event_id": "r356_id_LIT_DEMO_333",
+        "occurred_at_ms": 1792600000000,
+        "correlation_id": null,
+        "signal_id": "signal_1",
+        "base": "ONE",
+        "shadow_group_id": null,
+        "comparison_id": null,
+        "reason_code": null,
+        "verification": {
+          "status": "observed",
+          "source": "PUBLIC_DEPTH_MODEL_ONLY"
+        }
+      },
+      "known_secrets": [
+        "LIT_DEMO_333"
+      ],
+      "accept": false,
+      "error_type": "ValueError"
+    }
+  ],
+  "synthetic_only": true
+}

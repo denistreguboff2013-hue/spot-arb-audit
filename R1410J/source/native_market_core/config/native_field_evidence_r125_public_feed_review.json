@@ -1,0 +1,27 @@
+{
+  "schema": "R125_RESEARCH_READONLY_CONSUMER_OVERLAY_V1",
+  "consumer": "PublicFeedPolicy::from_config",
+  "source_module": "native_public_feed_policy_review.rs",
+  "test": "binds_seventeen_original_market_data_fields_without_execution",
+  "active_binary_proven": false,
+  "scope": "rust_research_readonly_only",
+  "fields": [
+    "websocket.enabled",
+    "websocket.quote",
+    "websocket.top_min",
+    "websocket.top_max",
+    "websocket.okx_channel",
+    "websocket.max_book_levels",
+    "websocket.stale_ms",
+    "telemetry.orderbook.enabled",
+    "telemetry.orderbook.levels",
+    "telemetry.orderbook.slip_bps",
+    "telemetry.orderbook.slip_bps_trade",
+    "telemetry.orderbook.slip_bps_upsize",
+    "telemetry.orderbook.max_age_sec",
+    "probe.enabled",
+    "probe.orderbook_levels",
+    "telemetry.velocity.enabled",
+    "runtime_reconcile.every_sec"
+  ]
+}
